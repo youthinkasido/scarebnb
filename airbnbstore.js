@@ -4,7 +4,7 @@
         spots: {
             1: {
                 id: 1, 
-                name: 'Island Paradis',
+                name: 'Island Paradise',
                 description: 'A peaceful condo. Walking distance from the beach',
                 max_guests: 5,
                 room_type: 'Private',
