@@ -1,157 +1,87 @@
 
 {
     entities: {
-        properties: {
-           1:{ 
-               id: 1,
-                name: "House in the Wilderness",
-                description: "A beautiful secluded house in the wild",
-                user_id: 2234,
-                property_type_id: 2146,
-                address: "5234 nature avenue"
-            } 
+        spots: {
+            1: {
+                id: 1, 
+                name: 'Island Paradis',
+                description: 'A peaceful condo. Walking distance from the beach',
+                max_guests: 5,
+                room_type: 'Private',
+                address: '3735 Spinnaker Resorts',
+                country: 'US',
+                state: 'South Carolina', 
+                city: 'Hilton Head'
+                neighbourhood: 'map',
+                bedrooms: 2,
+                bathrooms: 2,
+                avail_start_date: 10/05/19, 
+                avail_end_date: 10/10/19,
+                rating: 10,
+                total_cost: 500.00,
+                amenities: ['gym', 'pool', 'spa' ,'beach', 'billiards']
+                images: ['front.jpg','back.jpg','side.jpg']
+            },
 
-        },
+            users: {
+                id: 1
+                first_name: 'Lenny',
+                last_name:  'D'Shwartz',
+                email: 'theshwartzenator@gmail.com'
+            },
 
-        
-        property_images: {
-            1: { 
-                id: 1,
-                property_id: 1132,
-                added_by_user: 'TonyGunk123',  
-                image: '123.jpg',
-                created: 10/5/2019,
-                status: 'TINYINT'
+            reviews: {
+                id: 1
+                review_by_user: 'Sporkus Blump',
+                comment: 'I broke the couch',
+                rating: 3
+            },
+
+             bookings: {
+                id: 1
+                start_date: '10/05/19',
+                end_date: '10/15/19',
+                guests: 4
+            },
+                
+            ui: {
+                loading: true/false
+            },
+                
+            errors: {
+                login: ["Incorrect username/password combination"]
+      
+            },
+            session: { currentUserId: 25 }
             }
-            
-        },
-
-
-          property_type: {
-            1: { 
-                id: 1,
-                name: 'Condo',
-                icon_image: 'Condo',  
-                created: 'DATETIME',
-                modified: 'DATETIME',
-                status: 'TINYINT'
-            }
-            
-        },
-
-
-         room_type: {
-            1: { 
-                id: 1,
-                name: 'Huge', // ?
-                icon_image: 'Bigroom.jpg', // ? 
-                created: 'DATETIME',
-                modified: 'DATETIME',
-                status: 'TINYINT'
-            }
-            
-        },
-        
-        
-        property_reviews: {
-            1: { 
-                id: 1,
-                property_id: 1132,
-                review_by_user: 'Shlunky78',  
-                booking_id: 187,
-                comment: 'This place was absolutely Kosher',
-                rating: '10',
-                created: 'DateTime',
-                modified: 'DateTime',
-                status: 'TINYINT'
-            }
-        },
-
-          
-        property_ammenities: {
-            1: { 
-                id: 1,
-                property_id: 1132,
-                amenity_id: 123,  
-                created: 'DateTime',
-                modified: 'DateTime',
-                status: 'TINYINT'
-            }
-        },
-
-        amenities: {
-            1: { 
-                id: 1,
-                name: 'Indoor Pool and Heated Spa'
-                icon_image: 'pool.jpg',  
-                created: 'DateTime',
-                modified: 'DateTime',
-                status: 'TINYINT'
-            }
-        },
-        
-        users: {
-                1: { 
-                id: 1,
-                first_name: 'Jim',
-                last_name: 'Smith',  
-                email: 'john@gmail.com',
-                password: 'lol123',
-                messages: 'hey jim, hope you enjoy your stay. there are fresh towels in the bathroom!'
-               
-            
-            }
-        }, 
-           transactions: {
-                1: { 
-                id: 1,
-                property_id: 'Jim',
-                receiver_id: 'Smith',  
-                email: 'john@gmail.com',
-                password: 'lol123',
-                messages: 'hey jim, hope you enjoy your stay. there are fresh towels in the bathroom!'
-            }
-
-        }, 
-
-
-
-
-
-        ui: {
-            loading: true / false
-        },
-        errors: {
-            login: ["Incorrect username/password combination"],
-              
-        },
-
-        session: { currentUserId: 25 }
-    }
-
-
-    
+        }
     }
 }
 
-// 1 example for everything 
-// map information, front end sample state shape
-// make a project repo 
-// reduc
-properties, property_images, property_type, room_type, property reviews, property_amenities, amenities 
-users, transactions, bookings, promo codes, currencies, disputes, languages, email_contents, email_content_languages
-// cms_pages, cms_page_languages
-//
-cities, states, countries
 
-categories, subcategories, neighbourhood, neighbour_type
+// Account creation - demo user ability
+// readme 
 
-25 things.
+// Hosting on heroku
 
+// Bookings - booking a spot form
 
+// Spots - the places you can book 
 
-// the help page?
-// level of functionality required and detail for users?
-// can ids be random for now
-// status for images
-// what other errors?
+// Spot search - by location and availibility and google maps
+
+// Ability to leave a review on a spot
+
+// where is owner coming from?
+// does spot need a review id?
+// how to setup reviews table ?
+// bookings table ?
+// does spot have ammenities_id ?
+
+// |  id  |  spot_id  |  review_id  |
+// |  1   |    13     |      53     |
+// |  2   |    13     |      23     |
+// |  3   |    13     |      14     |
+// |  4   |    15     |      42     |
+// |  5   |    15     |      22     |
+
