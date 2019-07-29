@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
       params["user"]["password"]
       )
     if @user
-      log_in(@user) 
+      login(@user) 
       render 'api/users/show' # sends users show json 
     else
       render json: ["Invalid Credentials"], status: 404
@@ -17,7 +17,7 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     if current_user
-      log_out
+      logout
       render json: {} 
     else
       render status: 404

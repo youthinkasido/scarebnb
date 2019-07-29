@@ -9,7 +9,7 @@ has_many :spot_amenities,
 foreign_key: :spot_id
 
 has_many :amenities,
-through :spot_amenities,
+# through :spot_amenities,
 source: :amenities
 
 end
