@@ -58,4 +58,3 @@ class User < ApplicationRecord
   end
 
 end
-user = User.create(email:'guest@gmail.com',first_name:'guest',last_name:'alsoguest',password:'password')
