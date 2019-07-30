@@ -1,23 +1,29 @@
 import merge from 'lodash/merge';
 
 import { UPDATE_FILTER } from '../actions/filter_actions.js';
+import { combineReducers } from 'redux';
+import filters from './filters_reducer';
 
-const defaultFilters = Object.freeze({
-    bounds: {},
-    minSeating: 1,
-    maxSeating: 10
+import modal from './modal_reducer';
+
+export default combineReducers({
+  modal
 });
 
-const filtersReducer = (state = defaultFilters, action) => {
-    Object.freeze(state);
-    if (action.type === UPDATE_FILTER) {
-        const newFilter = {
-            [action.filter]: action.value
-        };
-        return merge({}, state, newFilter);
-    } else {
-        return state;
-    }
-};
+// const defaultFilters = Object.freeze({
+//     bounds: {}
+// });
 
-export default filtersReducer;
+// const filtersReducer = (state = defaultFilters, action) => {
+//     Object.freeze(state);
+//     if (action.type === UPDATE_FILTER) {
+//         const newFilter = {
+//             [action.filter]: action.value
+//         };
+//         return merge({}, state, newFilter);
+//     } else {
+//         return state;
+//     }
+// };
+
+// export default filtersReducer;

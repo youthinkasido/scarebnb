@@ -25,6 +25,8 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
     }
 
+    //handleDemoLogin 
+
 
     //render errors by iterating over errors array
     renderErrors() {
@@ -40,55 +42,65 @@ class SessionForm extends React.Component {
     }
 
 
-    renderFields(){
-    return(
-        <div>
-    
-        <label>First Name:
-              <input type="text"
-                value={this.state.first_name}
-                onChange={this.update('first_name')}
-                className="login-input"
-            />
-        </label>
-            <label>Last Name:
-              <input type="text"
+    renderFields() {
+        return (
+            
+
+            
+            <div>
+                <div className="icon-wrap">
+                <i className="fas fa-users icon-wrap-child"></i>
+                <input type="text"
+                
+                    placeholder="First Name"
+                    value={this.state.first_name}
+                    onChange={this.update('first_name')}
+                    className="login-input"
+          
+                    />
+                </div>
+  
+                <input type="text"
+                    placeholder="Last Name"
                     value={this.state.lastName}
                     onChange={this.update('last_name')}
                     className="login-input"
                 />
-            </label>
-        </div>
-    )}
+            </div>
+        )
+    }
 
     render() {
         return (
-            <div className="login-form-container">
+            <div className="login-form-container login-form-heading">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    Welcome to ScareBnB!
+                    <div className="login-form-heading">
+                        Welcome to ScareBnB!
             <br />
-                    Please {this.props.formType} or {this.props.navLink}
+                        Please {this.props.formType} or {this.props.navLink}
+                    </div>
                     {this.renderErrors()}
                     <div className="login-form">
                         <br />
-                        <label>Email:
-              <input type="text"
-                                value={this.state.email}
-                                onChange={this.update('email')}
-                                className="login-input"
-                            />
-                        </label>
 
-                        {this.props.formType === 'signup' ? this.renderFields() : '' }
+                        <input type="text"
+                            placeholder="Email"
+                            value={this.state.email}
+                            onChange={this.update('email')}
+                            className="login-input"
+                        />
 
-                        <br />
-                        <label>Password:
-              <input type="password"
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                className="login-input"
-                            />
-                        </label>
+
+                        {this.props.formType === 'signup' ? this.renderFields() : ''}
+
+
+                        <input type="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            onChange={this.update('password')}
+                            className="login-input"
+                        />
+
                         <br />
                         <input className="session-submit" type="submit" value={this.props.formType} />
                     </div>
