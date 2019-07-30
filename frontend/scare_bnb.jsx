@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.signIn = signIn
     window.signOut = signOut
     const root = document.getElementById("root");
-    ReactDOM.render(<h1>Welcome to BenchBnB</h1>, root);
+    ReactDOM.render(<h1>Find a host with a ghost...</h1>, root);
 
 
 });
