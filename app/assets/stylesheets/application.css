@@ -15,7 +15,7 @@
  */
 
 body{ 
-background-image: url('haunted-savannah-skyline.jpg');
+background-image: url('/assets/haunted-savannah-skyline.jpg');
 background-size: 150%;;
 /* background-repeat: no-repeat; */
 
@@ -62,7 +62,7 @@ background-size: 150%;;
 .modal-child{
     width: 50%;
      height: 50%;
-        background: rgba(255, 255, 255,0); /* Green background with 30% opacity */
+        background: rgba(255, 255, 255,1); /* Green background with 30% opacity */
         
 }
 
@@ -167,6 +167,25 @@ color: black;
 .login-form{
     width:60%;
 }
+
+.header-name{
+ color: white;
+}
+
+.header-button{
+    background: none;
+    color: white;
+    border: none;
+    /* padding: 0!important; */
+    font: inherit;
+    /* border-bottom: 1px solid #444; */
+    cursor: pointer;
+    float:right;
+}
+
+/* 
+  <h2 className="header-name">Hi, {currentUser.email}!</h2>
+            <button className="header-button" onClick={logout}>Log Out</button> */
 
 
 
