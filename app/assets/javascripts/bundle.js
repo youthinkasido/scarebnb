@@ -299,12 +299,15 @@ var Greeting = function Greeting(_ref) {
   var personalGreeting = function personalGreeting() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
       className: "header-group"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "header-name"
-    }, "Hi, ", currentUser.email, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "header-button",
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      className: "header-name user-dropdown"
+    }, currentUser.email, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: " dropdown-content",
       onClick: logout
-    }, "Log Out"));
+    }, "Log Outsdsd")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: " dropdown-content",
+      onClick: logout
+    }, "Log Out"))));
   };
 
   return currentUser ? personalGreeting(currentUser, logout) : sessionLinks();
@@ -489,9 +492,9 @@ __webpack_require__.r(__webpack_exports__);
 var Search = function Search() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-bar"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find find a host with a ghost.."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "icon"
-  }, "hi"));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find find a host with a ghost.."));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Search);

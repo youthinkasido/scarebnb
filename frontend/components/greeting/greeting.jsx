@@ -14,8 +14,13 @@ const Greeting = ({ currentUser, logout, openModal }) => {
        
         <hgroup className="header-group">
             <SearchContainer />
-            <h2 className="header-name">Hi, {currentUser.email}!</h2>
-            <button className="header-button" onClick={logout}>Log Out</button>
+            <h3 className="header-name user-dropdown">
+            {currentUser.email}
+                <p><button className=" dropdown-content" onClick={logout}>Log Outsdsd</button></p>
+                <p><button className=" dropdown-content" onClick={logout}>Log Out</button></p>
+                
+            </h3>
+            
         </hgroup>
     );
 

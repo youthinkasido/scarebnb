@@ -11,9 +11,11 @@ const Search = () =>{
     <div className='nav-bar'>
 
 
+            
+            <span className="icon"></span>
             <h1>Find find a host with a ghost..</h1>
-            <span className="icon">hi</span>
     </div>
+       
         
     )
 
