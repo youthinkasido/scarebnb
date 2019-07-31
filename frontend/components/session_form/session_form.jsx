@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+import greeting_container from '../greeting/greeting_container';
+
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
@@ -32,6 +34,7 @@ class SessionForm extends React.Component {
             
             this.props.history.push('/search');
             this.props.closeModal()
+               
 
             console.log('hello')}, (error)=>{
                 console.log(error)
@@ -79,7 +82,7 @@ class SessionForm extends React.Component {
                     placeholder="Last Name"
                     value={this.state.lastName}
                     onChange={this.update('last_name')}
-                    className=" login-form"
+                    className=" login-input"
                 />
             </div>
         )

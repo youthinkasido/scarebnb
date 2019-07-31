@@ -25,10 +25,9 @@ const App = () => (
         {/* <Modal/> */}
         {/* <GreetingContainer /> */}
    <Switch >
-{/* <AuthRoute exact path="/" component={splashPage} /> */}
+<ProtectedRoute exact path="/search" component={SearchContainer} />
 <AuthRoute exact path="/login" component={LogInFormContainer}/>
 <AuthRoute exact path="/signup" component={SignUpFormContainer}/>
-<ProtectedRoute exact path="/search" component={SearchContainer} />
  <Route exact path="/" component={GreetingContainer} />
         </Switch>
     </div>
