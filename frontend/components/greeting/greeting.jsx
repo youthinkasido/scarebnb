@@ -19,7 +19,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     return (
         currentUser ?
             
-            console.log('there is a current user!') :
+            personalGreeting(currentUser, logout) :
             sessionLinks()
 
            
