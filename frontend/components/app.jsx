@@ -25,7 +25,7 @@ const App = () => (
         {/* <Modal/> */}
         {/* <GreetingContainer /> */}
    <Switch >
-<ProtectedRoute exact path="/search" component={SearchContainer} />
+<ProtectedRoute exact path="/search" component={GreetingContainer} />
 <AuthRoute exact path="/login" component={LogInFormContainer}/>
 <AuthRoute exact path="/signup" component={SignUpFormContainer}/>
  <Route exact path="/" component={GreetingContainer} />

@@ -54,7 +54,7 @@ background-size: 150%;;
     width: 100vh;
      height: 100vh;
      /* background: black; */
-     background: rgba(0, 0, 0, 0.7) 
+     background: rgba(0, 0, 0, 0.7);
     
 
 }
@@ -62,7 +62,7 @@ background-size: 150%;;
 .modal-child{
     width: 50%;
      height: 50%;
-        background: rgba(255, 255, 255,0) /* Green background with 30% opacity */
+        background: rgba(255, 255, 255,0); /* Green background with 30% opacity */
         
 }
 
