@@ -6,9 +6,7 @@ color: black;
 }
 
 
-.login-form-heading {
-border: 1px solid black;
-}
+
 
 .login-form-text-input {
 
@@ -19,7 +17,11 @@ border: 1px solid black;
 }
 
 .login-form-box{
-    padding:20px;
+    padding:100px;
+}
+
+.login-form{
+    width:100%;
 }
 
 

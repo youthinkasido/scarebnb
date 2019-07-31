@@ -15,7 +15,11 @@
  */
 
 body{ 
-background-image: url('haunted-savannah-skyline.jpg')
+background-image: url('haunted-savannah-skyline.jpg');
+background-size: 150%;;
+/* background-repeat: no-repeat; */
+
+
 }
 
 .nav-bar{
@@ -24,6 +28,8 @@ background-image: url('haunted-savannah-skyline.jpg')
      overflow:auto;
      text-align: right;
      font-size: 12px;
+     background-image: url('scarebnbicon.jpg');
+   
 }
 
 
@@ -43,6 +49,89 @@ background-image: url('haunted-savannah-skyline.jpg')
     text-decoration: none;
 }
 
-logo{
+
+.modal-background{
+    width: 100vh;
+     height: 100vh;
+     /* background: black; */
+     background: rgba(0, 0, 0, 0.7) 
     
+
+}
+
+.modal-child{
+    width: 50%;
+     height: 50%;
+        background: rgba(255, 255, 255) /* Green background with 30% opacity */
+        
+}
+
+.session-submit{
+    color: black
+}
+
+.login-input{
+    margin:5px;
+    width: 100%;
+    
+}
+
+.session-submit {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #ff5a5f;
+    color: white;
+}
+
+
+.form-fields{
+
+}
+
+.login-signup button{
+     background: none;
+    color: white;
+    border: none;
+    /* padding: 0!important; */
+    font: inherit;
+    /* border-bottom: 1px solid #444; */
+    cursor: pointer;
+    float:right;
+
+    
+}
+
+.alt-form-link{
+    background: none;
+    color: blue;
+    border: none;
+    padding:0!important;
+    font:inherit;
+    cursor:pointer;
+}
+
+.form-exit-button{
+    background: none;
+    color: grey;
+    border: none;
+    font-style: bold;
+    font-size: 14px;
+
+}
+
+
+
+.login-form-heading {
+/* border: 1px solid black; */
+    border: none;
+    font-style: bold;
+    font-size: 18px;
+
+}
+
+.session-help{
+       border: none;
+  
+    font-size: 12px;
 }

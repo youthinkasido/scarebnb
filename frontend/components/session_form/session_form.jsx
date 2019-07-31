@@ -12,6 +12,8 @@ class SessionForm extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+//state.ui.modal points to null or 'signup' or 'login'
+  
 
     update(field) {
         return e => this.setState({
@@ -20,9 +22,20 @@ class SessionForm extends React.Component {
     }
 
     handleSubmit(e) {
+
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+
+        this.props.processForm(user).then( () =>{
+            const that = this
+            console.log(this)
+            
+            this.props.history.push('/search');
+            this.props.closeModal()
+
+            console.log('hello')}, (error)=>{
+                console.log(error)
+          })
     }
 
     //handleDemoLogin 
@@ -43,17 +56,19 @@ class SessionForm extends React.Component {
 
 
     renderFields() {
+        const { formType, openModal, oppositeFormType, formMessage, formTitle } = this.props;
         return (
             
 
             
-            <div>
+            <div>  
                 <div className="icon-wrap">
                 <i className="fas fa-users icon-wrap-child"></i>
+                  
                 <input type="text"
-                
+                    
                     placeholder="First Name"
-                    value={this.state.first_name}
+                    value={this.state.firstName}
                     onChange={this.update('first_name')}
                     className="login-input"
           
@@ -64,20 +79,24 @@ class SessionForm extends React.Component {
                     placeholder="Last Name"
                     value={this.state.lastName}
                     onChange={this.update('last_name')}
-                    className="login-input"
+                    className=" login-form"
                 />
             </div>
         )
     }
 
     render() {
+        const {formType,openModal,oppositeFormType, formMessage, formTitle,closeModal} = this.props;
         return (
-            <div className="login-form-container login-form-heading">
+           
+            <div className="login-form-container login-form-title">
+               
                 <form onSubmit={this.handleSubmit} className="login-form-box">
+                        <button className="form-exit-button" type="button" onClick={closeModal} >X</button>
+                    <label className='login-form-heading'>{formTitle}</label>
                     <div className="login-form-heading">
-                        Welcome to ScareBnB!
-            <br />
-                        Please {this.props.formType} or {this.props.navLink}
+                        
+           
                     </div>
                     {this.renderErrors()}
                     <div className="login-form">
@@ -90,8 +109,8 @@ class SessionForm extends React.Component {
                             className="login-input"
                         />
 
-
-                        {this.props.formType === 'signup' ? this.renderFields() : ''}
+                     
+                        {formType === 'signup' ? this.renderFields() : ''}
 
 
                         <input type="password"
@@ -102,7 +121,11 @@ class SessionForm extends React.Component {
                         />
 
                         <br />
-                        <input className="session-submit" type="submit" value={this.props.formType} />
+                        <input className="session-submit" type="submit" value={formType} />
+                        <br />
+                        <div className="session-help">{formMessage} 
+                            <button className="alt-form-link" onClick={() => openModal(oppositeFormType)}>&nbsp;&nbsp;{oppositeFormType}</button>
+                        </div>
                     </div>
                 </form>
             </div>

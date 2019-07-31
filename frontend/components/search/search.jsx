@@ -1,18 +1,23 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import FilterForm from './filter_form';
+
 const Search = () =>{
     return (
-    <div className='nav-bar'>
-            <Link className="link" to={'/signup'}>Sign Up<span>&nbsp; &nbsp;</span></Link>
-    
-            <Link className="link" to={'/login'}>Sign In<span>&nbsp; &nbsp;</span></Link>
         
+    <div className='nav-bar'>
+
+
+            <h1>Find find a host with a ghost..</h1>
+            <span className="icon">hi</span>
     </div>
+        
     )
 
+  
 }
 
 
