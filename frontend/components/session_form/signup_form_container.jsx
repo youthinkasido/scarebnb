@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signup } from '../../actions/session_actions';
+import { signup,login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { closeModal, openModal } from '../../actions/modal_actions'
 
@@ -21,8 +21,8 @@ const mapDispatchToProps = dispatch => {
     return {
         processForm: (user) => dispatch(signup(user)),
         closeModal: () => dispatch(closeModal()),
-        openModal: (formType) => dispatch(openModal(formType))
-
+        openModal: (formType) => dispatch(openModal(formType)),
+        demoLogin: (user) => dispatch(login(user))
             
     };
 };

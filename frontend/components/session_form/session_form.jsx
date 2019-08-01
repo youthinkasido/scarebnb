@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
             last_name: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
     }
 //state.ui.modal points to null or 'signup' or 'login'
   
@@ -27,22 +28,20 @@ class SessionForm extends React.Component {
 
         e.preventDefault();
         const user = Object.assign({}, this.state);
-
         this.props.processForm(user).then( () =>{
-            const that = this
-            console.log(this)
-            
             this.props.history.push('/search');
             this.props.closeModal()
-               
-
-            console.log('hello')}, (error)=>{
-                console.log(error)
-          })
+        })
     }
 
-    //handleDemoLogin 
-
+    demoLogin(e){
+        e.preventDefault()
+        // return this.setState(email: 'guest1@gmail.com', password:'123456')
+        this.props.demoLogin({email: 'guest1@gmail.com', password: '123456'}).then(()=>{
+            this.props.closeModal();
+            this.props.history.push('/search');
+        })
+    }
 
     //render errors by iterating over errors array
     renderErrors() {
@@ -106,6 +105,8 @@ class SessionForm extends React.Component {
                             className="login-input"
                         />
 
+                        
+
                      
                         {formType === 'signup' ? this.renderFields() : ''}
 
@@ -119,9 +120,9 @@ class SessionForm extends React.Component {
 
                        
                         <input className="session-submit" type="submit" value={formType} />
-                       
+                        <input className="session-submit" onClick={this.demoLogin} type="submit" value="Demo User" />
                         <div className="session-help">{formMessage} 
-                            <button className="alt-form-link" onClick={() => openModal(oppositeFormType)}>&nbsp;&nbsp;{oppositeFormType}</button>
+                            <button className="alt-form-link" onClick={() => openModal(oppositeFormType)}>{oppositeFormType}</button>
                         </div>
                     </div>
                 </form>

@@ -12,7 +12,7 @@ const Search = () =>{
 
             <span className="icon"></span>
             {/* <h1 className ='search'>Find a host with a ghost..</h1> */}
-            <input type="text" placeholder="try session token" value=""/>
+            <input type="text" placeholder="try 'Baltimore'" value=""/>
     </div>
        
         

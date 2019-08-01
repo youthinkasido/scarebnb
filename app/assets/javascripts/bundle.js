@@ -111,17 +111,20 @@
 /*!*******************************************!*\
   !*** ./frontend/actions/modal_actions.js ***!
   \*******************************************/
-/*! exports provided: OPEN_MODAL, CLOSE_MODAL, openModal, closeModal */
+/*! exports provided: OPEN_MODAL, CLOSE_MODAL, DEMO_LOGIN, openModal, closeModal, demoLogin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_MODAL", function() { return OPEN_MODAL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLOSE_MODAL", function() { return CLOSE_MODAL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DEMO_LOGIN", function() { return DEMO_LOGIN; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openModal", function() { return openModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeModal", function() { return closeModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "demoLogin", function() { return demoLogin; });
 var OPEN_MODAL = 'OPEN_MODAL';
 var CLOSE_MODAL = 'CLOSE_MODAL';
+var DEMO_LOGIN = 'DEMO_LOGIN';
 var openModal = function openModal(modal) {
   return {
     type: OPEN_MODAL,
@@ -131,6 +134,11 @@ var openModal = function openModal(modal) {
 var closeModal = function closeModal() {
   return {
     type: CLOSE_MODAL
+  };
+};
+var demoLogin = function demoLogin() {
+  return {
+    type: DEMO_LOGIN
   };
 };
 
@@ -288,12 +296,14 @@ var Greeting = function Greeting(_ref) {
 
   var sessionLinks = function sessionLinks() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-      className: "login-signup"
+      className: "nav-bar"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "nav-login-button",
       onClick: function onClick() {
         return openModal('login');
       }
     }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "nav-signup-button",
       onClick: function onClick() {
         return openModal('signup');
       }
@@ -304,14 +314,14 @@ var Greeting = function Greeting(_ref) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
       className: "header-group"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-      className: "header-name user-dropdown"
+      className: "nav-bar"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
       className: "far fa-user-circle"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/",
-      className: " dropdown-content user-drop-down-link",
+      className: "nav-dropdown-button",
       onClick: logout
-    }, "Log Out"))));
+    }, "Log Out")));
   };
 
   return currentUser ? personalGreeting(currentUser, logout) : sessionLinks();
@@ -500,7 +510,7 @@ var Search = function Search() {
     className: "icon"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
-    placeholder: "try session token",
+    placeholder: "try 'Baltimore'",
     value: ""
   }));
 };
@@ -588,6 +598,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     openModal: function openModal(formType) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openModal"])(formType));
+    },
+    demoLogin: function demoLogin(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     }
   };
 };
@@ -651,6 +664,7 @@ function (_React$Component) {
       last_name: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.demoLogin = _this.demoLogin.bind(_assertThisInitialized(_this));
     return _this;
   } //state.ui.modal points to null or 'signup' or 'login'
 
@@ -672,19 +686,27 @@ function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user).then(function () {
-        var that = _this3;
-        console.log(_this3);
-
         _this3.props.history.push('/search');
 
         _this3.props.closeModal();
-
-        console.log('hello');
-      }, function (error) {
-        console.log(error);
       });
-    } //handleDemoLogin 
-    //render errors by iterating over errors array
+    }
+  }, {
+    key: "demoLogin",
+    value: function demoLogin(e) {
+      var _this4 = this;
+
+      e.preventDefault(); // return this.setState(email: 'guest1@gmail.com', password:'123456')
+
+      this.props.demoLogin({
+        email: 'guest1@gmail.com',
+        password: '123456'
+      }).then(function () {
+        _this4.props.closeModal();
+
+        _this4.props.history.push('/search');
+      });
+    } //render errors by iterating over errors array
 
   }, {
     key: "renderErrors",
@@ -759,6 +781,11 @@ function (_React$Component) {
         className: "session-submit",
         type: "submit",
         value: formType
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "session-submit",
+        onClick: this.demoLogin,
+        type: "submit",
+        value: "Demo User"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-help"
       }, formMessage, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -766,7 +793,7 @@ function (_React$Component) {
         onClick: function onClick() {
           return openModal(oppositeFormType);
         }
-      }, "\xA0\xA0", oppositeFormType)))));
+      }, oppositeFormType)))));
     }
   }]);
 
@@ -821,6 +848,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     openModal: function openModal(formType) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openModal"])(formType));
+    },
+    demoLogin: function demoLogin(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     }
   };
 };
@@ -941,6 +971,9 @@ function modalReducer() {
   switch (action.type) {
     case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["OPEN_MODAL"]:
       return action.modal;
+
+    case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["CLOSE_MODAL"]:
+      return null;
 
     case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["CLOSE_MODAL"]:
       return null;

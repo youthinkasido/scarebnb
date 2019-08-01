@@ -7,20 +7,20 @@ const Greeting = ({ currentUser, logout, openModal }) => {
    
 
     const sessionLinks = () => (
-        <nav className="login-signup">
-            <button onClick={() => openModal('login')}>Login</button>
-            <button onClick={() => openModal('signup')}>Signup</button>
+        <nav className="nav-bar">
+            <button className="nav-login-button" onClick={() => openModal('login')}>Login</button>
+            <button className="nav-signup-button" onClick={() => openModal('signup')}>Signup</button>
         </nav>
     );
     const personalGreeting = () => (
         <hgroup className="header-group">
             <h3
-                className="header-name user-dropdown">
+                className="nav-bar">
                 <i className="far fa-user-circle"></i>
                 {/* Hello, {currentUser.email} */}
                 
                 {/* <p><button className=" dropdown-content" onClick={bookings}>Bookings</button></p> */}
-                <p><Link to="/" className=" dropdown-content user-drop-down-link" onClick={logout}>Log Out</Link></p>
+                <Link to="/" className="nav-dropdown-button" onClick={logout}>Log Out</Link>
                 
             </h3>
             
