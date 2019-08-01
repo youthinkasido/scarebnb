@@ -53,7 +53,7 @@ float: right;
 }
 
 .nav-dropdown-content p {
-  color: black;
+
     
   text-decoration: none;
   display: block;
@@ -70,15 +70,18 @@ border-bottom: 0.6px solid gray
 .fa-user-circle:before{
     position: absolute;
     left: 115px;
-    top: -10px;
+    top: 15px;
 }
 
 .nav-dropdown-content p :hover{
-background-color: #f1f1f1
+background-color: #f1f1f1;
+ 
 }
 
 .nav-dropdown:hover .nav-dropdown-content {
   display: block;
+  position: absolute;
+  top:45px;
 }
 
 
@@ -93,17 +96,22 @@ background-color: #f1f1f1
 
 a:link {
   text-decoration: none;
+  color:black;
+  
 }
 
 a:visited {
   text-decoration: none;
+  color:black;
 }
 
 a:hover {
   text-decoration: underline;
+  color:black;
 }
 
 a:active {
   text-decoration: underline;
+  color:black;
 }
 
