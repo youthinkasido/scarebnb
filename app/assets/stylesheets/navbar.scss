@@ -20,4 +20,90 @@ float: right;
     border:none;
     background:none;
     text-decoration: none;
+    float:right;
+    margin-left: 145px;
+    font-size: 30px;
+   
 }
+
+
+.nav-dropdown {
+    position: absolute;
+    right: 25px;
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+
+.nav-dropdown-content{
+    display:none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    
+    z-index: 1;
+    outline: 1px solid black;
+    text-align: center;
+    text-decoration: none;
+    top: 20px;
+    right: 0;
+
+  
+}
+
+.nav-dropdown-content p {
+  color: black;
+    
+  text-decoration: none;
+  display: block;
+
+  font-size: 14px;
+  position: relative;
+  padding: 10px 2px;
+border-bottom: 0.6px solid gray
+;
+
+  
+}
+
+.fa-user-circle:before{
+    position: absolute;
+    left: 115px;
+    top: -10px;
+}
+
+.nav-dropdown-content p :hover{
+background-color: #f1f1f1
+}
+
+.nav-dropdown:hover .nav-dropdown-content {
+  display: block;
+}
+
+
+.nav-dropdown:hover .nav-dropdown-button {
+  
+}
+
+
+
+
+//removing link default styles
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout, openModal }) => {
     
-   
 
     const sessionLinks = () => (
         <nav className="nav-bar">
@@ -15,13 +14,17 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     const personalGreeting = () => (
         <hgroup className="header-group">
             <h3
-                className="nav-bar">
-                <i className="far fa-user-circle"></i>
-                {/* Hello, {currentUser.email} */}
+                className="logged-in-nav-bar">
+                    <div className="nav-dropdown">
+                <i className="far fa-user-circle nav-dropdown-button"></i>
+
+        
+                    <div className="nav-dropdown-content">
+                        <p><Link to="/" onClick={logout}>Bookings</Link></p>
+                        <p><Link to="/" onClick={logout}>Log Out</Link></p>
+                    </div>
                 
-                {/* <p><button className=" dropdown-content" onClick={bookings}>Bookings</button></p> */}
-                <Link to="/" className="nav-dropdown-button" onClick={logout}>Log Out</Link>
-                
+                </div>
             </h3>
             
         </hgroup>
