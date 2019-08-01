@@ -60,31 +60,28 @@ class SessionForm extends React.Component {
 
     renderFields() {
         const { formType, openModal, oppositeFormType, formMessage, formTitle } = this.props;
-        return (
-            
-
-            
-            <div>  
-                <div className="icon-wrap">
-                <i className="fas fa-users icon-wrap-child"></i>
+        return (  
+            [
                   
-                <input type="text"
-                    
+                <input 
+                    key="1"
+                    type="text"
                     placeholder="First Name"
                     value={this.state.firstName}
                     onChange={this.update('first_name')}
                     className="login-input"
-          
-                    />
-                </div>
+                />,
   
-                <input type="text"
+                <input 
+                    key="2"
+                    type="text"
                     placeholder="Last Name"
                     value={this.state.lastName}
                     onChange={this.update('last_name')}
                     className=" login-input"
                 />
-            </div>
+
+            ]
         )
     }
 
@@ -95,15 +92,12 @@ class SessionForm extends React.Component {
             <div className="login-form-container login-form-title">
                
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                        <button className="form-exit-button" type="button" onClick={closeModal} >X</button>
+                    <button className="form-exit-button" type="button" onClick={closeModal} >X</button>
                     <label className='login-form-heading'>{formTitle}</label>
-                    <div className="login-form-heading">
-                        
-           
-                    </div>
+                
                     {this.renderErrors()}
                     <div className="login-form">
-                        <br />
+                       
 
                         <input type="text"
                             placeholder="Email"
@@ -123,9 +117,9 @@ class SessionForm extends React.Component {
                             className="login-input"
                         />
 
-                        <br />
+                       
                         <input className="session-submit" type="submit" value={formType} />
-                        <br />
+                       
                         <div className="session-help">{formMessage} 
                             <button className="alt-form-link" onClick={() => openModal(oppositeFormType)}>&nbsp;&nbsp;{oppositeFormType}</button>
                         </div>

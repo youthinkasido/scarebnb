@@ -12,7 +12,7 @@ const mapStateToProps = ({ errors }) => {
         formTitle: 'Sign up now',
         formType: 'signup',
         oppositeFormType: 'login',
-          formMessage: `Don't have an account?`
+        formMessage: `Don't have an account?`
        
     };
 };

@@ -239,7 +239,9 @@ __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").crea
 // const history = createBrowserHistory()
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_9__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "background-img"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
     path: "/search",
     component: _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"]
@@ -255,7 +257,7 @@ var App = function App() {
     exact: true,
     path: "/",
     component: _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-  })));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_9__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -274,6 +276,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../search/search_container */ "./frontend/components/search/search_container.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
 
 
 
@@ -289,7 +293,7 @@ var Greeting = function Greeting(_ref) {
       onClick: function onClick() {
         return openModal('login');
       }
-    }, "Login"), "\xA0or\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: function onClick() {
         return openModal('signup');
       }
@@ -299,13 +303,13 @@ var Greeting = function Greeting(_ref) {
   var personalGreeting = function personalGreeting() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
       className: "header-group"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
       className: "header-name user-dropdown"
-    }, currentUser.email, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: " dropdown-content",
-      onClick: logout
-    }, "Log Outsdsd")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: " dropdown-content",
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "far fa-user-circle"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      to: "/",
+      className: " dropdown-content user-drop-down-link",
       onClick: logout
     }, "Log Out"))));
   };
@@ -491,10 +495,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var Search = function Search() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nav-bar"
+    className: "search"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "icon"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find find a host with a ghost.."));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "try session token",
+    value: ""
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Search);
@@ -696,23 +704,21 @@ function (_React$Component) {
           oppositeFormType = _this$props.oppositeFormType,
           formMessage = _this$props.formMessage,
           formTitle = _this$props.formTitle;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "icon-wrap"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-users icon-wrap-child"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return [react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        key: "1",
         type: "text",
         placeholder: "First Name",
         value: this.state.firstName,
         onChange: this.update('first_name'),
         className: "login-input"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        key: "2",
         type: "text",
         placeholder: "Last Name",
         value: this.state.lastName,
         onChange: this.update('last_name'),
         className: " login-input"
-      }));
+      })];
     }
   }, {
     key: "render",
@@ -735,11 +741,9 @@ function (_React$Component) {
         onClick: closeModal
       }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "login-form-heading"
-      }, formTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "login-form-heading"
-      }), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, formTitle), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "Email",
         value: this.state.email,
@@ -751,11 +755,11 @@ function (_React$Component) {
         value: this.state.password,
         onChange: this.update('password'),
         className: "login-input"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "session-submit",
         type: "submit",
         value: formType
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-help"
       }, formMessage, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "alt-form-link",
@@ -1064,6 +1068,7 @@ var sessionReducer = function sessionReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+      // return { currentUser: action.currentUser};
       return {
         currentUser: action.currentUser.id
       };
@@ -1188,7 +1193,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (window.currentUser) {
     var preloadedState = {
       session: {
-        id: window.currentUser.id
+        currentUser: window.currentUser.id
       },
       entities: {
         users: _defineProperty({}, window.currentUser.id, window.currentUser)
@@ -1202,6 +1207,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var root = document.getElementById("root");
   window.store = store;
+  window.logout = _util_session_api_util__WEBPACK_IMPORTED_MODULE_2__["logout"];
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_4__["default"], {
     store: store
   }), root);

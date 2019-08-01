@@ -8,12 +8,11 @@ import FilterForm from './filter_form';
 const Search = () =>{
     return (
         
-    <div className='nav-bar'>
+    <div className='search'>
 
-
-            
             <span className="icon"></span>
-            <h1>Find find a host with a ghost..</h1>
+            {/* <h1 className ='search'>Find a host with a ghost..</h1> */}
+            <input type="text" placeholder="try session token" value=""/>
     </div>
        
         

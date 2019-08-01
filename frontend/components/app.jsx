@@ -15,26 +15,20 @@ require("history").createBrowserHistory
 // const history = createBrowserHistory()
 
 const App = () => (
-    <div>
+  <div className="background-img" >
+    <SearchContainer />
+    {/* <Modal/> */}
+    {/* <GreetingContainer /> */}
+    <Switch>
+      <ProtectedRoute exact path="/search" component={GreetingContainer} />
+      <AuthRoute exact path="/login" component={LogInFormContainer} />
+      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+      <Route exact path="/" component={GreetingContainer} />
+    </Switch>
 
-       
-           
- 
     <Modal />
-    
-        {/* <Modal/> */}
-        {/* <GreetingContainer /> */}
-   <Switch >
-<ProtectedRoute exact path="/search" component={GreetingContainer} />
-<AuthRoute exact path="/login" component={LogInFormContainer}/>
-<AuthRoute exact path="/signup" component={SignUpFormContainer}/>
- <Route exact path="/" component={GreetingContainer} />
-        </Switch>
-    </div>
-
-
-
-)
+  </div>
+);
 
 
 export default App

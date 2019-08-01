@@ -1,0 +1,85 @@
+
+.modal-background{
+
+position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   background: rgba(0, 0, 0, 0.7);
+   z-index: 10;
+    
+}
+
+.modal-child{
+
+position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+
+}
+
+.login-form-container{
+
+width: 500px;
+   padding: 70px;
+   background-color: #fff;
+
+}
+
+
+.login-form-box{
+
+    text-align: center;
+}
+
+
+.form-exit-button{
+    position: absolute;
+   border-style: none;
+   font-size: 25px;
+   top: 4%;
+   left: 4%;
+}
+
+.login-form-heading{
+
+font-size: 26px;
+   margin-bottom: 30px;
+   display: inline-block;
+
+}
+
+.login-input{
+    width: 100%;
+   padding: 10px;
+   margin-bottom: 15px;
+}
+
+
+.session-submit{
+
+    width: 100%;
+   padding: 15px;
+   margin-bottom: 20px;
+   color: #fff;
+   background-color: #ff5a5f;
+   border-style: none;
+}
+
+
+.session-help{
+
+    color: #727272;
+   text-align: center;
+}
+
+.alt-form-link{
+color: #008489;
+   border-style: none;
+   text-decoration: underline;
+
+
+}
