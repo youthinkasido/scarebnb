@@ -1030,7 +1030,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    spots: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectAllSpots"])(state) // spots: state.entities.spots
+    spots: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectAllSpots"])(state) // gets spots back in an array format
 
   };
 };
@@ -1067,10 +1067,11 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "spot-index-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/api/spots/".concat(spot.id)
+    to: "/spots/".concat(spot.id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "spot-index-item-photo",
     src: spot.image_url
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.rating)));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.rating)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotIndexItem);

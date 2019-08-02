@@ -1,4 +1,7 @@
 json.extract! spot, :id, :name, :description, :max_guests, :room_type, :address, :bedrooms, :bathrooms, :rating, :spot_type
+if spot.photo.attached?
+json.image_url url_for(spot.photo)
+end
 
 #   create_table "spots", force: :cascade do |t|
 #     t.string "name", null: false
@@ -18,3 +21,5 @@ json.extract! spot, :id, :name, :description, :max_guests, :room_type, :address,
 #     t.integer "owner_id", null: false
 #     t.index ["name"], name: "index_spots_on_name", unique: true
 #   end
+
+9 

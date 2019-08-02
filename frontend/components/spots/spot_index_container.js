@@ -7,7 +7,7 @@ const mapStateToProps = (state) =>{
 
     return ({
  spots: selectAllSpots(state)
-        // spots: state.entities.spots
+        // gets spots back in an array format
 })}
 
 const mapDispatchToProps = (dispatch) => {

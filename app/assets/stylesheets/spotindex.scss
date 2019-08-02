@@ -2,11 +2,9 @@
 
     padding: 0;
     margin: 0;
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
     background: black;
     position: absolute;
     left:100px;
@@ -17,13 +15,23 @@
 }
 
 .spot-index-item span{
-    
     color: white;
     width: 100px;
     height: 100px;
     margin: auto;
     text-align: center;
-    
+    width: 280px;
+    height: 200px;
+    text-align:center;
+
+
+}
+
+.spot-index-item-photo {
+    width: 260px;
+    height: 180px;
+    display: flex;
+ 
 }
 
 

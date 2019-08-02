@@ -30,6 +30,8 @@ const App = () => (
       <Route exact path="/" component={GreetingContainer} />
       <Route exact path="/spots" component={SpotIndexContainer} />
       
+    
+      
     </Switch>
 
     <Modal />
