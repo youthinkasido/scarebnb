@@ -9,6 +9,7 @@ import {
 
 
 const spotReducer = (state = {}, action) => {
+
     switch(action.type){
        case RECEIVE_ALL_SPOTS:
            return action.spots

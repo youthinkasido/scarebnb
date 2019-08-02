@@ -4,3 +4,5 @@ export const fetchSpots = () =>(
         url: 'api/spots'
     })
 )
+
+
