@@ -23,7 +23,7 @@ position: absolute;
 
 .login-form-container{
 
-width: 500px;
+width: 400px;
    padding: 70px;
    background-color: #fff;
 
@@ -42,14 +42,34 @@ width: 500px;
    font-size: 25px;
    top: 4%;
    left: 4%;
+
+     -moz-box-shadow:    3px 3px 6px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         1px 1px 5px 1px #ccc;
+
+   
+    cursor:pointer;
+    color :#a9a9a9;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background: white;
+ 
+  
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px;    
 }
+
+
+
 
 .login-form-heading{
 
 font-size: 26px;
    margin-bottom: 30px;
    display: inline-block;
-
+   font-family: "Helvetica Neue", Helvetica;
+  color:  #484848;
 }
 
 .login-input{
