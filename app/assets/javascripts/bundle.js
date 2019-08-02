@@ -212,6 +212,35 @@ var logout = function logout() {
 
 /***/ }),
 
+/***/ "./frontend/actions/spot_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/spot_actions.js ***!
+  \******************************************/
+/*! exports provided: RECEIVE_ALL_SPOTS, RECEIVE_SPOT, fetchAllSpots, fetchSpot */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_SPOTS", function() { return RECEIVE_ALL_SPOTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SPOT", function() { return RECEIVE_SPOT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllSpots", function() { return fetchAllSpots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
+var RECEIVE_ALL_SPOTS = "RECEIVE_ALL_SPOTS";
+var RECEIVE_SPOT = "RECEIVE_SPOT";
+var fetchAllSpots = function fetchAllSpots() {
+  return {
+    type: RECEIVE_ALL_SPOTS
+  };
+};
+var fetchSpot = function fetchSpot(spot) {
+  return {
+    type: RECEIVE_ALL_SPOTS,
+    spot: spot
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/components/app.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/app.jsx ***!
@@ -897,10 +926,13 @@ var splashPage = function splashPage() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _spots_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spots_reducer */ "./frontend/reducers/spots_reducer.js");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  spots: _spots_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),
@@ -1029,33 +1061,15 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 /*!****************************************!*\
   !*** ./frontend/reducers/selectors.js ***!
   \****************************************/
-/*! exports provided: selectBench, selectReviewsForBench, asArray */
+/*! exports provided: selectAllSpots */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectBench", function() { return selectBench; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectReviewsForBench", function() { return selectReviewsForBench; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asArray", function() { return asArray; });
-var selectBench = function selectBench(_ref, benchId) {
-  var benches = _ref.benches;
-  return benches[benchId] || {
-    reviewIds: []
-  };
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectAllSpots", function() { return selectAllSpots; });
+var selectAllSpots = function selectAllSpots(state) {
+  return Object.values(state.entities.spots);
 };
-var selectReviewsForBench = function selectReviewsForBench(_ref2, bench) {
-  var benches = _ref2.benches,
-      reviews = _ref2.reviews;
-  return bench.reviewIds.map(function (reviewId) {
-    return reviews[reviewId];
-  });
-};
-var asArray = function asArray(_ref3) {
-  var benches = _ref3.benches;
-  return Object.keys(benches).map(function (key) {
-    return benches[key];
-  });
-}; // remove benches!
 
 /***/ }),
 
@@ -1126,6 +1140,44 @@ var sessionReducer = function sessionReducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (sessionReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/spots_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/spots_reducer.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// RECEIVE_SPOT
+
+
+
+var spotReducer = function spotReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_SPOTS"]:
+      return action.spots;
+
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SPOT"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.spot.id, action.spot));
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (spotReducer);
 
 /***/ }),
 
