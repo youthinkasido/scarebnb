@@ -62,7 +62,6 @@ width: 400px;
 
 
 
-
 .login-form-heading{
 
 font-size: 26px;
@@ -81,7 +80,7 @@ font-size: 26px;
 
 .session-submit{
 
-    width: 100%;
+   width: 100%;
    padding: 15px;
    margin-bottom: 10px;
    color: #fff;
@@ -100,6 +99,10 @@ font-size: 26px;
 color: #008489;
    border-style: none;
    text-decoration: underline;
+}
 
+.errors {
+   font-family: "Helvetica Neue", Helvetica;
+  color:  red;
 
 }

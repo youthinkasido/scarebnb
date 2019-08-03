@@ -1071,7 +1071,9 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "spot-index-item-photo",
     src: spot.image_url
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.rating)));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "spot-index-item-details"
+  }, spot.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.cost_per_night)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotIndexItem);

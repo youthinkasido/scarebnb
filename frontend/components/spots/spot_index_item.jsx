@@ -8,9 +8,9 @@ const SpotIndexItem = ({spot}) => (
         <Link to={`/spots/${spot.id}`}>
             {/* <span>{spot.name}</span> */}
             <img className="spot-index-item-photo" src={spot.image_url} />
-            <span>{spot.description}</span>
-            <span>{spot.cost_per_night}</span>
-            <span>{spot.rating}</span>
+            <span className='spot-index-item-details'>{spot.description}</span>
+            {/* <span>{spot.rating}</span> */}
+            <span >{spot.cost_per_night}</span>
         </Link>
     </li>
 )

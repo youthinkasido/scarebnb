@@ -14,8 +14,6 @@ class CreateSpots < ActiveRecord::Migration[5.2]
       t.integer :bathrooms, null: false
       t.integer :rating, null: false
       t.string :spot_type, null: false
-      
-
       t.datetime :modified
       
     end

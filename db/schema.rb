@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_155657) do
+ActiveRecord::Schema.define(version: 2019_08_03_014304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2019_08_02_155657) do
     t.string "spot_type", null: false
     t.datetime "modified"
     t.integer "owner_id", null: false
+    t.string "cost_per_night", null: false
     t.index ["name"], name: "index_spots_on_name", unique: true
   end
 
