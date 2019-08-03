@@ -24,6 +24,7 @@ const App = () => (
 
 
     <SearchContainer />
+
       <Switch>
       <ProtectedRoute exact path="/search" component={GreetingContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
@@ -31,9 +32,7 @@ const App = () => (
       <Route exact path="/" component={GreetingContainer} />
       <Route exact path="/spots" component={SpotIndexContainer} />
       <Route exact path='/spots/:spotId' component={SpotShow} />
-      
-
-      
+  
     </Switch>
 
     <Modal />

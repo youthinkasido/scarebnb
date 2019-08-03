@@ -1,95 +1,120 @@
-.spot-index-container{
-border: 1px solid #ccc;
 
+*{
+    box-sizing: border-box;
+}
+
+//SPOT INDEX
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    // background-color: black;
+    justify-content: center;
+    position: absolute;
+    top: 90px;
+    // border: 1px solid white;
+}
+
+.photo{
+    top: 10px;
+    position: relative;
+    margin-left: 10px;
+}
+
+.flex-container > img{
+  margin: 10px;
+  text-align: center;
+}
+
+.flex-container > div{
+   
+  background-color: black;
+  width: 25%;
+  width: 70vh;
+  height:150px;
+  margin: 10px;
+  text-align: left;
+  font-family:  Helvetica, sans-serif;
+  color: white;
+  font-size: 14px;
+  font-style: normal;
+  border: 1px solid white;
 
 }
 
-.spot-index-item-photo span{
+//////spot name, type/bedrooms in index page for each item 
 
-    height: auto;
-    width: 300px;
-    height: 200px;
+.spot-name{
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    top: -110px;
+    left: 220px;
+
 }
 
-.spot-index-item-details span{
-    padding: 15px;
-    text-align:center;
+.spot-capacities{
+    font-size: 12px;
+    font-weight: 200;
+    font-style: normal;
+    position: relative;
+    top: -240px;
+    left: 220px;
 }
 
-.responsive div{
-    padding: 0 6px;
-    float: left;
-    width: 25%;
+.spot-type-bedrooms{
+    font-size: 10px;
+    font-style: bold;
+    position: relative;
+    top: -105px;
+    left: 220px;
+}
+
+.cost-per-night{
+    color:yellow;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: bold;
+    position: relative;
+    left: 470px;
+    top: -40px;
 }
 
 
+//////////////////////REVIEW STARS
+.checked{
+    color: red;
 
+}
 
+.rating{
+    font-size: 10px;
+    font-style: bold;
+    position: relative;
+    top: -52px;
+    left: 220px;
+}
 
+////////////////////////media queries
 
-
-
-
-
-
-
-
-
-// .spot-index-container{
-
-//     padding: 40px;
-//     margin: 0;
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: nowrap;
-//     background: black;
-//     position: absolute;
-//     overflow:hidden;
-//     left:55px;
-//     right:100px;
-//     top: 90px;
-//     bottom: 40px;
+// .responsive{
+//     padding: 0 6px;
+//     float: left;
+//     width: 25%;
 
 // }
-// .spot-index-container section{
-
-//     padding: 40px;
-//     margin: 0;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     background: black;
-//     position: absolute;
-//     overflow:hidden;
-//     left:55px;
-//     right:100px;
-//     top: 90px;
-//     bottom: 40px;
-// }
-
-// .spot-index-item span{
-//     color: white;
-//     width: 260px;
- 
-//     height: 100px;
-//     margin: auto;
-//     text-align: center;
-//     width: 280px;
-//     // height: 200px;
-//     text-align:center;
-// }
-
-// .spot-index-item-photo {
-//     width: 260px;
-//     height: 180px;
-//     display: flex;
-// }
-// .spot-index-item-details {
-//     width: 260px;
-//     height: 180px;
-//     display: flex;
-// }
-// .boxclose:before {
-//     content: "×";
-// }
 
 
+// @media only screen and (max-width: 700px){
+//     .responsive{
+//         width: 50%;
+//         margin:6px 0;
+//     }
+// }
+
+// @media only screen and (max-width: 500px){
+//     .responsive{
+//         width: 100%;
+
+//     }
+// }

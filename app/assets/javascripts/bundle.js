@@ -1012,9 +1012,11 @@ function (_Component) {
           spot: spot
         });
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-        className: "spot-index-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, spoties)));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "responsive"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flex-container"
+      }, spoties)));
     }
   }]);
 
@@ -1075,22 +1077,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
-
+ // const bedCheck = ({spot})=>{
+// }
 
 var SpotIndexItem = function SpotIndexItem(_ref) {
   var spot = _ref.spot;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "responsive"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "spot-index-item "
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  //      if (spot.bedrooms === 1) {
+  //      let bedAmount = 'bed'
+  // } else {
+  //      let bedAmount = 'beds'
+  // }
+  // spot = name, description, max_guests, room_type, bedrooms, bathrooms, rating, cost_per_night
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "photo",
+    src: spot.image_url,
+    width: "200",
+    height: "125"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-type-bedrooms"
+  }, spot.spot_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-capacities"
+  }, spot.max_guests, " guests - ", spot.bedrooms, " beds - ", spot.bathrooms, "  bath"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-name"
+  }, spot.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "cost-per-night"
+  }, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/spots/".concat(spot.id)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "spot-index-item-photo",
-    src: spot.image_url
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "spot-index-item-details"
-  }, spot.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, spot.cost_per_night))));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "rating"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "fa fa-star checked"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "fa fa-star checked"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "fa fa-star checked"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "fa fa-star"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "fa fa-star"
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotIndexItem);
