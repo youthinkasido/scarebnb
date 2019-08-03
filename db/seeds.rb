@@ -29,7 +29,8 @@ spot1 = Spot.create!(
   rating: 2,
   spot_type: "Storage unit",
   modified: nil,
-  owner_id: user1.id)
+  owner_id: user1.id,
+  cost_per_night: '$3.97 per night')
 
   spot2 = Spot.create!(
   name: "Dilapitated Shack",
@@ -46,7 +47,8 @@ spot1 = Spot.create!(
   rating: 5,
   spot_type: "Shack",
   modified: nil,
-  owner_id: user2.id)
+  owner_id: user2.id,
+  cost_per_night: '$7.29 per night')
 
   spot3 = Spot.create!(
   name: "Partially encrusted house",
@@ -63,7 +65,8 @@ spot1 = Spot.create!(
   rating: 7,
   spot_type: "House",
   modified: nil,
-  owner_id: user3.id)
+  owner_id: user3.id,
+  cost_per_night: '$1.22 per night')
 
 
 
@@ -82,7 +85,8 @@ spot1 = Spot.create!(
   rating: 7,
   spot_type: "Storage unit",
   modified: nil,
-  owner_id: user4.id)
+  owner_id: user4.id,
+  cost_per_night: '$4.97 per night')
 
     spot5 = Spot.create!(
   name: "Highway 400 overpass",
@@ -100,7 +104,8 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user5.id,
-)
+  cost_per_night: '$8.91 per night')
+
 
      spot6 = Spot.create!(
   name: "Crusty Apartment",
@@ -117,7 +122,8 @@ spot1 = Spot.create!(
   rating: 7,
   spot_type: "House",
   modified: nil,
-  owner_id: user6.id)
+  owner_id: user6.id,
+  cost_per_night: '$1.97 per night')
 
   spots = [spot1,spot2,spot3,spot4,spot5,spot6]
 

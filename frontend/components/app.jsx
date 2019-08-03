@@ -9,6 +9,7 @@ import splashPage from './session_form/splash.jsx';
 import SearchContainer from './search/search_container'
 import GreetingContainer from './greeting/greeting_container';
 import SpotIndexContainer from './spots/spot_index_container'
+import SpotShow from './spots/spot_show'
 // import background from '../images/haunted-savannah-skyline.jpg';
 import Modal from './modal/modal'
 require("history").createBrowserHistory
@@ -29,8 +30,9 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <Route exact path="/" component={GreetingContainer} />
       <Route exact path="/spots" component={SpotIndexContainer} />
+      <Route exact path='/spots/:spotId' component={SpotShow} />
       
-    
+
       
     </Switch>
 
