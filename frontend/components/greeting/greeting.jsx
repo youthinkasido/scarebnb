@@ -2,13 +2,18 @@ import React from 'react';
 import SearchContainer from '../search/search_container'
 import { Link } from 'react-router-dom';
 
+
+
 const Greeting = ({ currentUser, logout, openModal }) => {
     
 
     const sessionLinks = () => (
+
         <nav className="nav-bar">
+         
             <button className="nav-login-button" onClick={() => openModal('login')}>Login</button>
             <button className="nav-signup-button" onClick={() => openModal('signup')}>Signup</button>
+         
         </nav>
     );
     const personalGreeting = () => (
@@ -16,17 +21,20 @@ const Greeting = ({ currentUser, logout, openModal }) => {
             <h3
                 className="logged-in-nav-bar">
                     <div className="nav-dropdown">
-                <i className="far fa-user-circle nav-dropdown-button"></i>
+                      
+                        <i className="far fa-user-circle nav-dropdown-button"></i>
+                        <img className="clown-profile" src="./clownphoto.png"/>
 
-        
-                    <div className="nav-dropdown-content">
-                        <p><Link to="/" onClick={logout}>Bookings</Link></p>
-                        <p><Link to="/" onClick={logout}>Log Out</Link></p>
+                        <div className="nav-dropdown-content">
+                            <img className="book-icon" src="./bookings.png" alt=""/>
+                            <img className="grave-icon" src="./grave.svg" alt="" />
+                      
+                            <p><Link to="/" onClick={logout}>Bookings</Link></p>
+                            <p><Link to="/" onClick={logout}>Log Out</Link></p>
+                        </div>
+
                     </div>
-                
-                </div>
-            </h3>
-            
+                </h3>
         </hgroup>
     );
 

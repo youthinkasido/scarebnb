@@ -1,16 +1,50 @@
 
 .search{
-
-line-height: normal;
+    width: 100%;
+    line-height: normal;
     position: absolute;
     top: 20px;
     left: 55px;
+  
 
-    }
+}
+
+.search-container{
+    background: black;
+    width: 200vh;
+    color: black;
+    border: 20px solid black;
+    position: absolute;
+    padding-left: 50px;
+    margin-left: -70px;
+    margin-top: -20px;
+    z-index: -1;
+}
 
 
-    .skull{
-       
-        left: -35px;
-        position: absolute;
-    }
+
+.search-bar{
+    width: 220px;
+    height:31px;
+    font-size: 12px;
+    padding-left:25px;
+    font-style: bold;
+    z-index: 1;
+
+}
+
+.air-bnb-logo{
+     width: 34px;
+    padding-right: 10px;
+    position: absolute;
+    left: 10px;
+    top: 4px;
+}
+
+.magnifying-glass{
+     width: 13px;
+    position: absolute;
+    left: 56px;
+    top: 10px;
+}
+

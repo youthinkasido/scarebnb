@@ -1,10 +1,9 @@
-.background-img { 
-    background: image_url('haunted-savannah-skyline.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 120vh;
-    width: 100%;
-    background-attachment: fixed;
-}
 
+html { 
+  background: image_url('haunted-savannah-skyline.jpg'); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   background-attachment: fixed;
+}

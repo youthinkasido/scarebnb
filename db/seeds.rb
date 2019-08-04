@@ -45,7 +45,7 @@ spot1 = Spot.create!(
   bedrooms: 1,
   bathrooms: 0,
   rating: 5,
-  spot_type: "Shack",
+  spot_type: "STURDY SHACK",
   modified: nil,
   owner_id: user2.id,
   cost_per_night: '$7.29 per night')
@@ -178,6 +178,17 @@ spot1 = Spot.create!(
   modified: nil,
   owner_id: user2.id,
   cost_per_night: '$2.01 per night')
+
+
+
+amenity1 = SpotAmenity.create!(
+  name: 'Amenity works!!',
+  spot_id:1,
+  amenity_id: 1
+)
+
+
+
 
  
   spots = [spot1,spot2,spot3,spot4,spot5,spot6,spot7,spot8,spot9]

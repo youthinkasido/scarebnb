@@ -284,6 +284,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./spots/spot_index_container */ "./frontend/components/spots/spot_index_container.js");
 /* harmony import */ var _spots_spot_show__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./spots/spot_show */ "./frontend/components/spots/spot_show.jsx");
 /* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./map */ "./frontend/components/map.jsx");
 
 
 
@@ -297,13 +298,22 @@ __webpack_require__.r(__webpack_exports__);
  // import background from '../images/haunted-savannah-skyline.jpg';
 
 
+
 __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").createBrowserHistory; // console.log(background)
 // const history = createBrowserHistory()
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav-line-top"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav-line-bottom"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "background-img"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    exact: true,
+    path: "/map",
+    component: _map__WEBPACK_IMPORTED_MODULE_12__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
     path: "/search",
     component: _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"]
@@ -315,10 +325,6 @@ var App = function App() {
     exact: true,
     path: "/signup",
     component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    exact: true,
-    path: "/",
-    component: _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/spots",
@@ -381,9 +387,20 @@ var Greeting = function Greeting(_ref) {
       className: "nav-dropdown"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
       className: "far fa-user-circle nav-dropdown-button"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "clown-profile",
+      src: "./clownphoto.png"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "nav-dropdown-content"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "book-icon",
+      src: "./bookings.png",
+      alt: ""
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "grave-icon",
+      src: "./grave.svg",
+      alt: ""
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/",
       onClick: logout
     }, "Bookings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
@@ -435,6 +452,135 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_greeting__WEBPACK_IMPORTED_MODULE_3__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/map.jsx":
+/*!*************************************!*\
+  !*** ./frontend/components/map.jsx ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Map; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var mapCenter = {
+  lat: 37.7758,
+  lng: -122.425
+};
+var allSpots = [{
+  lat: 37.775785,
+  lng: -122.445979,
+  name: "Papalote"
+}, {
+  lat: 37.772045,
+  lng: -122.437015,
+  name: "The Little Chihuahua"
+}, {
+  lat: 37.781899,
+  lng: -122.410426,
+  name: "Cancun"
+}];
+
+var Map =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Map, _React$Component);
+
+  function Map(props) {
+    var _this;
+
+    _classCallCheck(this, Map);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Map).call(this, props));
+    _this.addSpot = _this.addSpot.bind(_assertThisInitialized(_this));
+    return _this;
+  } // this.refs is an object
+  //     * populated by giving children a 'ref' prop when we render
+
+
+  _createClass(Map, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Map, {
+        center: mapCenter,
+        spots: allSpots
+      }), document.getElementById('root'));
+      var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
+      var options = {
+        center: this.props.center,
+        zoom: 13
+      };
+      this.map = new google.maps.Map(map, options); //movement listener
+
+      this.listenForMove(); // add a marker for each spot
+
+      this.props.spots.forEach(this.addSpot);
+    }
+  }, {
+    key: "addSpot",
+    value: function addSpot(spot) {
+      var pos = new google.map.Latlng(spot.lat, spot.lng);
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: this.map
+      });
+      marker.addEventListener('click', function () {
+        alert("clicked on: ".concat(spot.name));
+      });
+    }
+  }, {
+    key: "listenForMove",
+    value: function listenForMove() {
+      var _this2 = this;
+
+      google.maps.event.addListener(this.map, 'idle', function () {
+        var bounds = _this2.map.getBounds();
+
+        console.log('center', bounds.getCenter().lat(), bounds.getCenter().lng());
+        console.log("north east", bounds.getNorthEast().lat(), bounds.getNorthEast().lng());
+        console.log("south west", bounds.getSouthWest().lat(), bounds.getSouthWest().lng());
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "MAP DEMO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "map",
+        ref: "map"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null));
+    }
+  }]);
+
+  return Map;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
 
 /***/ }),
 
@@ -566,6 +712,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _filter_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter_form */ "./frontend/components/search/filter_form.jsx");
 /* harmony import */ var _filter_form__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_filter_form__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
+
+
 
 
 
@@ -574,18 +723,23 @@ __webpack_require__.r(__webpack_exports__);
 var Search = function Search() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "search"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "far fa-hockey-mask"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "search-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "air-bnb-logo",
+    src: "./airbnb.svg",
+    alt: ""
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "magnifying-glass",
+    src: "/magnifying-glass.png"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "icon"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "search-bar",
     type: "text",
     placeholder: "try 'Baltimore'",
     value: ""
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "skull",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjYiIGhlaWdodD0iMjYiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PGcgaWQ9InN1cmZhY2UxIj48cGF0aCBkPSJNODQuNTUyODgsMGMtMjAuNzI0NzYsMC4yMzI1NyAtMzkuODczMiw1LjY4NTEgLTU0LjE2MzQ2LDE2Ljc0NTE5Yy0xNC42MjYyLDExLjMxODUxIC0yMy43NzQwNCwyOC43MDk3NCAtMjMuNzc0MDQsNTAuNjQ5MDRjMCwyMC4zMzcxNCA3LjA4MDUzLDMzLjk1NTUzIDEwLjMzNjU0LDM5LjI3ODg1Yy0wLjA1MTY4LDAuMzYxNzggLTAuMTU1MDQsMC42NzE4OCAtMC4yMDY3MywxLjAzMzY1Yy0wLjY3MTg3LDYuNDM0NDkgMC4zMzU5NCwxNC41NzQ1MiA1Ljk5NTE5LDIxLjA4NjU0YzAuMDc3NTMsMCAwLjEyOTIxLDAgMC4yMDY3MywwYzQuODMyMzMsNS4zMjMzMiAxMC42NzI0Nyw2Ljc3MDQ0IDEzLjY0NDIzLDguMjY5MjNjMS40OTg4LDAuNzQ5NCAyLjE3MDY3LDEuNDQ3MTIgMi40ODA3NywxLjg2MDU4YzAuMzEwMSwwLjQxMzQ2IDAuNjIwMTksMC44MDEwOCAwLjYyMDE5LDIuNjg3NWMwLDkuNTg3MTQgNi40MDg2NSwxNy40Njg3NSAxNC44ODQ2MiwyMi41MzM2NWM4LjQ3NTk2LDUuMDY0OSAxOS40MzI2OSw3Ljg1NTc3IDMxLjQyMzA4LDcuODU1NzdjMC4yMDY3MywwIDAuNDEzNDYsMCAwLjYyMDE5LDBjMC4wNzc1MywwIDAuMTI5MjEsMCAwLjIwNjczLDBjMTEuNjU0NDUsLTAuMTI5MjEgMjIuMzI2OTIsLTIuOTIwMDcgMzAuNTk2MTUsLTcuODU1NzdjOC40NzU5NiwtNS4wNjQ5IDE0Ljg4NDYyLC0xMi45NDY1MSAxNC44ODQ2MiwtMjIuNTMzNjVjMCwtMS44ODY0MiAwLjMxMDEsLTIuMjc0MDQgMC42MjAxOSwtMi42ODc1YzAuMzEwMSwtMC40MTM0NiAwLjk4MTk3LC0xLjExMTE4IDIuNDgwNzcsLTEuODYwNThjMi45NzE3NiwtMS40OTg3OSA4LjgxMTksLTIuOTQ1OTEgMTMuNjQ0MjMsLTguMjY5MjNjMC4wNzc1MywwIDAuMTI5MjEsMCAwLjIwNjczLDBjNS42MDc1NywtNi40NjAzMyA2Ljc5NjI4LC0xNC4zNjc3OSA2LjIwMTkyLC0yMC44Nzk4MWMtMC4wNTE2OCwtMC40OTA5OSAtMC4xNTUwNCwtMC45NTYxMyAtMC4yMDY3MywtMS40NDcxMmMzLjM4NTIyLC01LjYwNzU3IDEwLjEyOTgxLC0xOS4yNzc2NCAxMC4xMjk4MSwtMzkuMDcyMTJjMCwtMjEuOTM5MyAtOS4xNDc4MywtMzkuMzMwNTMgLTIzLjc3NDA0LC01MC42NDkwNGMtMTQuNjI2MiwtMTEuMzE4NTEgLTM0LjMxNzMxLC0xNi43NDUxOSAtNTUuNjEwNTgsLTE2Ljc0NTE5Yy0wLjIwNjczLDAgLTAuNDEzNDYsMCAtMC42MjAxOSwwYy0wLjI4NDI2LC0wLjAyNTg0IC0wLjU0MjY3LC0wLjAyNTg0IC0wLjgyNjkyLDB6TTg0Ljk2NjM1LDEzLjIzMDc3YzAuMzM1OTQsMC4wMjU4NCAwLjY5NzcyLDAuMDI1ODQgMS4wMzM2NSwwYzE5LjA0NTA3LDAgMzUuODkzNjMsNC44MzIzMyA0Ny41NDgwOCwxMy44NTA5NmMxMS42NTQ0NSw5LjAxODYzIDE4LjYwNTc3LDIxLjkxMzQ2IDE4LjYwNTc3LDQwLjMxMjVjMCw4LjA2MjUgLTEuMTg4NywxNC42Nzc4OCAtMi42ODc1LDE5Ljg0NjE1Yy0xLjUyNDY0LC0xLjE4ODcgLTMuNDg4NTgsLTEuNjI4MDEgLTUuMzc1LC0xLjI0MDM4Yy0zLjUxNDQyLDAuODI2OTIgLTUuNzM2NzgsNC4zMTU1MSAtNC45NjE1NCw3Ljg1NTc3YzAuODI2OTIsNC4xMzQ2MiAxLjgwODksNy45ODQ5NyAyLjQ4MDc3LDExLjU3NjkyYzAuMDUxNjksMC42NDYwMyAwLjE4MDg5LDEuMjY2MjIgMC40MTM0NiwxLjg2MDU4YzAuMDc3NTMsMC41OTQzNSAwLjE1NTA1LDEuMjkyMDcgMC4yMDY3MywxLjg2MDU4YzAuMzg3NjIsNC4zMTU1MSAtMC4yMzI1Nyw3LjM2NDc4IC0zLjEwMDk2LDEwLjc1Yy0wLjA1MTY4LDAuMDUxNjkgMC4wNTE2OSwwLjE1NTA1IDAsMC4yMDY3M2MtMS44MDg4OSwxLjg2MDU4IC01LjE5NDExLDIuOTIwMDcgLTkuNzE2MzUsNS4xNjgyN2MtMi4zMjU3MiwxLjE2Mjg2IC00LjkwOTg1LDIuNzkwODcgLTcuMDI4ODUsNS41ODE3M2MtMi4xMTg5OSwyLjc5MDg3IC0zLjMwNzY5LDYuNjY3MDcgLTMuMzA3NjksMTAuNzVjMCwzLjY0MzYzIC0yLjU1ODI5LDcuNjIzMiAtOC40NzU5NiwxMS4xNjM0NmMtNS45MTc2NywzLjU0MDI2IC0xNC43NTU0MSw1Ljk5NTE5IC0yNC42MDA5Niw1Ljk5NTE5Yy05Ljg0NTU1LDAgLTE4LjY4MzI5LC0yLjQ1NDkzIC0yNC42MDA5NiwtNS45OTUxOWMtNS45MTc2NywtMy41NDAyNiAtOC40NzU5NiwtNy41MTk4MyAtOC40NzU5NiwtMTEuMTYzNDZjMCwtNC4wODI5MyAtMS4xODg3LC03Ljk1OTEzIC0zLjMwNzY5LC0xMC43NWMtMi4xMTg5OSwtMi43OTA4NyAtNC43MDMxMiwtNC40MTg4NyAtNy4wMjg4NSwtNS41ODE3M2MtNC41MjIyNCwtMi4yNDgyIC03LjkwNzQ1LC0zLjMwNzY5IC05LjcxNjM1LC01LjE2ODI3Yy0wLjA1MTY4LC0wLjA1MTY4IDAuMDUxNjksLTAuMTU1MDQgMCwtMC4yMDY3M2MtMi44MTY3MSwtMy4zMzM1MyAtMy4zNTkzNywtNi4zNTY5NyAtMi44OTQyMywtMTAuNzVjMC40NjUxNSwtNC40NzA1NSAyLjMyNTcyLC05Ljc5Mzg3IDMuMTAwOTYsLTE1LjcxMTU0YzAuMzEwMSwtMi4xMTg5OSAtMC40MzkzLC00LjI4OTY2IC0xLjk4OTc4LC01Ljc2MjYyYy0xLjU3NjMyLC0xLjQ3Mjk2IC0zLjc0Njk5LC0yLjA5MzE1IC01Ljg2NTk5LC0xLjY3OTY5Yy0wLjk4MTk3LDAuMjA2NzMgLTEuODg2NDIsMC42MjAxOSAtMi42ODc1LDEuMjQwMzhjLTEuNDk4NzksLTUuMTY4MjcgLTIuNjg3NSwtMTEuNzgzNjUgLTIuNjg3NSwtMTkuODQ2MTVjMCwtMTguMzk5MDQgNi45NTEzMiwtMzEuMjkzODcgMTguNjA1NzcsLTQwLjMxMjVjMTEuNDQ3NzIsLTguODYzNTggMjcuODgyODEsLTEzLjY3MDA3IDQ2LjUxNDQyLC0xMy44NTA5NnpNNTkuOTUxOTIsNzkuMzg0NjJjLTcuNzAwNzIsMC4zMTAxIC0xMy44NTA5Niw1LjI5NzQ3IC0xNi4zMzE3MywxMy4yMzA3N2MtNS4yOTc0NywxNS44NjY1OSAwLjY5NzcyLDIzLjIzMTM3IDUuOTk1MTksMjUuMjIxMTVjMTMuMjMwNzcsMy45Nzk1NyAyNC41NDkyOCwtMS40OTg3OSAyOC41Mjg4NSwtMTQuMDU3NjljMi42MzU4MiwtNy45MzMyOSAtMC42NzE4NywtMTkuODQ2MTUgLTkuOTIzMDgsLTIzLjE1Mzg1Yy0yLjgxNjcxLC0wLjk4MTk3IC01LjcxMDk0LC0xLjM0Mzc1IC04LjI2OTIzLC0xLjI0MDM4ek0xMTEuNjM0NjIsNzkuNTkxMzVjLTIuNTMyNDUsLTAuMTI5MjEgLTUuMjE5OTUsMC4yMDY3MyAtNy44NTU3NywxLjAzMzY1Yy05LjI1MTIsMi42MzU4MiAtMTIuNTU4ODksMTQuNTQ4NjggLTkuOTIzMDgsMjMuMTUzODVjMy45Nzk1NywxMi41NTg5IDE1LjI5ODA4LDE4LjAzNzI2IDI4LjUyODg1LDE0LjA1NzY5YzUuOTQzNTEsLTEuOTg5NzggMTEuMjkyNjcsLTkuMzU0NTYgNS45OTUxOSwtMjUuMjIxMTVjLTIuNDgwNzcsLTcuOTMzMjkgLTkuMTQ3ODMsLTEyLjYxMDU4IC0xNi43NDUxOSwtMTMuMDI0MDR6TTg2LDExNS4xNDkwNGMtNS4yOTc0NywxLjMxNzkxIC0xNC40NzExNSwxNi40NjA5NCAtMTQuNDcxMTUsMjQuMzk0MjNjMCwzLjk3OTU3IDIuNDgwNzcsNS45OTUxOSA1Ljc4ODQ2LDUuOTk1MTljNS4yOTc0NywwIDguNjgyNjksLTcuMTgzODkgOC42ODI2OSwtMTEuMTYzNDZjMC42NzE4OCwzLjMwNzY5IDQuMDU3MDksMTEuMTYzNDYgOC42ODI2OSwxMS4xNjM0NmMzLjMwNzY5LDAgNS43ODg0NiwtMi4wMTU2MiA1Ljc4ODQ2LC01Ljk5NTE5YzAsLTcuOTMzMjkgLTkuMTczNjgsLTIyLjQwNDQ1IC0xNC40NzExNSwtMjQuMzk0MjN6Ij48L3BhdGg+PC9nPjwvZz48L2c+PC9zdmc+"
-  }));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Search);
@@ -962,6 +1116,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _spot_index_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_index_item */ "./frontend/components/spots/spot_index_item.jsx");
 /* harmony import */ var _spot_index_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spot_index_container */ "./frontend/components/spots/spot_index_container.js");
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../map */ "./frontend/components/map.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -979,6 +1134,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1080,6 +1236,30 @@ __webpack_require__.r(__webpack_exports__);
  // const bedCheck = ({spot})=>{
 // }
 
+function amenityGenerator() {
+  var amenities = [' Wifi ', ' Soap ', ' Running water ', ' Couch ', ' Nearby police station ', ' Valet Parking '];
+  var spot_ams = [];
+  var i = Math.floor(Math.random() * amenities.length);
+
+  while (i > 0) {
+    spot_ams.push(amenities[i]);
+
+    if (i > 1) {
+      spot_ams.push(' -');
+    }
+
+    i--;
+  }
+
+  if (!spot_ams.length) {
+    spot_ams.push('Wifi');
+  }
+
+  return spot_ams;
+}
+
+amenityGenerator();
+
 var SpotIndexItem = function SpotIndexItem(_ref) {
   var spot = _ref.spot;
   //      if (spot.bedrooms === 1) {
@@ -1088,7 +1268,9 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
   //      let bedAmount = 'beds'
   // }
   // spot = name, description, max_guests, room_type, bedrooms, bathrooms, rating, cost_per_night
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/spots/".concat(spot.id)
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "photo",
     src: spot.image_url,
     width: "200",
@@ -1098,12 +1280,12 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
   }, spot.spot_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-capacities"
   }, spot.max_guests, " guests - ", spot.bedrooms, " beds - ", spot.bathrooms, "  bath"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-amenities"
+  }, amenityGenerator(), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-name"
   }, spot.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "cost-per-night"
-  }, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/spots/".concat(spot.id)
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "rating"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "fa fa-star checked"
@@ -1115,7 +1297,7 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
     className: "fa fa-star"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "fa fa-star"
-  })));
+  })), ")");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotIndexItem);
@@ -1676,7 +1858,10 @@ var Auth = function Auth(_ref) {
     path: path,
     exact: exact,
     render: function render(props) {
-      return !loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+      return !loggedIn ? // <Component {...props} />
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/search"
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
         to: "/search"
       });
     }
@@ -1692,8 +1877,12 @@ var Protected = function Protected(_ref2) {
     path: path,
     exact: exact,
     render: function render(props) {
-      return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/login"
+      return loggedIn ? // <Component {...props} />
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/search"
+      }) : // <Redirect to="/login" />
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/search"
       });
     }
   });
