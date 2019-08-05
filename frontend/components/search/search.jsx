@@ -58,6 +58,7 @@ class Search extends React.Component{
 
   handleSubmit(e) {
     this.setState({ term: e.target.value })
+    this.props.history.push('/spots')
   }
 
  

@@ -11,12 +11,10 @@ import SearchContainer from './search/search_container'
 import GreetingContainer from './greeting/greeting_container';
 import SpotIndexContainer from './spots/spot_index_container'
 import SpotShow from './spots/spot_show'
-// import background from '../images/haunted-savannah-skyline.jpg';
 import Modal from './modal/modal'
 import Map from './map';
 require("history").createBrowserHistory
-// console.log(background)
-// const history = createBrowserHistory()
+
 
 const App = () => (
   <div>
