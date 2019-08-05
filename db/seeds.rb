@@ -17,6 +17,8 @@ user6 = User.create!(first_name: 'Jnoosh', last_name: 'Shwergle', email:'scrimp@
 spot1 = Spot.create!(
   name: "Dilapitated Shack with an unbelievably clogged toilet since 1962.",
   description: "Who knows what dark suprises await in this dirty storage unit.",
+  lat: 33.748997,
+  lng: -84.387985,
   max_guests: 1,
   room_type: "Private",
   address: "188 Storage Avenue",
@@ -30,11 +32,14 @@ spot1 = Spot.create!(
   spot_type: "Shack",
   modified: nil,
   owner_id: user1.id,
+  amenities: ['Soap  ', 'Mouthwash  ', 'AOL access  '],
   cost_per_night: '$3 per night')
 
   spot2 = Spot.create!(
   name: "Dilapitated Shack",
   description: "This shack has seen better days. Located convieniently next to the city landfill",
+  lat: 33.748497,
+  lng: -84.384985,
   max_guests: 3,
   room_type: "public",
   address: "281 trash road",
@@ -48,11 +53,14 @@ spot1 = Spot.create!(
   spot_type: "STURDY SHACK",
   modified: nil,
   owner_id: user2.id,
+  amenities: ['Clogged Toile  ', 'Free Water  ', 'Soap  ', 'Mouthwash  ', 'AOL access  '],
   cost_per_night: '$13 per night')
 
   spot3 = Spot.create!(
   name: "Partially encrusted house",
   description: "Fully furnished home with partially filtered running water.",
+  lat: 33.748697,
+  lng: -84.386985,
   max_guests: 3,
   room_type: "Private",
   address: "142 house road",
@@ -66,6 +74,7 @@ spot1 = Spot.create!(
   spot_type: "House",
   modified: nil,
   owner_id: user3.id,
+  amenities: ['AOL access  '],
   cost_per_night: '$53 per night')
 
 
@@ -73,6 +82,8 @@ spot1 = Spot.create!(
   spot4 = Spot.create!(
   name: "Rusty storage unit",
   description: "Poorly mainted and higly unsafe storage unit, convieniently located just 3 miles from the local police station.",
+  lat: 33.747697,
+  lng: -84.386985,
   max_guests: 1,
   room_type: "Private",
   address: "199 Unsafe Road",
@@ -86,11 +97,14 @@ spot1 = Spot.create!(
   spot_type: "Storage unit",
   modified: nil,
   owner_id: user4.id,
+  amenities: ['Deadbolt  ', 'Mouthwash  ', 'Cereal  '],
   cost_per_night: '$20 per night')
 
-    spot5 = Spot.create!(
+  spot5 = Spot.create!(
   name: "Crime Scene Shack",
   description: "Luxuriously spaced shack, fully fumegated. Crime scene has been closed. ",
+  lat: 33.747197,
+  lng: -84.381985,
   max_guests: 30,
   room_type: "Private",
   address: "199 Crime Road",
@@ -104,12 +118,15 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user5.id,
+  amenities: ['Convict-free  ', 'HBO  ', 'Toothpase  '],
   cost_per_night: '$1 per night')
 
 
   spot6 = Spot.create!(
   name: "Crusty Apartment",
   description: "Mild crusty smell year round. Includes supervised access to the family room couch.",
+  lat: 33.743697,
+  lng: -84.382985,
   max_guests: 5,
   room_type: "Private",
   address: "100 Safe Place",
@@ -123,11 +140,14 @@ spot1 = Spot.create!(
   spot_type: "Apartment",
   modified: nil,
   owner_id: user6.id,
+  amenities: ['Clogged Toilet  ', 'Free Water  ', 'Soap', 'Mouthwash  '],
   cost_per_night: '$1 per night')
 
   spot7 = Spot.create!(
   name: "Nice Bench",
   description: "Bench available for short term lease. Prime location in downtown Atlanta. No incidents reported in over 3 months",
+  lat: 33.743297,
+  lng: -84.383985,
   max_guests: 2,
   room_type: "Public",
   address: "129 Bench Avenue",
@@ -141,11 +161,14 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user4.id,
+  amenities: ['Clogged Toilet  ', 'Free Water  ', 'Soap  ', 'Mouthwash  ', 'AOL access  '],
   cost_per_night: '$5 per night')
 
     spot8 = Spot.create!(
   name: "Apartment",
   description: "Gorgeous low-rise apartment. No vandalism reported in over 6 months",
+  lat: 33.743797,
+  lng: -84.387985,
   max_guests: 4,
   room_type: "Private",
   address: "129 Apartment Avenue",
@@ -159,11 +182,14 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user2.id,
+  amenities: ['Clogged Toilet  ', 'Free Water  ', 'Soap  ', 'Mouthwash  ', 'AOL access  '],
   cost_per_night: '$2 per night')
 
-    spot9 = Spot.create!(
-  name: "Someone's closet",
+  spot9 = Spot.create!(
+  name: "Recently renovated storage closet with 32% less chance of asbestos poisioning",
   description: "Spacious walk in closet with air conditioning.",
+  lat: 33.743747,
+  lng: -84.387975,
   max_guests: 1,
   room_type: "Private",
   address: "129 Closet Cove",
@@ -177,15 +203,30 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user2.id,
+  amenities: ['Clogged Toilet  ', 'Free Water  ', 'Soap  ', 'Mouthwash  ', 'AOL access  '],
   cost_per_night: '$13 per night')
 
 
 
-amenity1 = SpotAmenity.create!(
-  name: 'Amenity works!!',
-  spot_id:1,
-  amenity_id: 1
-)
+  review1 = Review.create!(
+  spot_id: 1,
+  reviewer_id: user2.id,
+  comment: 'Terrible. I will not coming back to this horrible shack! I can\'t believe I even paid to stay!',
+  rating: 2,
+  created: '2019-07-13 12:12:12',
+  modified:'2019-07-13 12:12:12'
+  )
+
+
+
+  review2 = Review.create!(
+  spot_id: 3,
+  reviewer_id: user3.id,
+  comment: 'I had so much fun here!',
+  rating: 8,
+  created: '2019-07-13 12:12:12',
+  modified: '2019-07-13 12:12:12'
+  )
 
 
 

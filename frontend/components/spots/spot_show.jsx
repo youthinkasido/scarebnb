@@ -2,17 +2,16 @@ import React from 'react';
 import {withRouter} from 'react-router'
 import {connect} from 'react-redux'
 import { fetchSpot } from '../../actions/spot_actions';
-
-
+import DateRangePickerWrapper from './calender';
+<DateRangePickerWrapper />;
 // Use by adding < Calendar />.Use onChange prop for getting new values.
-
-
 class SpotShow extends React.Component{
     constructor(props){
         super(props)
     }
 
     componentDidMount(){
+        
         this.props.fetchSpot(this.props.match.params.spotId)
     }
 
@@ -25,35 +24,33 @@ class SpotShow extends React.Component{
     render(){
         
         const spot = this.props.spot
-
+        
         if (!spot){
             return null;
         }
         
         return (
             <div>
+                <div className="spot-show--wrapper">
+                    <div>
+                        <img src={spot.image_url}/>
+                    </div>
 
-           
-            <div className="spot-show--wrapper">
-                <div>
-                    <img src={spot.image_url}/>
-                </div>
+                    <div>
+                        <img src={spot.image_url} />
+                    </div>
 
-                <div>
-                    <img src={spot.image_url} />
-                </div>
+                    <div>
+                        <img src={spot.image_url} />
+                    </div>
 
-                <div>
-                    <img src={spot.image_url} />
-                </div>
+                    <div>
+                        <img src={spot.image_url} />
+                    </div>
 
-                <div>
-                    <img src={spot.image_url} />
-                </div>
-
-                <div>
-                    <img src={spot.image_url} />
-                </div>
+                    <div>
+                        <img src={spot.image_url} />
+                    </div>
             </div>
 
                 <section className="spot-show--details">
@@ -87,16 +84,14 @@ class SpotShow extends React.Component{
                     </div>
                     <div className="spot-show-ameneties"><div>Amenities:</div> 
 
-                        <li>Clogged toilet /</li>
-                        <li>Used toilet paper /</li>
-                        <li>Partially eaten couch /</li>
+                        <li>{spot.amenities}</li>
                         
                     </div>
 
                     <div className="spot-show--reviews">
 
-                        <div>
-                                
+                        <div className="spot-show-review">
+                                <h1>{spot.reviews}</h1>
                         </div>
                     </div>
 
@@ -108,23 +103,20 @@ class SpotShow extends React.Component{
 
                 </div>
         </div>
-
-        
-       
         )
     }
 }
 
 
 const msp = (state, ownProps) => {
-    // debugger
+
     return {
         spot: state.entities.spots[ownProps.match.params.spotId]
     }
 }
 
 const mdp = dispatch => {
-    // debugger
+  
     return {fetchSpot: (id) => dispatch(fetchSpot(id))}
 }
 

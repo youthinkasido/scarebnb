@@ -3,12 +3,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { Route } from 'react-router-dom'
-Map
+
 
 import FilterForm from './filter_form';
 import GreetingContainer from '../greeting/greeting_container';
 import Map from '../map';
-
+import SpotsIndex from '../spots/spot_index';
 
 const cities = [
   {
@@ -45,9 +45,10 @@ const cities = [
 
 ]
 
+// search filter for locating a city name
 function searchingFor(term) {
-  return function (x) {
-    return x.name.toLowerCase().includes(term.toLowerCase()) || !term
+  return function (cityInList) {
+    return cityInList.name.toLowerCase().includes(term.toLowerCase()) || !term
   }
 }
 
@@ -58,20 +59,48 @@ class Search extends React.Component{
     this.state = {
       cities: cities,
       term: '',
+      showResults: false
     }
 
      this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.hideSearchSuggestions = this.hideSearchSuggestions.bind(this)
   }
 
   handleSubmit(e) {
-    this.setState({ term: e.target.value })
+    e.preventDefault()
     this.props.history.push('/spots')
   }
 
+  handleChange(e){
+    e.preventDefault()
+    this.setState({ term: e.target.value})
+    this.setState({showResults: true})
+  }
 
+hideSearchSuggestions(){
+
+  this.setState({
+    showResults: false
+  })
+
+  this.props.history.push('/spots')
+
+  }
   render(){ 
+    
+    let dropDown = null;
+  if (this.state.showResults){
+    const goodCities = this.state.cities.filter(searchingFor(this.state.term));
+    dropDown = goodCities.map(city=>(
+      <div onClick={() => this.hideSearchSuggestions()} className="search-completer" key={city.id}>
 
-  
+        <h1>{city.name} {city.state}</h1>
+        <img className="search-map-pin" src="./pin.svg" />
+      </div>
+    ))
+  }
+
     const {term, people}= this.state
   return (
     <div className='search'>
@@ -85,21 +114,11 @@ class Search extends React.Component{
           <div className="google-map">
            
           </div>
-          <form >
-        
-          <input className="search-bar" onChange={this.handleSubmit} type="text" placeholder="try 'Atlanta'" value={term}/>
-       
-      
+          <form onSubmit={this.handleSubmit}>
+          <input className="search-bar" onChange={this.handleChange} type="text" placeholder="try 'Atlanta'" value={term}/>
          </form>
-            {
-              this.state.cities.filter(searchingFor(term)).map( city=>
-                <div className="search-completer" key={city.id}>
-                  <img className="search-map-pin" src="./pin.svg" />
-                  <h1>{city.name} {city.state}</h1>
-        
-                </div>
-            )
-             }
+
+          {dropDown}
         </div>
     </div>
     )
@@ -111,7 +130,7 @@ class Search extends React.Component{
 
 
 
-export default Search
+export default withRouter(Search)
 
 
 

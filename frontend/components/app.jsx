@@ -1,4 +1,10 @@
+// import 'react-dates/initialize';
+// import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+// import { DateRangePickerWrapper} from './calender'
+
+
 import React from 'react';
+
 import { Provider } from 'react-redux';
 import {Route,Redirect,Switch,Link,HashRouter} from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -18,16 +24,17 @@ const App = () => (
   <div>
     <GreetingContainer />
     <SearchContainer />
+
+ 
+   
     <div className='nav-line-top'></div>
      <div className='nav-line-bottom'></div>
     <div className="background-img" ></div>
    
-
     <Switch>
-     
-      <ProtectedRoute exact path="/search" component={GreetingContainer} />
-      <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+  
+      {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
+      <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
       
       <Route exact path="/spots" component={SpotIndexContainer} />
       <Route exact path='/spots/:spotId' component={SpotShow} />
@@ -38,11 +45,6 @@ const App = () => (
 
 
   </div>
-
-
-
-
-
 )
 
 

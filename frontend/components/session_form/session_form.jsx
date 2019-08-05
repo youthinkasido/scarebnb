@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user).then( () =>{
-            // this.props.history.push('/search');
+        
             this.props.closeModal()
         })
     }
@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
         // return this.setState(email: 'guest1@gmail.com', password:'123456')
         this.props.demoLogin({email: 'guest1@gmail.com', password: '123456'}).then(()=>{
             this.props.closeModal();
-            this.props.history.push('/search');
+        
         })
     }
 

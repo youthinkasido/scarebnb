@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {withRouter} from 'react-router-dom'
 
-const mapCenter = { lat: 37.7758, lng: -122.425 };
-
+// const mapCenter = { lat: 33.748997, lng: -84.387985 };
+// center is passed in as props from the spot index
 
 const allSpots = [
     { lat: 37.775785, lng: -122.445979, name: "Papalote" },
@@ -10,68 +11,39 @@ const allSpots = [
     { lat: 37.781899, lng: -122.410426, name: "Cancun" }
 ];
 
-
-export default class Map extends React.Component {
-    
-
+ class Map extends React.Component {
     constructor(props) {
         super(props);
-        this.addSpot = this.addSpot.bind(this);
+        this.addSpot = this.addSpot.bind(this);  
     }
-    
 
-    // this.refs is an object
-    //     * populated by giving children a 'ref' prop when we render
-    componentDidMount(){
-
-        // ReactDOM.render(
-        //     <Map center={mapCenter} spots={allSpots} />,
-        //     document.getElementById('root')
-        // );
-      
-
+    componentDidUpdate(){
         const map = ReactDOM.findDOMNode(this.refs.map)
-
         const options = {
-            center: this.props.center,
-            zoom: 13
+        center: this.props.center,
+        zoom: 13
         }
 
         this.map = new google.maps.Map(map,options)
-        
-        //movement listener
         this.listenForMove();
-
-
-        // add a marker for each spot
-       
         this.props.spots.forEach(this.addSpot);
     }
-
-
         addSpot(spot){
-          
             const pos = new google.maps.LatLng(spot.lat,spot.lng)
-
-
-
-            const marker = new google.maps.Marker({
-                
-                position: pos,
-                map: this.map
-            });
-
-           
+                const marker = new google.maps.Marker({
+                    position: pos,
+                    map: this.map
+                });
+         
+            const that = this
             marker.addListener('click', ()=>{
-                alert(`clicked on: ${spot.name}`);
+                that.props.history.push(`spots/${spot.id}`)
             });
         }
 
         listenForMove(){
-           
             const that = this;
             google.maps.event.addListener(that.map, 'idle', ()=>{
-              
                 const bounds = that.map.getBounds();
 
                 if (!bounds){
@@ -92,19 +64,14 @@ export default class Map extends React.Component {
         }
 
         render(){
-      
+        
         return (
-            <div>
-                
+            <div>       
                 <div id='map' ref='map' />
-                <p>
-                  
-        </p>
             </div>
         );
     }
-
-    
 }
 
 
+export default withRouter(Map);

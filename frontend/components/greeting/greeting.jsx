@@ -26,11 +26,10 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                         <img className="clown-profile" src="./clownphoto.png"/>
 
                         <div className="nav-dropdown-content">
-                            <img className="book-icon" src="./bookings.png" alt=""/>
-                            <img className="grave-icon" src="./grave.svg" alt="" />
                       
-                            <p><Link to="/" onClick={logout}>Bookings</Link></p>
-                            <p><Link to="/" onClick={logout}>Log Out</Link></p>
+                      
+                            <p className="bookings"onClick={logout}>Bookings</p>
+                            <p className="logout" onClick={logout}>Log Out</p>
                         </div>
 
                     </div>

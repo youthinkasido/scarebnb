@@ -26,8 +26,24 @@ position: absolute;
 width: 400px;
    padding: 70px;
    background-color: #fff;
-   
 }  
+
+.logout :hover{
+cursor: pointer;
+}
+
+.bookings :hover{
+cursor: pointer;
+}
+
+.logout {
+color:white
+}
+
+.bookings {
+color:white
+}
+
 
 
 .login-form-box{

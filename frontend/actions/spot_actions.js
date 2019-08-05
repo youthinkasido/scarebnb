@@ -11,8 +11,6 @@ export const receiveAllSpots = (spots) =>{
     }
 }
 
-
-
 export const receiveSpot = (spot) => {
     return {
         type: RECEIVE_SPOT,
@@ -22,6 +20,7 @@ export const receiveSpot = (spot) => {
 
 export const fetchAllSpots = () => dispatch => (
     SpotsApiUtil.fetchSpots().then((spots) => dispatch(receiveAllSpots(spots)))
+    
 )
 
 export const fetchSpot = (id) => dispatch => (
@@ -32,7 +31,8 @@ export const fetchSpot = (id) => dispatch => (
 
 window.fetchAllSpots = fetchAllSpots
 window.fetchSpot = fetchSpot
-
+window.receiveAllSpots  = receiveAllSpots
+window.receiveSpot = receiveSpot
 
 
 
