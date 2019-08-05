@@ -521,10 +521,10 @@ function (_React$Component) {
   _createClass(Map, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Map, {
-        center: mapCenter,
-        spots: allSpots
-      }), document.getElementById('root'));
+      // ReactDOM.render(
+      //     <Map center={mapCenter} spots={allSpots} />,
+      //     document.getElementById('root')
+      // );
       var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
       var options = {
         center: this.props.center,
@@ -539,22 +539,25 @@ function (_React$Component) {
   }, {
     key: "addSpot",
     value: function addSpot(spot) {
-      var pos = new google.map.Latlng(spot.lat, spot.lng);
+      var pos = new google.maps.LatLng(spot.lat, spot.lng);
       var marker = new google.maps.Marker({
         position: pos,
         map: this.map
       });
-      marker.addEventListener('click', function () {
+      marker.addListener('click', function () {
         alert("clicked on: ".concat(spot.name));
       });
     }
   }, {
     key: "listenForMove",
     value: function listenForMove() {
-      var _this2 = this;
+      var that = this;
+      google.maps.event.addListener(that.map, 'idle', function () {
+        var bounds = that.map.getBounds();
 
-      google.maps.event.addListener(this.map, 'idle', function () {
-        var bounds = _this2.map.getBounds();
+        if (!bounds) {
+          return null;
+        }
 
         console.log('center', bounds.getCenter().lat(), bounds.getCenter().lng());
         console.log("north east", bounds.getNorthEast().lat(), bounds.getNorthEast().lng());
@@ -1207,6 +1210,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _spot_index_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_index_item */ "./frontend/components/spots/spot_index_item.jsx");
 /* harmony import */ var _spot_index_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spot_index_container */ "./frontend/components/spots/spot_index_container.js");
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../map */ "./frontend/components/map.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1229,7 +1233,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- // import Map from '../map';
+
+
 
 var SpotsIndex =
 /*#__PURE__*/
@@ -1257,7 +1262,9 @@ function (_Component) {
           spot: spot
         });
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        spots: spots
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "responsive"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flex-container"

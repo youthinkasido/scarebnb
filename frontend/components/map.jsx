@@ -24,10 +24,10 @@ export default class Map extends React.Component {
     //     * populated by giving children a 'ref' prop when we render
     componentDidMount(){
 
-        ReactDOM.render(
-            <Map center={mapCenter} spots={allSpots} />,
-            document.getElementById('root')
-        );
+        // ReactDOM.render(
+        //     <Map center={mapCenter} spots={allSpots} />,
+        //     document.getElementById('root')
+        // );
       
 
         const map = ReactDOM.findDOMNode(this.refs.map)
@@ -38,35 +38,45 @@ export default class Map extends React.Component {
         }
 
         this.map = new google.maps.Map(map,options)
-
+        
         //movement listener
         this.listenForMove();
 
 
         // add a marker for each spot
+       
         this.props.spots.forEach(this.addSpot);
     }
 
 
         addSpot(spot){
-            const pos = new google.map.Latlng(spot.lat,spot.lng)
+          
+            const pos = new google.maps.LatLng(spot.lat,spot.lng)
 
 
 
             const marker = new google.maps.Marker({
+                
                 position: pos,
                 map: this.map
             });
 
-
-            marker.addEventListener('click', ()=>{
+           
+            marker.addListener('click', ()=>{
                 alert(`clicked on: ${spot.name}`);
             });
         }
 
         listenForMove(){
-            google.maps.event.addListener(this.map, 'idle', ()=>{
-                const bounds = this.map.getBounds();
+           
+            const that = this;
+            google.maps.event.addListener(that.map, 'idle', ()=>{
+              
+                const bounds = that.map.getBounds();
+
+                if (!bounds){
+                    return null
+                }
 
                 console.log('center',
                     bounds.getCenter().lat(),
@@ -77,11 +87,12 @@ export default class Map extends React.Component {
                 console.log("south west",
                     bounds.getSouthWest().lat(),
                     bounds.getSouthWest().lng());
+                
             })
         }
 
         render(){
-
+      
         return (
             <div>
                 
