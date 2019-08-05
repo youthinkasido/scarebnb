@@ -11,6 +11,11 @@ import SpotIndexContainer from './spots/spot_index_container'
 import SpotShow from './spots/spot_show'
 import Modal from './modal/modal'
 import Map from './map';
+<<<<<<< HEAD
+=======
+require("history").createBrowserHistory
+
+>>>>>>> userauthbackup
 
 require("history").createBrowserHistory
 const App = () => (
