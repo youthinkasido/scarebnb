@@ -303,17 +303,13 @@ __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").crea
 // const history = createBrowserHistory()
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-top"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-bottom"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "background-img"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    exact: true,
-    path: "/map",
-    component: _map__WEBPACK_IMPORTED_MODULE_12__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
     path: "/search",
     component: _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"]
@@ -570,7 +566,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "MAP DEMO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "map",
         ref: "map"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null));
@@ -713,36 +709,129 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _filter_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter_form */ "./frontend/components/search/filter_form.jsx");
 /* harmony import */ var _filter_form__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_filter_form__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../map */ "./frontend/components/map.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
 
 
+_map__WEBPACK_IMPORTED_MODULE_4__["default"];
 
 
-var Search = function Search() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "search"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "search-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "air-bnb-logo",
-    src: "./airbnb.svg",
-    alt: ""
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "magnifying-glass",
-    src: "/magnifying-glass.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "icon"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    className: "search-bar",
-    type: "text",
-    placeholder: "try 'Baltimore'",
-    value: ""
-  }))));
-};
 
-/* harmony default export */ __webpack_exports__["default"] = (Search);
+var cities = [{
+  id: 1,
+  name: 'Atlanta, ',
+  state: 'GA'
+}, {
+  id: 2,
+  name: 'San Francisco, ',
+  state: 'CA'
+}, {
+  id: 3,
+  name: 'New York, ',
+  state: 'NY'
+}, {
+  id: 4,
+  name: 'Detroit, ',
+  state: 'MI'
+}];
+
+function searchingFor(term) {
+  return function (x) {
+    return x.name.toLowerCase().includes(term.toLowerCase()) || !term;
+  };
+}
+
+var Search =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Search, _React$Component);
+
+  function Search(props) {
+    var _this;
+
+    _classCallCheck(this, Search);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, props));
+    _this.state = {
+      cities: cities,
+      term: ''
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Search, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      this.setState({
+        term: e.target.value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          term = _this$state.term,
+          people = _this$state.people;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "air-bnb-logo",
+        src: "./airbnb.svg",
+        alt: ""
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "magnifying-glass",
+        src: "/magnifying-glass.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "icon"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "google-map"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "search-bar",
+        onChange: this.handleSubmit,
+        type: "text",
+        placeholder: "try 'Atlanta'",
+        value: term
+      })), this.state.cities.filter(searchingFor(term)).map(function (city) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "search-completer",
+          key: city.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "search-map-pin",
+          src: "./pin.svg"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, city.name, " ", city.state));
+      })));
+    }
+  }]);
+
+  return Search;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Search); ///// steps
+// created a class
+// set the state
+// added form and handleSubmit
 
 /***/ }),
 
@@ -993,7 +1082,7 @@ function (_React$Component) {
       }, formTitle), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
+        type: "email",
         placeholder: "Email",
         value: this.state.email,
         onChange: this.update('email'),
@@ -1116,7 +1205,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _spot_index_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_index_item */ "./frontend/components/spots/spot_index_item.jsx");
 /* harmony import */ var _spot_index_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spot_index_container */ "./frontend/components/spots/spot_index_container.js");
-/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../map */ "./frontend/components/map.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1139,8 +1227,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
-
+ // import Map from '../map';
 
 var SpotsIndex =
 /*#__PURE__*/
@@ -1239,7 +1326,7 @@ __webpack_require__.r(__webpack_exports__);
 function amenityGenerator() {
   var amenities = [' Wifi ', ' Soap ', ' Running water ', ' Couch ', ' Nearby police station ', ' Valet Parking '];
   var spot_ams = [];
-  var i = Math.floor(Math.random() * amenities.length);
+  var i = Math.floor(Math.random() * amenities.length - 2);
 
   while (i > 0) {
     spot_ams.push(amenities[i]);
@@ -1285,7 +1372,10 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
     className: "spot-name"
   }, spot.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "cost-per-night"
-  }, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "skull-heart",
+    src: "./skullheart.svg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "rating"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "fa fa-star checked"
@@ -1297,7 +1387,7 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
     className: "fa fa-star"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "fa fa-star"
-  })), ")");
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotIndexItem);
@@ -1374,9 +1464,35 @@ function (_React$Component) {
         return null;
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "description: ", spot.description + " ", "max guests: ", spot.max_guests + " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-show--wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: spot.image_url
-      }));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.image_url
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.image_url
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.image_url
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.image_url
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "spot-show--details"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-show-name"
+      }, spot.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-show-city-state"
+      }, " ", spot.city, ", ", spot.state), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-show-rooms"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, spot.max_guests, " guests ", spot.bedrooms, " beds ", spot.bathrooms, " bath")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-show-description"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-show-ameneties"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Amenities:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Clogged toilet /"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Used toilet paper /"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Partially eaten couch /"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot--bookings"
+      }, "Bookings", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-booking-form-container"
+      }, "Bookings")));
     }
   }]);
 

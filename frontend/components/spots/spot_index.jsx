@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import SpotIndexItem from './spot_index_item'
 import { Link } from 'react-router-dom';
 import SpotIndexContainer from './spot_index_container';
-import Map from '../map';
+// import Map from '../map';
 
 
 class SpotsIndex extends Component {
@@ -26,7 +26,7 @@ class SpotsIndex extends Component {
                 <div className="responsive">
                     <div className="flex-container">
                         {spoties}
-                        {/* <Map /> */}
+                     
                     </div>
                 </div>
             </div>

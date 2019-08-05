@@ -84,7 +84,7 @@ export default class Map extends React.Component {
 
         return (
             <div>
-                <span>MAP DEMO</span>
+                
                 <div id='map' ref='map' />
                 <p>
                   

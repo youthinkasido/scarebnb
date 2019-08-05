@@ -15,7 +15,7 @@ user6 = User.create!(first_name: 'Jnoosh', last_name: 'Shwergle', email:'scrimp@
 
 
 spot1 = Spot.create!(
-  name: "Dirty Storage Unit",
+  name: "Dilapitated Shack with an unbelievably clogged toilet since 1962.",
   description: "Who knows what dark suprises await in this dirty storage unit.",
   max_guests: 1,
   room_type: "Private",
@@ -27,10 +27,10 @@ spot1 = Spot.create!(
   bedrooms: 1,
   bathrooms: 0,
   rating: 2,
-  spot_type: "Storage unit",
+  spot_type: "Shack",
   modified: nil,
   owner_id: user1.id,
-  cost_per_night: '$3.97 per night')
+  cost_per_night: '$3 per night')
 
   spot2 = Spot.create!(
   name: "Dilapitated Shack",
@@ -48,7 +48,7 @@ spot1 = Spot.create!(
   spot_type: "STURDY SHACK",
   modified: nil,
   owner_id: user2.id,
-  cost_per_night: '$7.29 per night')
+  cost_per_night: '$13 per night')
 
   spot3 = Spot.create!(
   name: "Partially encrusted house",
@@ -66,7 +66,7 @@ spot1 = Spot.create!(
   spot_type: "House",
   modified: nil,
   owner_id: user3.id,
-  cost_per_night: '$1.22 per night')
+  cost_per_night: '$53 per night')
 
 
 
@@ -86,10 +86,10 @@ spot1 = Spot.create!(
   spot_type: "Storage unit",
   modified: nil,
   owner_id: user4.id,
-  cost_per_night: '$4.97 per night')
+  cost_per_night: '$20 per night')
 
     spot5 = Spot.create!(
-  name: "Highway 400 overpass",
+  name: "Crime Scene Shack",
   description: "Luxuriously spaced shack, fully fumegated. Crime scene has been closed. ",
   max_guests: 30,
   room_type: "Private",
@@ -104,7 +104,7 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user5.id,
-  cost_per_night: '$8.91 per night')
+  cost_per_night: '$1 per night')
 
 
   spot6 = Spot.create!(
@@ -123,7 +123,7 @@ spot1 = Spot.create!(
   spot_type: "Apartment",
   modified: nil,
   owner_id: user6.id,
-  cost_per_night: '$1.97 per night')
+  cost_per_night: '$1 per night')
 
   spot7 = Spot.create!(
   name: "Nice Bench",
@@ -141,7 +141,7 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user4.id,
-  cost_per_night: '$0.00 per night')
+  cost_per_night: '$5 per night')
 
     spot8 = Spot.create!(
   name: "Apartment",
@@ -159,7 +159,7 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user2.id,
-  cost_per_night: '$9.01 per night')
+  cost_per_night: '$2 per night')
 
     spot9 = Spot.create!(
   name: "Someone's closet",
@@ -177,7 +177,7 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user2.id,
-  cost_per_night: '$2.01 per night')
+  cost_per_night: '$13 per night')
 
 
 

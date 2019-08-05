@@ -22,15 +22,17 @@ const App = () => (
   <div>
     
    
-    <SearchContainer />
     <GreetingContainer />
+    <SearchContainer />
+  
+    
     <div className='nav-line-top'></div>
      <div className='nav-line-bottom'></div>
     <div className="background-img" ></div>
    
 
     <Switch>
-      <Map exact path="/map" component={Map}/>
+    
       <ProtectedRoute exact path="/search" component={GreetingContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />

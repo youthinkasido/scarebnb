@@ -11,28 +11,23 @@ function amenityGenerator(){
        ' Wifi ', ' Soap ', ' Running water ', ' Couch ', ' Nearby police station ', ' Valet Parking '
     ]
 
+
     let spot_ams = [];
-
-    let i = Math.floor(Math.random() * amenities.length)
-
+    let i = Math.floor(Math.random() * amenities.length - 2)
+   
     while (i > 0){
         spot_ams.push(amenities[i])
        
-
         if (i > 1) {
             spot_ams.push(' -')
         }
         i--
-        }
-
-  
+    }
 
         if (!spot_ams.length){
             spot_ams.push('Wifi')
         }
        
-   
-
     return spot_ams
 }
 
@@ -57,6 +52,7 @@ return (
         <div className='spot-amenities'>{amenityGenerator()} </div>
         <div className='spot-name'>{spot.name}</div>
         <div className='cost-per-night'>{spot.cost_per_night}</div>
+        <img className="skull-heart"src="./skullheart.svg"/>
         <div className="rating">
         <span className="fa fa-star checked"></span>
         <span className="fa fa-star checked"></span>
@@ -65,7 +61,7 @@ return (
         <span className="fa fa-star"></span>
         </div>
 
-    )
+    
         </div>
   
     )

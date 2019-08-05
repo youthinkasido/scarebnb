@@ -8,12 +8,12 @@ has_one_attached :photo
 # foreign_key: :owner_id 
 
 
-has_many :spot_amenities,
-foreign_key: :spot_id
+# has_many :spot_amenities,
+# foreign_key: :spot_id
 
-has_many :amenities,
-# through :spot_amenities,
-source: :amenities
+# has_many :amenities,
+# # through :spot_amenities,
+# source: :amenities
 
 end
 

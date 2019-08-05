@@ -5,46 +5,75 @@
     position: absolute;
     top: 20px;
     left: 55px;
-  
-
 }
 
 .search-container{
-    background: black;
-    width: 200vh;
+     width: 200vh;
     color: black;
-    border: 20px solid black;
     position: absolute;
-    padding-left: 50px;
-    margin-left: -70px;
-    margin-top: -20px;
-    z-index: -1;
+    padding-left: 20px;
+    z-index: 10;
+    margin-left: 30px;
+}
+
+
+.search-container .search-completer:hover{
+     background: rgb(41, 41, 41);
+    display: block;
+    cursor: pointer;
+    cursor: hand;
 }
 
 
 
 .search-bar{
-    width: 220px;
-    height:31px;
+    width: 300px;
+    height: 31px;
     font-size: 12px;
-    padding-left:25px;
+    padding-left: 25px;
     font-style: bold;
-    z-index: 1;
-
 }
 
 .air-bnb-logo{
-     width: 34px;
+    width: 34px;
     padding-right: 10px;
     position: absolute;
-    left: 10px;
+    left: -20px;
     top: 4px;
+}
+
+.search-completer{
+    color: white;
+    text-align: left;
+    width: 300px;
+    border: 1px solid white;
+    padding: 15px;
+    padding-left: 40px;
+    background: black;
+}
+
+
+.search-completer h1{
+    margin-top: -20px;
+    margin-left: 6px;
+ 
+}
+
+
+
+.search-map-pin{
+    width: 24px;
+    padding-right: 10px;
+    margin-left: -20px;
+    top: 8px;
+    right: 20px;
+    margin-bottom: 4px;
 }
 
 .magnifying-glass{
      width: 13px;
     position: absolute;
-    left: 56px;
+    left: 28px;
     top: 10px;
 }
 
