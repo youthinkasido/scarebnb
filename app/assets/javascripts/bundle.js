@@ -295,12 +295,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // import background from '../images/haunted-savannah-skyline.jpg';
 
 
 
-__webpack_require__(/*! history */ "./node_modules/history/esm/history.js").createBrowserHistory; // console.log(background)
-// const history = createBrowserHistory()
+__webpack_require__(/*! history */ "./node_modules/history/esm/history.js").createBrowserHistory;
 
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -752,6 +750,10 @@ var cities = [{
   id: 4,
   name: 'Detroit, ',
   state: 'MI'
+}, {
+  id: 5,
+  name: 'Biltmore, ',
+  state: 'NC'
 }];
 
 function searchingFor(term) {
@@ -1002,8 +1004,7 @@ function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user).then(function () {
-        _this3.props.history.push('/search');
-
+        // this.props.history.push('/search');
         _this3.props.closeModal();
       });
     }
@@ -1429,7 +1430,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
+ // Use by adding < Calendar />.Use onChange prop for getting new values.
 
 var SpotShow =
 /*#__PURE__*/
@@ -1445,7 +1446,6 @@ function (_React$Component) {
   _createClass(SpotShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // debugger
       this.props.fetchSpot(this.props.match.params.spotId);
     }
   }, {
@@ -1488,11 +1488,13 @@ function (_React$Component) {
         className: "spot-show-description"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show-ameneties"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Amenities:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Clogged toilet /"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Used toilet paper /"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Partially eaten couch /"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Amenities:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Clogged toilet /"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Used toilet paper /"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Partially eaten couch /")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-show--reviews"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot--bookings"
       }, "Bookings", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-booking-form-container"
-      }, "Bookings")));
+      }, "Booking Form")));
     }
   }]);
 
@@ -1950,68 +1952,10 @@ var configureStore = function configureStore() {
 /*!**************************************!*\
   !*** ./frontend/util/route_util.jsx ***!
   \**************************************/
-/*! exports provided: AuthRoute, ProtectedRoute */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthRoute", function() { return AuthRoute; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProtectedRoute", function() { return ProtectedRoute; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-
-
-
-var Auth = function Auth(_ref) {
-  var Component = _ref.component,
-      path = _ref.path,
-      loggedIn = _ref.loggedIn,
-      exact = _ref.exact;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    path: path,
-    exact: exact,
-    render: function render(props) {
-      return !loggedIn ? // <Component {...props} />
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/search"
-      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/search"
-      });
-    }
-  });
-};
-
-var Protected = function Protected(_ref2) {
-  var Component = _ref2.component,
-      path = _ref2.path,
-      loggedIn = _ref2.loggedIn,
-      exact = _ref2.exact;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    path: path,
-    exact: exact,
-    render: function render(props) {
-      return loggedIn ? // <Component {...props} />
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/search"
-      }) : // <Redirect to="/login" />
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/search"
-      });
-    }
-  });
-};
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    loggedIn: Boolean(state.session.currentUser)
-  };
-};
-
-var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Auth));
-var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Protected));
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/arshiakhoshnood/Desktop/darebnb/frontend/util/route_util.jsx: Unexpected token (12:12)\n\n\u001b[0m \u001b[90m 10 | \u001b[39m        ) \u001b[33m:\u001b[39m (\u001b[0m\n\u001b[0m \u001b[90m 11 | \u001b[39m                \u001b[90m// <Redirect to=\"/search\" />\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 | \u001b[39m            )\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 13 | \u001b[39m    )} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 14 | \u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 15 | \u001b[39m\u001b[0m\n    at Object.raise (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:6325:17)\n    at Object.unexpected (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:7642:16)\n    at Object.parseParenAndDistinguishExpression (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:9010:12)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8762:21)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:3601:20)\n    at Object.parseExprSubscripts (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8412:23)\n    at Object.parseMaybeUnary (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8392:21)\n    at Object.parseExprOps (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8267:23)\n    at Object.parseMaybeConditional (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8240:23)\n    at Object.parseMaybeAssign (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8187:21)\n    at Object.parseConditional (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8256:29)\n    at Object.parseMaybeConditional (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8247:17)\n    at Object.parseMaybeAssign (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8187:21)\n    at Object.parseParenAndDistinguishExpression (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8978:28)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8762:21)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:3601:20)\n    at Object.parseExprSubscripts (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8412:23)\n    at Object.parseMaybeUnary (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8392:21)\n    at Object.parseExprOps (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8267:23)\n    at Object.parseMaybeConditional (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8240:23)\n    at Object.parseMaybeAssign (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8187:21)\n    at Object.parseFunctionBody (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:9406:24)\n    at Object.parseArrowExpression (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:9365:10)\n    at Object.parseParenAndDistinguishExpression (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:9002:12)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8762:21)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:3601:20)\n    at Object.parseExprSubscripts (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8412:23)\n    at Object.parseMaybeUnary (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8392:21)\n    at Object.parseExprOps (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8267:23)\n    at Object.parseMaybeConditional (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8240:23)");
 
 /***/ }),
 

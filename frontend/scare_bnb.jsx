@@ -11,11 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.login = login
     window.signup = signup
     window.signOut = logout
-   
 
     let store;
-
-
+    
     if (window.currentUser){
         const preloadedState = {
             session: { currentUser: window.currentUser.id},

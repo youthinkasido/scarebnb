@@ -2,7 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router'
 import {connect} from 'react-redux'
 import { fetchSpot } from '../../actions/spot_actions';
-import Calendar from 'react-calendar'
+
 
 // Use by adding < Calendar />.Use onChange prop for getting new values.
 
@@ -13,8 +13,6 @@ class SpotShow extends React.Component{
     }
 
     componentDidMount(){
-        // debugger
-        
         this.props.fetchSpot(this.props.match.params.spotId)
     }
 
@@ -95,10 +93,19 @@ class SpotShow extends React.Component{
                         
                     </div>
 
+                    <div className="spot-show--reviews">
+
+                        <div>
+                                
+                        </div>
+                    </div>
+
                     
                 </section>
+
                 <div className="spot--bookings">Bookings
-                <div className="spot-booking-form-container">Bookings</div>
+                <div className="spot-booking-form-container">Booking Form</div>
+
                 </div>
         </div>
 

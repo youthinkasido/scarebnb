@@ -10,7 +10,6 @@ import GreetingContainer from '../greeting/greeting_container';
 import Map from '../map';
 
 
-
 const cities = [
   {
     id: 1,
@@ -18,6 +17,7 @@ const cities = [
     state: 'GA'
   
   },
+
   {
     id: 2,
     name: 'San Francisco, ',
@@ -35,7 +35,14 @@ const cities = [
     name: 'Detroit, ',
     state: 'MI'
 
-  }
+  },
+
+{
+  id: 5,
+    name: 'Biltmore, ',
+    state: 'NC'
+}
+
 ]
 
 function searchingFor(term) {
@@ -60,9 +67,9 @@ class Search extends React.Component{
     this.setState({ term: e.target.value })
   }
 
- 
 
   render(){ 
+
   
     const {term, people}= this.state
   return (
@@ -79,7 +86,7 @@ class Search extends React.Component{
           </div>
           <form >
         
-            <input className="search-bar" onChange={this.handleSubmit} type="text" placeholder="try 'Atlanta'" value={term}/>
+          <input className="search-bar" onChange={this.handleSubmit} type="text" placeholder="try 'Atlanta'" value={term}/>
        
       
          </form>
@@ -88,7 +95,7 @@ class Search extends React.Component{
                 <div className="search-completer" key={city.id}>
                   <img className="search-map-pin" src="./pin.svg" />
                   <h1>{city.name} {city.state}</h1>
-                 
+        
                 </div>
             )
              }
