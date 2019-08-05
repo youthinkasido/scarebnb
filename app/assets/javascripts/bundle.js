@@ -276,7 +276,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_util_route_util__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
 /* harmony import */ var _session_form_splash_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/splash.jsx */ "./frontend/components/session_form/splash.jsx");
@@ -788,6 +787,7 @@ function (_React$Component) {
       this.setState({
         term: e.target.value
       });
+      this.props.history.push('/spots');
     }
   }, {
     key: "render",
@@ -1953,10 +1953,64 @@ var configureStore = function configureStore() {
 /*!**************************************!*\
   !*** ./frontend/util/route_util.jsx ***!
   \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: AuthRoute, ProtectedRoute */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/arshiakhoshnood/Desktop/darebnb/frontend/util/route_util.jsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (9:12)\n\n\u001b[0m \u001b[90m  7 | \u001b[39m        \u001b[33m!\u001b[39mloggedIn \u001b[33m?\u001b[39m (\u001b[0m\n\u001b[0m \u001b[90m  8 | \u001b[39m            \u001b[33m<\u001b[39m\u001b[33mComponent\u001b[39m {\u001b[33m...\u001b[39mprops} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 | \u001b[39m            \u001b[33m<\u001b[39m\u001b[33mRedirect\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"/search\"\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 10 | \u001b[39m        ) \u001b[33m:\u001b[39m (\u001b[0m\n\u001b[0m \u001b[90m 11 | \u001b[39m                \u001b[33m<\u001b[39m\u001b[33mRedirect\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"/search\"\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 12 | \u001b[39m            )\u001b[0m\n    at Object.raise (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:6325:17)\n    at Object.jsxParseElementAt (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:3579:12)\n    at Object.jsxParseElement (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:3589:17)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:3596:19)\n    at Object.parseExprSubscripts (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8412:23)\n    at Object.parseMaybeUnary (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8392:21)\n    at Object.parseExprOps (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8267:23)\n    at Object.parseMaybeConditional (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8240:23)\n    at Object.parseMaybeAssign (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8187:21)\n    at Object.parseParenAndDistinguishExpression (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8978:28)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8762:21)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:3601:20)\n    at Object.parseExprSubscripts (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8412:23)\n    at Object.parseMaybeUnary (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8392:21)\n    at Object.parseExprOps (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8267:23)\n    at Object.parseMaybeConditional (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8240:23)\n    at Object.parseMaybeAssign (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8187:21)\n    at Object.parseConditional (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8254:30)\n    at Object.parseMaybeConditional (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8247:17)\n    at Object.parseMaybeAssign (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8187:21)\n    at Object.parseParenAndDistinguishExpression (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8978:28)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8762:21)\n    at Object.parseExprAtom (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:3601:20)\n    at Object.parseExprSubscripts (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8412:23)\n    at Object.parseMaybeUnary (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8392:21)\n    at Object.parseExprOps (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8267:23)\n    at Object.parseMaybeConditional (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8240:23)\n    at Object.parseMaybeAssign (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:8187:21)\n    at Object.parseFunctionBody (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:9406:24)\n    at Object.parseArrowExpression (/Users/arshiakhoshnood/Desktop/darebnb/node_modules/@babel/parser/lib/index.js:9365:10)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthRoute", function() { return AuthRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProtectedRoute", function() { return ProtectedRoute; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+
+
+
+var Auth = function Auth(_ref) {
+  var Component = _ref.component,
+      path = _ref.path,
+      loggedIn = _ref.loggedIn,
+      exact = _ref.exact;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: path,
+    exact: exact,
+    render: function render(props) {
+      return !loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) // <Redirect to="/search" />
+      : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/search"
+      });
+    }
+  });
+};
+
+var Protected = function Protected(_ref2) {
+  var Component = _ref2.component,
+      path = _ref2.path,
+      loggedIn = _ref2.loggedIn,
+      exact = _ref2.exact;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: path,
+    exact: exact,
+    render: function render(props) {
+      return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) // <Redirect to="/search" />
+      : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/login"
+      }) // <Redirect to="/search" />
+      ;
+    }
+  });
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    loggedIn: Boolean(state.session.currentUser)
+  };
+};
+
+var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Auth));
+var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Protected));
 
 /***/ }),
 
