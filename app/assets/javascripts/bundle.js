@@ -1509,7 +1509,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(reviews, spotId) {
+var mapStateToProps = function mapStateToProps(state) {
   return {
     spots: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectAllSpots"])(state)
   };
