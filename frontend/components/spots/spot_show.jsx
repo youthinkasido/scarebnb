@@ -26,7 +26,7 @@ class SpotShow extends React.Component{
     render(){
      
         const spot = this.props.spot
- 
+        debugger
         if (!spot){
             return null;
         }

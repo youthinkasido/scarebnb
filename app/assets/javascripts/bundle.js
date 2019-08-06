@@ -1657,6 +1657,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var spot = this.props.spot;
+      debugger;
 
       if (!spot) {
         return null;
