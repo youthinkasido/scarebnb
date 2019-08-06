@@ -46,7 +46,6 @@
 
 
 
-
 .spot-show--details {
     display: inline-grid;
     grid-gap: 10px;
@@ -103,8 +102,10 @@ color: white;
 }
 
 .spot-show-review{
-    
+    color: white;
 }
+
+
 
 
 
@@ -112,20 +113,31 @@ color: white;
     float: right;
     border: 1px solid white;
     width: 50%;
-    height: 366px;
-    background: red;
+    height: 600px;
     overflow: hidden;
 }
 
 .spot-booking-form-container{
-    position: relative;
+    
     border: 1px solid white;
-    width: 70%;
+    width: 60%;
     height: 366px;
     margin: 0 auto;
     background: white;
     top: -17px;
+    margin-top: 80px;
+}
 
+.spot-show-cost-per-night{
+
+}
+
+.spot-show-calender{
+    text-align: center;
+    vertical-align: unset;
+    margin: 10px;
+    // border: 1px solid black;
+    margin-top: 90px;
 }
 
 

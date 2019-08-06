@@ -3,7 +3,8 @@ import {withRouter} from 'react-router'
 import {connect} from 'react-redux'
 import { fetchSpot } from '../../actions/spot_actions';
 import DateRangePickerWrapper from './calender';
-<DateRangePickerWrapper />;
+
+
 // Use by adding < Calendar />.Use onChange prop for getting new values.
 class SpotShow extends React.Component{
     constructor(props){
@@ -11,7 +12,6 @@ class SpotShow extends React.Component{
     }
 
     componentDidMount(){
-        
         this.props.fetchSpot(this.props.match.params.spotId)
     }
 
@@ -22,15 +22,16 @@ class SpotShow extends React.Component{
     }
 
     render(){
-        
+     
         const spot = this.props.spot
-        
+ 
         if (!spot){
             return null;
         }
-        
+    
         return (
             <div>
+
                 <div className="spot-show--wrapper">
                     <div>
                         <img src={spot.image_url}/>
@@ -54,12 +55,12 @@ class SpotShow extends React.Component{
             </div>
 
                 <section className="spot-show--details">
+                    <div>Leave A Review</div>
                     <div className="spot-show-name">{spot.name}</div>
                     <div className="spot-show-city-state"> {spot.city}, {spot.state}</div>
                     <div className="spot-show-rooms">
                         <li>{spot.max_guests} guests {spot.bedrooms} beds {spot.bathrooms} bath</li>
                 
-
                        </div>
                     <div className="spot-show-description">
                         <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
@@ -83,31 +84,31 @@ class SpotShow extends React.Component{
                             </h1>
                     </div>
                     <div className="spot-show-ameneties"><div>Amenities:</div> 
-
                         <li>{spot.amenities}</li>
-                        
                     </div>
 
                     <div className="spot-show--reviews">
-
                         <div className="spot-show-review">
-                                <h1>{spot.reviews}</h1>
+                            <h2>asdasdasdELLO</h2>
+                                <p>{spot.reviews}</p>
                         </div>
                     </div>
-
-                    
                 </section>
 
                 <div className="spot--bookings">Bookings
-                <div className="spot-booking-form-container">Booking Form</div>
+                <div className="spot-booking-form-container">
+                    <div className="spot-show-cost-per-night">{spot.cost_per_night}</div>
+                        <h2>Dates</h2>
+                        <div></div>
+                        <div></div>
+                            <div className="spot-show-calender"><DateRangePickerWrapper /></div></div>
+                     
+                </div>
 
                 </div>
-        </div>
         )
     }
 }
-
-
 const msp = (state, ownProps) => {
 
     return {

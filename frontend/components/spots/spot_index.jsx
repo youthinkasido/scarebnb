@@ -14,6 +14,8 @@ class SpotsIndex extends Component {
         this.props.fetchAllSpots();   
     }
 
+    
+
     render() { 
         const { spots } = this.props;
         const spoties = spots.map(spot => <SpotIndexItem key={spot.id} spot={spot} />)

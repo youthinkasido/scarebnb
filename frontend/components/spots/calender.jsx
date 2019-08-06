@@ -13,8 +13,6 @@ class App extends Component {
             startDate: null,
             endDate: null,
             focusedInput: null,
-            small: true,
-            orientation: PropTypes.oneOf([HORIZONTAL_ORIENTATION, VERTICAL_ORIENTATION])
         };
     }
 
@@ -29,8 +27,6 @@ class App extends Component {
                     onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }) }}
                     focusedInput={this.state.focusedInput}
                     onFocusChange={(focusedInput) => { this.setState({ focusedInput }) }}
-                    small={true}
-                    orientation={VERTICAL_ORIENTATION}
                 />
             </div>
         );

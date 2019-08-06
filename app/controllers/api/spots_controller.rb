@@ -5,8 +5,12 @@ class Api::SpotsController < ApplicationController
     end
 
     def show 
-        # @spot = Spot.includes(:ammenity).find(params[:id])
-         @spot = Spot.find(params[:id])
-    end
+         @spot = Spot.includes(:reviews).find(params[:id]) #finds a spots through active record association and entered params
+         @review_ids = 
+        @spot.reviews.map do |review|
+        review.id
+         end
 
+        
+    end
 end

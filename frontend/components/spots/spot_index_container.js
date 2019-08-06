@@ -6,7 +6,9 @@ import SpotsIndex from './spot_index'
 const mapStateToProps = (state) =>{
 
     return ({
- spots: selectAllSpots(state)
+ spots: selectAllSpots(state),
+//  spot: selectSpot(state.entities,spotId),
+//  reviews: selectReviewsForSpot(state.entites, spot)
         // gets spots back in an array format
 })}
 

@@ -1,10 +1,10 @@
 class Review < ApplicationRecord
-validates :comment, :rating, :created, presence: true
+validates :comment, :rating, presence: true
 
-# belongs_to :user, 
-# foreign_key: :reviewer_id
+belongs_to :spot
 
-belongs_to :spot,
-foreign_key: :spot_id
+
+belongs_to :reviewer,
+class_name: 'User'
 
 end

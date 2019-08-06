@@ -210,22 +210,75 @@ spot1 = Spot.create!(
 
   review1 = Review.create!(
   spot_id: 1,
-  reviewer_id: user2.id,
+  reviewer_id: 1,
   comment: 'Terrible. I will not coming back to this horrible shack! I can\'t believe I even paid to stay!',
   rating: 2,
-  created: '2019-07-13 12:12:12',
-  modified:'2019-07-13 12:12:12'
   )
 
 
 
   review2 = Review.create!(
-  spot_id: 3,
+  spot_id: 2,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
-  rating: 8,
-  created: '2019-07-13 12:12:12',
-  modified: '2019-07-13 12:12:12'
+  rating: 2
+
+  )
+
+  review3 = Review.create!(
+  spot_id: 3,
+  reviewer_id: user3.id,
+  comment: 'Great time here!',
+  rating: 4
+
+  )
+
+   review4 = Review.create!(
+  spot_id: 4,
+  reviewer_id: user3.id,
+  comment: 'I was not having fun at all!',
+  rating: 8
+
+  )
+
+   review5 = Review.create!(
+  spot_id: 5,
+  reviewer_id: user3.id,
+  comment: 'I had so much fun here!',
+  rating: 8
+
+  )
+
+   review6 = Review.create!(
+  spot_id: 6,
+  reviewer_id: user3.id,
+  comment: 'I had so much fun here!',
+  rating: 8
+
+  )
+
+   review7 = Review.create!(
+  spot_id: 7,
+  reviewer_id: user3.id,
+  comment: 'I had so much fun here!',
+  rating: 8
+
+  )
+
+   review8 = Review.create!(
+  spot_id: 8,
+  reviewer_id: user3.id,
+  comment: 'I had so much fun here!',
+  rating: 8
+
+  )
+
+   review9 = Review.create!(
+  spot_id: 9,
+  reviewer_id: user3.id,
+  comment: 'I had so much fun here!',
+  rating: 8
+
   )
 
 
