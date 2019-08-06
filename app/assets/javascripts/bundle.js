@@ -295,6 +295,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
 /* harmony import */ var _session_form_splash_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/splash.jsx */ "./frontend/components/session_form/splash.jsx");
+/* harmony import */ var _session_form_splash_jsx__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_session_form_splash_jsx__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./search/search_container */ "./frontend/components/search/search_container.jsx");
 /* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
 /* harmony import */ var _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./spots/spot_index_container */ "./frontend/components/spots/spot_index_container.js");
@@ -314,12 +315,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").createBrowserHistory;
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "splash-page-search"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find a host with a ghost..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  // // this.props.history.location.pathname
+  // debugger
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-top"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-bottom"
@@ -336,7 +338,7 @@ var App = function App() {
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_11__["default"], null));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(App));
 
 /***/ }),
 
@@ -1206,15 +1208,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /*!*****************************************************!*\
   !*** ./frontend/components/session_form/splash.jsx ***!
   \*****************************************************/
-/*! exports provided: splashPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "splashPage", function() { return splashPage; });
-var splashPage = function splashPage() {
-  return React.createElement("h1", null, "hello from splash");
-};
+// export const splashPage = () =>( 
+// )
 
 /***/ }),
 

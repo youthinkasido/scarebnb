@@ -7,7 +7,7 @@ import ReviewFormContainer from './review_for_container';
 class SpotShow extends React.Component{
     constructor(props){
         super(props)
-    
+      
     }
     componentDidMount(){
         this.props.fetchSpot(this.props.match.params.spotId)

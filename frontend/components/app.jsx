@@ -16,21 +16,27 @@ import SpotIndexContainer from './spots/spot_index_container'
 import SpotShow from './spots/spot_show'
 import Modal from './modal/modal'
 import Map from './map';
-
+import { withRouter } from 'react-router-dom'
 
 
 
 require("history").createBrowserHistory
-const App = () => (
 
+
+
+const App = () => {
+ 
+  // // this.props.history.location.pathname
+  // debugger
+return(
+
+  
   <div>
     <GreetingContainer />
-
-
-    <div className="splash-page-search">
-      <h1>Find a host with a ghost...</h1>
+    {/* <div className="splash-page-search">
+      <h1>Find a host with a ghost...</h1> */}
       <SearchContainer />
-    </div>
+    {/* </div> */}
  
    
     <div className='nav-line-top'></div>
@@ -51,7 +57,7 @@ const App = () => (
 
 
   </div>
-)
+)}
 
 
-export default App
+export default withRouter(App)
