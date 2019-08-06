@@ -8,6 +8,7 @@
 Review.destroy_all
 User.destroy_all 
 Spot.destroy_all
+
 user1 = User.create!(first_name: 'guest', last_name: 'guest', email:'guest1@gmail.com', password:'123456')
 user2 = User.create!(first_name: 'Ken', last_name: 'Kloostdaddy', email:'thekman@gmail.com', password:'123456')
 user3 = User.create!(first_name: 'Bobby', last_name: 'Yeak', email:'sessiontokensessionsessiontoken@gmail.com', password:'123456')
