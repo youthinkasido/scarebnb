@@ -229,14 +229,14 @@ spot1 = Spot.create!(
 
   review3 = Review.create!(
   spot_id: spot1.id,
-  reviewer_id: user3.id,
+  reviewer_id: user4.id,
   comment: 'Great time here!',
   rating: 4
 
   )
 
    review4 = Review.create!(
-  spot_id: spot1.id,
+  spot_id: spot2.id,
   reviewer_id: user3.id,
   comment: 'I was not having fun at all!',
   rating: 8
@@ -244,7 +244,7 @@ spot1 = Spot.create!(
   )
 
    review5 = Review.create!(
-  spot_id: spot1.id,
+  spot_id: spot3.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 8
@@ -252,7 +252,7 @@ spot1 = Spot.create!(
   )
 
    review6 = Review.create!(
-  spot_id: spot1.id,
+  spot_id: spot4.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 8
@@ -260,7 +260,7 @@ spot1 = Spot.create!(
   )
 
    review7 = Review.create!(
-  spot_id: spot1.id,
+  spot_id: spot5.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 8
@@ -268,7 +268,7 @@ spot1 = Spot.create!(
   )
 
    review8 = Review.create!(
-  spot_id: spot1.id,
+  spot_id: spot6.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 8
@@ -276,7 +276,7 @@ spot1 = Spot.create!(
   )
 
    review9 = Review.create!(
-  spot_id: spot1.id,
+  spot_id: spot7.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 8
