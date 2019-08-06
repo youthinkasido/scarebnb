@@ -52,6 +52,10 @@
     position: relative;
     top: -124px;
     left: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
 
 }
 
@@ -90,16 +94,16 @@
     font-weight: 500;
     font-style: bold;
     position: relative;
-    top: -45px;
+    top: -55px;
     text-align: left;
-    left: 480px;
+    left: 560px;
 }
 
 .skull-heart{ 
     width: 20px;
-    position: absolute;
-    left: 555px;
-    margin-top: -170px;
+    position: relative;
+    left: 625px;
+    top: -175px;
 
 }
 
@@ -120,12 +124,11 @@
 }
 
 .rating{
-    font-size: 10px;
+    font-size: 15px;
     font-style: bold;
     position: relative;
-    top: -57px;
+    top: -90px;
     left: 220px;
-  
 
 }
 
