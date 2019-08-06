@@ -212,7 +212,7 @@ spot1 = Spot.create!(
 
   review1 = Review.create!(
   spot_id: spot1.id,
-  reviewer_id: 1,
+  reviewer_id: user1.id,
   comment: 'Terrible. I will not coming back to this horrible shack! I can\'t believe I even paid to stay!',
   rating: 2,
   )
