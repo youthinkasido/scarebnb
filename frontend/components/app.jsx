@@ -25,8 +25,12 @@ const App = () => (
 
   <div>
     <GreetingContainer />
-    <SearchContainer />
 
+
+    <div className="splash-page-search">
+      <h1>Find a host with a ghost...</h1>
+      <SearchContainer />
+    </div>
  
    
     <div className='nav-line-top'></div>

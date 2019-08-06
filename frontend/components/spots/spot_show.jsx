@@ -4,15 +4,11 @@ import {connect} from 'react-redux'
 import { fetchSpot } from '../../actions/spot_actions';
 import ReviewFormContainer from './review_for_container';
 
-
-
-// Use by adding < Calendar />.Use onChange prop for getting new values.
 class SpotShow extends React.Component{
     constructor(props){
         super(props)
     
     }
-
     componentDidMount(){
         this.props.fetchSpot(this.props.match.params.spotId)
     }
@@ -26,7 +22,7 @@ class SpotShow extends React.Component{
     render(){
      
         const spot = this.props.spot
-        debugger
+     
         if (!spot){
             return null;
         }

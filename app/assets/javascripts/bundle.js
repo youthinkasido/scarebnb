@@ -260,9 +260,9 @@ var fetchAllSpots = function fetchAllSpots() {
 // from the promise,creates an action object (POJO) and sends that object with a type,
 // and data payload to the reducers, which update the state of the app
 
-var createReview = function createReview() {
+var createReview = function createReview(review) {
   return function (dispatch) {
-    return _util_spots_api_util__WEBPACK_IMPORTED_MODULE_0__["createReview"]().then(function (review) {
+    return _util_spots_api_util__WEBPACK_IMPORTED_MODULE_0__["createReview"](review).then(function (review) {
       return dispatch(receiveReview(review));
     });
   };
@@ -317,7 +317,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").createBrowserHistory;
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "splash-page-search"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find a host with a ghost..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-top"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-bottom"
@@ -1507,12 +1509,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(reviews, spotId) {
   return {
-    spots: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectAllSpots"])(state) //  spot: selectSpot(state.entities,spotId),
-    //  reviews: selectReviewsForSpot(state.entites, spot)
-    // gets spots back in an array format
-
+    spots: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectAllSpots"])(state)
   };
 };
 
@@ -1628,7 +1627,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- // Use by adding < Calendar />.Use onChange prop for getting new values.
+
 
 var SpotShow =
 /*#__PURE__*/
@@ -1657,7 +1656,6 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var spot = this.props.spot;
-      debugger;
 
       if (!spot) {
         return null;
@@ -1911,23 +1909,26 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 /*!****************************************!*\
   !*** ./frontend/reducers/selectors.js ***!
   \****************************************/
-/*! exports provided: selectAllSpots, selectReviewsForSpot */
+/*! exports provided: selectAllSpots */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectAllSpots", function() { return selectAllSpots; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectReviewsForSpot", function() { return selectReviewsForSpot; });
 var selectAllSpots = function selectAllSpots(state) {
   return Object.values(state.entities.spots);
-};
-var selectReviewsForSpot = function selectReviewsForSpot(_ref, spot) {
-  var spots = _ref.spots,
-      reviews = _ref.reviews;
-  return spot.reviewIds.map(function (reviewId) {
-    return reviews[reviewId];
-  });
-};
+}; // export const selectReviewsForSpot = (reviews,spotId) =>{
+//     reviews
+//     return
+//     Object.values(reviews)
+// }
+// [2,4,6,2]
+// // state => entities => reviews: 
+// [reviews.id]
+// 1: {id, comment, reviewer_id, spot_id},
+// 2: { id, comment, reviewer_id, spot_id},
+// 3: {id, comment, reviewer_id, spot_id},
+// 4: {id, comment, reviewer_id, spot_id},
 
 /***/ }),
 
@@ -2035,14 +2036,14 @@ var spotReducer = function spotReducer() {
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_REVIEW"]:
       var review = action.review,
-          average_rating = action.average_rating; //what?
+          average_rating = action.average_rating; // 
 
       var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state); //what?
 
-      newState[review.spot_id].reviewIds.push(review.id); //what?
+      newState[review.spot_id].reviewIds.push(review.id); //spot_id is created in review form state as a key
 
       newState[review.spot_id].average_rating = average_rating;
-    //what?
+    // returns given spots average rating
 
     default:
       return state;

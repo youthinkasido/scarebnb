@@ -5,7 +5,7 @@ validates :name, :description, :max_guests, :room_type, :address, :bedrooms, :ba
 
     has_many :reviews,
     foreign_key: :spot_id,
-    class_name: 'Reviews'
+    class_name: 'Review'
 
 #   def self.in_bounds(bounds)
 #     self.where("lat < ?", bounds[:northEast][:lat])

@@ -10,7 +10,7 @@ import {
 
 
 const spotReducer = (state = {}, action) => {
-  
+
     switch(action.type){
        
        case RECEIVE_ALL_SPOTS:
@@ -18,10 +18,10 @@ const spotReducer = (state = {}, action) => {
         case RECEIVE_SPOT:
             return merge({}, state, {[action.spot.id]: action.spot})
         case RECEIVE_REVIEW:
-            const { review, average_rating } = action; //what?
+            const { review, average_rating } = action; // 
             const newState = merge({}, state); //what?
-            newState[review.spot_id].reviewIds.push(review.id); //what?
-            newState[review.spot_id].average_rating = average_rating; //what?
+            newState[review.spot_id].reviewIds.push(review.id); //spot_id is created in review form state as a key
+            newState[review.spot_id].average_rating = average_rating; // returns given spots average rating
         default: 
             return state
     }

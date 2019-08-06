@@ -2,7 +2,6 @@ class Api::ReviewsController < ApplicationController
   before_action :require_logged_in
 
   def create
-debugger
     @review = current_user.reviews.new(review_params)
    
     if @review.save
@@ -10,6 +9,10 @@ debugger
     else
       render json: @review, status: :unprocessable_entity
     end
+  end
+
+  def show 
+    @review = Review.find(params[:id])
   end
 
   private

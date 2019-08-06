@@ -33,8 +33,8 @@ export const fetchAllSpots = () => dispatch => (
 // promise returned, then passed into receiveReview action which takes info 
 // from the promise,creates an action object (POJO) and sends that object with a type,
 // and data payload to the reducers, which update the state of the app
-export const createReview = () => dispatch => (
-    SpotsApiUtil.createReview().then(review=> dispatch(receiveReview(review)))
+export const createReview = (review) => dispatch => (
+    SpotsApiUtil.createReview(review).then(review=> dispatch(receiveReview(review)))
 )
 
 export const fetchSpot = (id) => dispatch => (

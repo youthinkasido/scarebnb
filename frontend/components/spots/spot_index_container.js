@@ -3,13 +3,11 @@ import { fetchAllSpots } from '../../actions/spot_actions'
 import { selectAllSpots } from '../../reducers/selectors';
 import SpotsIndex from './spot_index'
 
-const mapStateToProps = (state) =>{
+const mapStateToProps = (reviews, spotId) =>{
 
     return ({
- spots: selectAllSpots(state),
-//  spot: selectSpot(state.entities,spotId),
-//  reviews: selectReviewsForSpot(state.entites, spot)
-        // gets spots back in an array format
+ spots: selectAllSpots(state)
+
 })}
 
 const mapDispatchToProps = (dispatch) => {
