@@ -1,8 +1,6 @@
 export const selectAllSpots = (state) => Object.values(state.entities.spots)
 
-// export const selectSpot = ({ spots }, spotId) => {
-//     return spots[spotId] || { reviewIds: [] };
-// };
+
 
 
 export const selectReviewsForSpot = ({spots,reviews}, spot) =>{

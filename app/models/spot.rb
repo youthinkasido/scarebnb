@@ -2,7 +2,10 @@ class Spot < ApplicationRecord
 validates :name, :description, :max_guests, :room_type, :address, :bedrooms, :bathrooms, :rating, :spot_type, presence: true
 
     has_one_attached :photo
-    has_many :reviews
+
+    has_many :reviews,
+    foreign_key: :spot_id,
+    class_name: 'Reviews'
 
 #   def self.in_bounds(bounds)
 #     self.where("lat < ?", bounds[:northEast][:lat])
@@ -11,7 +14,7 @@ validates :name, :description, :max_guests, :room_type, :address, :bedrooms, :ba
 #       .where("lng < ?", bounds[:northEast][:lng])
 #   end
 
-    def averag_rating 
+    def average_rating 
         reviews.average(:rating)
     end
 

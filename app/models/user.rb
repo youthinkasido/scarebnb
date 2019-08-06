@@ -5,17 +5,14 @@ class User < ApplicationRecord
   validates :email, :first_name, :last_name, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
-
   after_initialize :ensure_session_token
   
-  has_many :reviews
-  # has_many :spots,
-  # # foreign_key: :owner_id
+  has_many :reviews,
+  foreign_key: :reviewer_id,
+  class_name: 'Review'
 
   # has_many :bookings,
   # # foreign_key: :booker_id
-
-
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import DayPickerRangeControllerWrapper from './daypickercalender';
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
+
 
 const SpotIndexItem = ({spot}) => {
  
@@ -10,7 +8,7 @@ const SpotIndexItem = ({spot}) => {
 return (
  
     <div className="spot-item--container">
-   <DayPickerRangeControllerWrapper/>
+   {/* <DayPickerRangeControllerWrapper/> */}
         <div className="spot-item-cover">
             <div className="spot-all-items">
         <Link className="spot-link" to={`/spots/${spot.id}`}><img className="photo" src={spot.image_url} width='200' height='125' /></Link>

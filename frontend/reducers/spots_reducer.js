@@ -18,8 +18,10 @@ const spotReducer = (state = {}, action) => {
         case RECEIVE_SPOT:
             return merge({}, state, {[action.spot.id]: action.spot})
         case RECEIVE_REVIEW:
-            const newState = merge({}, state, );
-            
+            const { review, average_rating } = action; //what?
+            const newState = merge({}, state); //what?
+            newState[review.spot_id].reviewIds.push(review.id); //what?
+            newState[review.spot_id].average_rating = average_rating; //what?
         default: 
             return state
     }

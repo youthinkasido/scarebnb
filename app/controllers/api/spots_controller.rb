@@ -4,13 +4,12 @@ class Api::SpotsController < ApplicationController
         @spots = Spot.all
     end
 
-    def show 
-         @spot = Spot.includes(:reviews).find(params[:id]) #finds a spots through active record association and entered params
-         @review_ids = 
-        @spot.reviews.map do |review|
-        review.id
-         end
 
-        
-    end
+    @spot = Spot.includes(:reviews).find(params[:id]) #finds a spots through active record association and entered params
+    @review_ids = 
+
+    @spot.reviews.map do |review|
+        review.id
+    end      
+
 end

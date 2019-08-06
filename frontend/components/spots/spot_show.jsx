@@ -2,13 +2,15 @@ import React from 'react';
 import {withRouter} from 'react-router'
 import {connect} from 'react-redux'
 import { fetchSpot } from '../../actions/spot_actions';
-import DateRangePickerWrapper from './calender';
+import ReviewFormContainer from './review_for_container';
+
 
 
 // Use by adding < Calendar />.Use onChange prop for getting new values.
 class SpotShow extends React.Component{
     constructor(props){
         super(props)
+    
     }
 
     componentDidMount(){
@@ -88,6 +90,8 @@ class SpotShow extends React.Component{
                     </div>
 
                     <div className="spot-show--reviews">
+                         
+                        <ReviewFormContainer/>
                         <div className="spot-show-review">
                             <h2>asdasdasdELLO</h2>
                                 <p>{spot.reviews}</p>
@@ -101,7 +105,7 @@ class SpotShow extends React.Component{
                         <h2>Dates</h2>
                         <div></div>
                         <div></div>
-                            <div className="spot-show-calender"><DateRangePickerWrapper /></div></div>
+                            <div className="spot-show-calender"> </div></div>
                      
                 </div>
 
