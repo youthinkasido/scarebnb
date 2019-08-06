@@ -1449,33 +1449,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
- // const bedCheck = ({spot})=>{
-// }
-// function amenityGenerator(){
-//    let amenities = [
-//        ' Wifi ', ' Soap ', ' Running water ', ' Couch ', ' Nearby police station ', ' Valet Parking '
-//     ]
-//     let spot_ams = [];
-//     let i = Math.floor(Math.random() * amenities.length - 2)
-//     while (i > 0){
-//         spot_ams.push(amenities[i])
-//         if (i > 1) {
-//             spot_ams.push(' -')
-//         }
-//         i--
-//     }
-//         if (!spot_ams.length){
-//             spot_ams.push('Wifi')
-//         }
-//     return spot_ams
-// }
+ // import DayPickerRangeControllerWrapper from './daypickercalender';
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 
 var SpotIndexItem = function SpotIndexItem(_ref) {
   var spot = _ref.spot;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-item--container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DayPickerRangeControllerWrapper, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-item-cover"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-all-items"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "spot-link",
     to: "/spots/".concat(spot.id)
@@ -1509,7 +1494,7 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
     className: "fa fa-star"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "fa fa-star"
-  }))));
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotIndexItem);
@@ -1663,9 +1648,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+review;
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  spots: _spots_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  spots: _spots_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  reviews: reviews
 }));
 
 /***/ }),
