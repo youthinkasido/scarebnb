@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Review.destroy_all
+User.destroy_all 
+Spot.destroy_all
 user1 = User.create!(first_name: 'guest', last_name: 'guest', email:'guest1@gmail.com', password:'123456')
 user2 = User.create!(first_name: 'Ken', last_name: 'Kloostdaddy', email:'thekman@gmail.com', password:'123456')
 user3 = User.create!(first_name: 'Bobby', last_name: 'Yeak', email:'sessiontokensessionsessiontoken@gmail.com', password:'123456')
@@ -209,7 +211,7 @@ spot1 = Spot.create!(
 
 
   review1 = Review.create!(
-  spot_id: 1,
+  spot_id: spot1.id,
   reviewer_id: 1,
   comment: 'Terrible. I will not coming back to this horrible shack! I can\'t believe I even paid to stay!',
   rating: 2,
@@ -218,7 +220,7 @@ spot1 = Spot.create!(
 
 
   review2 = Review.create!(
-  spot_id: 2,
+  spot_id: spot1.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 2
@@ -226,7 +228,7 @@ spot1 = Spot.create!(
   )
 
   review3 = Review.create!(
-  spot_id: 3,
+  spot_id: spot1.id,
   reviewer_id: user3.id,
   comment: 'Great time here!',
   rating: 4
@@ -234,7 +236,7 @@ spot1 = Spot.create!(
   )
 
    review4 = Review.create!(
-  spot_id: 4,
+  spot_id: spot1.id,
   reviewer_id: user3.id,
   comment: 'I was not having fun at all!',
   rating: 8
@@ -242,7 +244,7 @@ spot1 = Spot.create!(
   )
 
    review5 = Review.create!(
-  spot_id: 5,
+  spot_id: spot1.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 8
@@ -250,7 +252,7 @@ spot1 = Spot.create!(
   )
 
    review6 = Review.create!(
-  spot_id: 6,
+  spot_id: spot1.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 8
@@ -258,7 +260,7 @@ spot1 = Spot.create!(
   )
 
    review7 = Review.create!(
-  spot_id: 7,
+  spot_id: spot1.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 8
@@ -266,7 +268,7 @@ spot1 = Spot.create!(
   )
 
    review8 = Review.create!(
-  spot_id: 8,
+  spot_id: spot1.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 8
@@ -274,7 +276,7 @@ spot1 = Spot.create!(
   )
 
    review9 = Review.create!(
-  spot_id: 9,
+  spot_id: spot1.id,
   reviewer_id: user3.id,
   comment: 'I had so much fun here!',
   rating: 8
