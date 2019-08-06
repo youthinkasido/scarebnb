@@ -291,7 +291,7 @@ spot1 = Spot.create!(
   spots = [spot1,spot2,spot3,spot4,spot5,spot6,spot7,spot8,spot9]
 
 spots.each do |spot|
-  spot.photo.attach(io:File.open('/Users/arshiakhoshnood/Desktop/finalproject/photos/shacks/shack.jpg'),filename:'shack.jpg')
+  spot.photo.attach(io:File.open(image_url('shack.jpg'),filename:'shack.jpg')
 end
 
 
