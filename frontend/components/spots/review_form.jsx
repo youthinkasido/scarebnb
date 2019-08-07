@@ -4,9 +4,10 @@ import { withRouter } from 'react-router-dom';
 class ReviewForm extends React.Component {
     constructor(props) {
         super(props)
-
+        // debugger
+        
         this.state = {
-            rating: 5,
+            rating: 0,
             comment: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,14 +25,15 @@ class ReviewForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         const spotId = parseInt(this.props.match.params.spotId); //? match
+        // debugger
         const review = Object.assign({}, this.state, {
             spot_id: spotId
         })
-        this.props.createReview(review) // coming in from review container
-
+        // debugger
+        this.props.createReview(review) // makes the api util request contains the promise 
+        
         this.props.returnToShowPage
     }
-
 
     update(property) {
         return e => this.setState({ [property]: e.currentTarget.value });
@@ -40,36 +42,23 @@ class ReviewForm extends React.Component {
 
     render() {
         return (
-
             <div className="review-form">
-                <div>
-                    <input id="star-4" type="radio" name="rating" value="star-4" />
-                        <label htmlFor="star-4" title="4 stars">
-                        <i className="active fa fa-star" aria-hidden="true"></i>
-                    </label>
+                
+                {/* <span className='stars container stars-80'>★★★★★</span> */}
 
-                    <input id="star-3" type="radio" name="rating" value="star-3" />
-                        <label htmlFor="star-3" title="3 stars">
-                        <i className="active fa fa-star" aria-hidden="true"></i>
-                    </label>
+                <fieldset className="rating">
+                    <legend>Please rate:</legend>
+                    <input type="radio" id="star5" name="rating" value="5" /><label htmlFor="star5" title="Rocks!">5 stars</label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label htmlFor="star4" title="Pretty good">4 stars</label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label htmlFor="star3" title="Meh">3 stars</label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label htmlFor="star2" title="Kinda bad">2 stars</label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label htmlFor="star1" title="Sucks big time">1 star</label>
+                </fieldset>
 
-                    <input id="star-2" type="radio" name="rating" value="star-2" />
-                        <label htmlFor="star-2" title="2 stars">
-                        <i className="active fa fa-star" aria-hidden="true"></i>
-                    </label>
 
-                    <input id="star-1" type="radio" name="rating" value="star-1" />
-                        <label htmlFor="star-1" title="1 star">
-                        <i className="active fa fa-star" aria-hidden="true"></i>
-                    </label>
-
-                </div>
 
                 <form onSubmit={this.handleSubmit}>
                     <label>Rating</label>
-
-
-
                     <input
                         type="number"
                         value={this.state.rating}

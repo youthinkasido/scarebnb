@@ -4,10 +4,9 @@ import { selectAllSpots } from '../../reducers/selectors';
 import SpotsIndex from './spot_index'
 
 const mapStateToProps = (state) => {
-
+// debugger
     return ({
-        spots: selectAllSpots(state),
-
+        spots: selectAllSpots(state)
     })
 }
 
@@ -15,6 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 
     return ({
         fetchAllSpots: () => dispatch(fetchAllSpots())
+    
     })
 }
 

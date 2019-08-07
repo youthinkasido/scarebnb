@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const SpotIndexItem = ({spot}) => {
- 
-
+ debugger
 return (
  
     <div className="spot-item--container">
@@ -24,7 +23,6 @@ return (
         <span className="fa fa-star checked"></span>
         <span className="fa fa-star checked"></span>
         <span className="fa fa-star"></span>
-        
         <span className="fa fa-star"></span>
                 </div>
         </div>

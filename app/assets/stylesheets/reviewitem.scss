@@ -1,0 +1,46 @@
+.review-item{
+   color: white;
+    font-size: 20px;
+    text-align: left;
+    padding-top: 40px;
+    border-top: 1px solid grey;
+}
+
+.review-details{
+    display: inline;
+    margin: 20px;
+    
+}
+.review-reviewer{
+    display: inline;
+    top: 20px;
+}
+
+.review-rating{
+    display: block;
+    position: absolute;
+    left: 163px;
+    font-size: 12px;
+
+}
+
+.review-comment{
+    padding-top: 30px;
+    text-decoration: none;
+    list-style: none;
+    margin-left: 61px;
+    padding-right: 2px;
+}
+
+
+
+
+
+.review-item img{
+    width: 40px;
+    display: inline;
+}
+
+
+
+

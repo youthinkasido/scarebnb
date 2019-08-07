@@ -1,12 +1,9 @@
 export const selectAllSpots = (state) => Object.values(state.entities.spots)
-// export const selectReviewsForSpot = (reviews,spotId) =>{
+export const selectReviewsForSpot = (reviews,spotId) => {
+    // debugger
+    return(Object.values(this.props.reviews))
+}
 
-//     reviews
-//     return
-//     Object.values(reviews)
-// }
-
-// [2,4,6,2]
 
 
 

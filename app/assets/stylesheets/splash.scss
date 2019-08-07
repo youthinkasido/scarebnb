@@ -9,44 +9,83 @@ html {
 }
 
 
-
-
-
-
 // splash page settings
+.tagline{
+      top: 2200px;
+    left: 324px;
+}
 
-// .splash-page-search{
-//     position: absolute;
-//     width: 200px;
-//     left: 25%;
-//     top: 25%;
-// }
 
-// .splash-page-search input{
-//     height: 80px;
-//     width: 625px;
-//     box-shadow: 0 0 19px 12px #666;
-//     behavior: url(PIE.htc);
-//     color: black;
-//     font-size: 30px;
-//     padding-left: 70px;
-// }
 
-// .splash-page-search img{ // makes the logo too small
-//     width: 30px;
-//     position: absolute;
-//     left: 43px;
-//     top: 28px;
-//     color: grey;
-// }
+.splash-page-search h1{
+  color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    width: 800px;
+    position: absolute;
+   top: -40px; 
 
-// .splash-page-search h1{
-//     color: white;
-//     font-family: Arial, Helvetica, sans-serif;
-//     font-size: 40px;
+}
+
+.splash-page-search > div{
+    width: 200px;
+    left: 35%;
+    top: 25%;
+    float: right;
+    position: relative;
+    left: -60%;
+    bottom: 40%;
+    text-align: left;
+    top: 25vh;
+}
+
+.splash-page-completer > div{
+    color: white;
+    text-align: left;
+    width: 9100px;
+    border: 1px solid white;
+    padding: 15px;
+    padding-left: 40px;
+    background: black;
+}
+
+.air-bnb-front-logo{
+    top: -2440px;
+    margin: 0 auto;
+    left: -279px;
+}
+
+.splash-page-search input{
+    height: 80px;
+    width: 625px;
+    box-shadow: 0 0 19px 12px #666;
+    behavior: url(PIE.htc);
+    color: black;
+    font-size: 30px;
+    padding-left: 70px;
+   
+}
+
+
+.float_center {
+
+}
+
+.splash-page-search img{ // makes the logo too small
+    width: 30px;
+    position: absolute;
+    left: 43px;
+    top: 28px;
+    color: grey;
+}
+
+.splash-page-search h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
  
-//     width: 800px;
-//     position: absolute;
-//     top: -40px;
-//     left: 75px;
-// }
+    width: 800px;
+    position: absolute;
+    top: -40px;
+    left: 75px;
+}

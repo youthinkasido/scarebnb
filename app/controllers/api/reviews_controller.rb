@@ -15,6 +15,13 @@ class Api::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
+  def index 
+    @reviews = Review.where(spot_id: params[:spot_id]).includes(:reviewer)
+  end
+
+#returns a collection 
+#find finds only one, first mataching recod
+
   private
 
   def review_params

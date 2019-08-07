@@ -11,7 +11,7 @@ class SpotsIndex extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchAllSpots();   
+        this.props.fetchAllSpots();
     }
 
     

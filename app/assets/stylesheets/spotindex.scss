@@ -40,7 +40,7 @@
     font-style: normal;
     border: 1px solid #403f3f;
     height: 150px;
-
+    width: 56.1vh;
 }
 
 //////spot name, type/bedrooms in index page for each item 
@@ -66,6 +66,10 @@
     position: relative;
     top: -75px;
     left: 220px;
+}
+
+.reviews{
+    
 }
 
 
@@ -126,10 +130,10 @@
     font-size: 15px;
     font-style: bold;
     position: relative;
-    top: -90px;
-    left: 220px;
-
+    left: 25%;
+    bottom: -20px;
 }
+
 
 ////////////////////////media queries
 

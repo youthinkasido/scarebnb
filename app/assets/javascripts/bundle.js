@@ -206,7 +206,7 @@ var logout = function logout() {
 /*!******************************************!*\
   !*** ./frontend/actions/spot_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_ALL_SPOTS, RECEIVE_SPOT, RECEIVE_REVIEW, receiveReview, receiveAllSpots, receiveSpot, fetchAllSpots, createReview, fetchSpot */
+/*! exports provided: RECEIVE_ALL_SPOTS, RECEIVE_SPOT, RECEIVE_REVIEW, RECEIVE_REVIEWS, receiveReview, receiveReviews, receiveAllSpots, receiveSpot, fetchReviews, fetchAllSpots, createReview, fetchSpot */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -214,9 +214,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_SPOTS", function() { return RECEIVE_ALL_SPOTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SPOT", function() { return RECEIVE_SPOT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEWS", function() { return RECEIVE_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReviews", function() { return receiveReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllSpots", function() { return receiveAllSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSpot", function() { return receiveSpot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllSpots", function() { return fetchAllSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
@@ -225,6 +228,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_ALL_SPOTS = "RECEIVE_ALL_SPOTS";
 var RECEIVE_SPOT = "RECEIVE_SPOT";
 var RECEIVE_REVIEW = "RECEIVE_REVIEW";
+var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 var receiveReview = function receiveReview(_ref) {
   var review = _ref.review,
       average_rating = _ref.average_rating,
@@ -237,6 +241,13 @@ var receiveReview = function receiveReview(_ref) {
     reviewer: reviewer
   };
 };
+var receiveReviews = function receiveReviews(reviews) {
+  return {
+    //where are we getting info from? // why destructured?
+    type: RECEIVE_REVIEWS,
+    reviews: reviews
+  };
+};
 var receiveAllSpots = function receiveAllSpots(spots) {
   return {
     type: RECEIVE_ALL_SPOTS,
@@ -247,6 +258,13 @@ var receiveSpot = function receiveSpot(spot) {
   return {
     type: RECEIVE_SPOT,
     spot: spot
+  };
+};
+var fetchReviews = function fetchReviews(spotId) {
+  return function (dispatch) {
+    return _util_spots_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchReviews"](spotId).then(function (reviews) {
+      return dispatch(receiveReviews(reviews));
+    });
   };
 };
 var fetchAllSpots = function fetchAllSpots() {
@@ -262,6 +280,7 @@ var fetchAllSpots = function fetchAllSpots() {
 
 var createReview = function createReview(review) {
   return function (dispatch) {
+    // debugger
     return _util_spots_api_util__WEBPACK_IMPORTED_MODULE_0__["createReview"](review).then(function (review) {
       return dispatch(receiveReview(review));
     });
@@ -274,7 +293,7 @@ var fetchSpot = function fetchSpot(id) {
     });
   };
 };
-window.receiveReview = createReview;
+window.createReview = createReview;
 
 /***/ }),
 
@@ -302,6 +321,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spots_spot_show__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./spots/spot_show */ "./frontend/components/spots/spot_show.jsx");
 /* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
 /* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./map */ "./frontend/components/map.jsx");
+/* harmony import */ var _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./spots/spot_show_container */ "./frontend/components/spots/spot_show_container.js");
+
 
 
 
@@ -319,9 +340,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").createBrowserHistory;
 
 var App = function App() {
-  // // this.props.history.location.pathname
-  // debugger
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, window.location.href === "http://localhost:3000/#/" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "splash-page-search tagline "
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "air-bnb-front-logo",
+    src: "./airbnb.svg",
+    alt: ""
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find a host with a ghost..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-top"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-bottom"
@@ -334,7 +359,7 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/spots/:spotId",
-    component: _spots_spot_show__WEBPACK_IMPORTED_MODULE_10__["default"]
+    component: _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_13__["default"]
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_11__["default"], null));
 };
 
@@ -819,7 +844,7 @@ function (_React$Component) {
             onClick: function onClick() {
               return _this2.hideSearchSuggestions();
             },
-            className: "search-completer",
+            className: "search-completer drop",
             key: city.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, city.name, " ", city.state), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
             className: "search-map-pin",
@@ -835,11 +860,13 @@ function (_React$Component) {
         className: "search"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "air-bnb-logo",
         src: "./airbnb.svg",
         alt: ""
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "magnifying-glass",
         src: "/magnifying-glass.png"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1291,9 +1318,10 @@ function (_React$Component) {
 
     _classCallCheck(this, ReviewForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(ReviewForm).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ReviewForm).call(this, props)); // debugger
+
     _this.state = {
-      rating: 5,
+      rating: 0,
       comment: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -1312,11 +1340,13 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var spotId = parseInt(this.props.match.params.spotId); //? match
+      // debugger
 
       var review = Object.assign({}, this.state, {
         spot_id: spotId
-      });
-      this.props.createReview(review); // coming in from review container
+      }); // debugger
+
+      this.props.createReview(review); // makes the api util request contains the promise 
 
       this.props.returnToShowPage;
     }
@@ -1334,51 +1364,49 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "star-4",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("fieldset", {
+        className: "rating"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("legend", null, "Please rate:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
+        id: "star5",
         name: "rating",
-        value: "star-4"
+        value: "5"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "star-4",
-        title: "4 stars"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "active fa fa-star",
-        "aria-hidden": "true"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "star-3",
+        htmlFor: "star5",
+        title: "Rocks!"
+      }, "5 stars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
+        id: "star4",
         name: "rating",
-        value: "star-3"
+        value: "4"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "star-3",
-        title: "3 stars"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "active fa fa-star",
-        "aria-hidden": "true"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "star-2",
+        htmlFor: "star4",
+        title: "Pretty good"
+      }, "4 stars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
+        id: "star3",
         name: "rating",
-        value: "star-2"
+        value: "3"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "star-2",
-        title: "2 stars"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "active fa fa-star",
-        "aria-hidden": "true"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "star-1",
+        htmlFor: "star3",
+        title: "Meh"
+      }, "3 stars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
+        id: "star2",
         name: "rating",
-        value: "star-1"
+        value: "2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "star-1",
-        title: "1 star"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "active fa fa-star",
-        "aria-hidden": "true"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        htmlFor: "star2",
+        title: "Kinda bad"
+      }, "2 stars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        id: "star1",
+        name: "rating",
+        value: "1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "star1",
+        title: "Sucks big time"
+      }, "1 star")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Rating"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "number",
@@ -1399,6 +1427,42 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ReviewForm));
+
+/***/ }),
+
+/***/ "./frontend/components/spots/review_index_item.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/spots/review_index_item.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _review_for_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./review_for_container */ "./frontend/components/spots/review_for_container.js");
+
+
+
+var ReviewIndexItem = function ReviewIndexItem(_ref) {
+  var review = _ref.review;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./user.svg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-details"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "review-reviewer"
+  }, review.reviewer), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "review-rating"
+  }, "Rating ", review.rating), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "review-comment"
+  }, review.comment)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ReviewIndexItem);
 
 /***/ }),
 
@@ -1508,6 +1572,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
+  // debugger
   return {
     spots: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectAllSpots"])(state)
   };
@@ -1542,6 +1607,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var SpotIndexItem = function SpotIndexItem(_ref) {
   var spot = _ref.spot;
+  debugger;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-item--container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1603,6 +1669,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
 /* harmony import */ var _review_for_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./review_for_container */ "./frontend/components/spots/review_for_container.js");
+/* harmony import */ var _review_index_item__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./review_index_item */ "./frontend/components/spots/review_index_item.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1627,6 +1694,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var SpotShow =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1641,7 +1709,12 @@ function (_React$Component) {
   _createClass(SpotShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchSpot(this.props.match.params.spotId);
+      var _this = this;
+
+      var spotId = this.props.match.params.spotId;
+      this.props.fetchSpot(spotId).then(function () {
+        return _this.props.fetchReviews(spotId);
+      });
     }
   }, {
     key: "componentDidUpdate",
@@ -1653,7 +1726,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var spot = this.props.spot;
+      // console.log(this.props.reviews)
+      var spot = this.props.spot; // debugger
 
       if (!spot) {
         return null;
@@ -1673,7 +1747,7 @@ function (_React$Component) {
         src: spot.image_url
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "spot-show--details"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Leave A Review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show-name"
       }, spot.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show-city-state"
@@ -1685,9 +1759,13 @@ function (_React$Component) {
         className: "spot-show-ameneties"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Amenities:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, spot.amenities)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show--reviews"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_for_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show-review"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "asdasdasdELLO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.reviews)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.reviews.map(function (review) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_index_item__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          review: review
+        });
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_for_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot--bookings"
       }, "Bookings", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-booking-form-container"
@@ -1717,6 +1795,53 @@ var mdp = function mdp(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(msp, mdp)(SpotShow)));
+
+/***/ }),
+
+/***/ "./frontend/components/spots/spot_show_container.js":
+/*!**********************************************************!*\
+  !*** ./frontend/components/spots/spot_show_container.js ***!
+  \**********************************************************/
+/*! exports provided: msp, mdp, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "msp", function() { return msp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mdp", function() { return mdp; });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+/* harmony import */ var _spot_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_show */ "./frontend/components/spots/spot_show.jsx");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+
+
+ // import { createReview } from '../../util/spots_api_util'; ?????
+
+ //calls function from selector and passes props to component
+// need to get back review ids here and give it to spot_show component's slice of state
+//what do we want to give our show container? 
+// why, a spot of course!
+
+var msp = function msp(state) {
+  return {
+    reviews: Object.values(state.entities.reviews)
+  };
+}; //mdp key, when called in component, makes ajax request then dispatches return data to spots reducer to update the store
+
+var mdp = function mdp(dispatch) {
+  return {
+    fetchSpot: function fetchSpot(id) {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpot"])(id));
+    },
+    fetchReviews: function fetchReviews(id) {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchReviews"])(id));
+    },
+    createReview: function createReview(id) {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["createReview"])(id));
+    }
+  };
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(_spot_show__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -1856,6 +1981,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var reviewsReducer = function reviewsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
+  // action will contain everything we got back from the j builder wrapped with a type and payload
+  // debugger
   Object.freeze(state);
 
   switch (action.type) {
@@ -1863,7 +1990,10 @@ var reviewsReducer = function reviewsReducer() {
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, action.reviews);
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, _defineProperty({}, review.id, review.action));
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, _defineProperty({}, action.review.id, action.review));
+
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEWS"]:
+      return action.reviews;
 
     default:
       return state;
@@ -1907,21 +2037,22 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 /*!****************************************!*\
   !*** ./frontend/reducers/selectors.js ***!
   \****************************************/
-/*! exports provided: selectAllSpots */
+/*! exports provided: selectAllSpots, selectReviewsForSpot */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectAllSpots", function() { return selectAllSpots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectReviewsForSpot", function() { return selectReviewsForSpot; });
+var _this = undefined;
+
 var selectAllSpots = function selectAllSpots(state) {
   return Object.values(state.entities.spots);
-}; // export const selectReviewsForSpot = (reviews,spotId) =>{
-//     reviews
-//     return
-//     Object.values(reviews)
-// }
-// [2,4,6,2]
-// // state => entities => reviews: 
+};
+var selectReviewsForSpot = function selectReviewsForSpot(reviews, spotId) {
+  // debugger
+  return Object.values(_this.props.reviews);
+}; // // state => entities => reviews: 
 // [reviews.id]
 // 1: {id, comment, reviewer_id, spot_id},
 // 2: { id, comment, reviewer_id, spot_id},
@@ -2025,23 +2156,14 @@ var spotReducer = function spotReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
+  // action is dispatched aciton that contains a type and payload
+  // debugger
   switch (action.type) {
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_SPOTS"]:
       return action.spots;
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SPOT"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.spot.id, action.spot));
-
-    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_REVIEW"]:
-      var review = action.review,
-          average_rating = action.average_rating; // 
-
-      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state); //what?
-
-      newState[review.spot_id].reviewIds.push(review.id); //spot_id is created in review form state as a key
-
-      newState[review.spot_id].average_rating = average_rating;
-    // returns given spots average rating
 
     default:
       return state;
@@ -2203,6 +2325,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  // debugger
   return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_2___default.a));
 };
 
@@ -2294,13 +2417,14 @@ var logout = function logout() {
 /*!*****************************************!*\
   !*** ./frontend/util/spots_api_util.js ***!
   \*****************************************/
-/*! exports provided: fetchSpots, fetchSpot, createReview */
+/*! exports provided: fetchSpots, fetchSpot, fetchReviews, createReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpots", function() { return fetchSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
 var fetchSpots = function fetchSpots() {
   return $.ajax({
@@ -2314,7 +2438,18 @@ var fetchSpot = function fetchSpot(id) {
     url: "api/spots/".concat(id)
   });
 };
+var fetchReviews = function fetchReviews(spotId) {
+  // debugger
+  return $.ajax({
+    method: 'GET',
+    url: "api/reviews",
+    data: {
+      spot_id: spotId
+    }
+  });
+};
 var createReview = function createReview(review) {
+  // debugger
   return $.ajax({
     method: 'POST',
     url: 'api/reviews',
@@ -2322,7 +2457,7 @@ var createReview = function createReview(review) {
       review: review
     }
   });
-};
+}; // do we need a fetch review?
 
 /***/ }),
 
