@@ -29,9 +29,10 @@ return(
   <section>
 
     {window.location.href === `http://localhost:3000/#/` ? 
-      <div className="splash-page-search tagline ">
+     
+      <div className="splash-page-search">
+       
       <img className="air-bnb-front-logo" src="./airbnb.svg" alt="" />
-        <h1>Find a host with a ghost...</h1>
         <SearchContainer /></div>
       
       : <SearchContainer />}

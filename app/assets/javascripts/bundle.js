@@ -336,12 +336,12 @@ __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").crea
 
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, window.location.href === "http://localhost:3000/#/" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "splash-page-search tagline "
+    className: "splash-page-search"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "air-bnb-front-logo",
     src: "./airbnb.svg",
     alt: ""
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find a host with a ghost..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-top"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-bottom"

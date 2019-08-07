@@ -104,6 +104,9 @@ hideSearchSuggestions(){
     const {term, people}= this.state
   return (
     <div className='search'>
+
+
+      
        <div className="search-container">
          <div>
           

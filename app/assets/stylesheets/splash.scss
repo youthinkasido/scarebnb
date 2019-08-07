@@ -1,6 +1,6 @@
 
 html { 
-  background: image_url('haunted-savannah-skyline.jpg'); 
+  background: image_url('scarebnb.jpg'); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -11,11 +11,12 @@ html {
 
 // splash page settings
 .tagline{
-    position: relative;
-    top: 220px;
-    left: 324px;
+position: absolute;
+    left: 500px;
+    top: 240px;
+    color: white;
+    font-size: 40px;
 }
-
 
 
 .splash-page-search h1{
