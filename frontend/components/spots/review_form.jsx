@@ -29,7 +29,7 @@ class ReviewForm extends React.Component {
         })
         // debugger
         this.props.createReview(review)
-        // this.setState({ rating: '' }) 
+        this.setState({ comment: '' }) 
         
     }
 

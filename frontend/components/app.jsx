@@ -31,11 +31,13 @@ return(
     {window.location.href === `http://localhost:3000/#/` ? 
      
       <div className="splash-page-search">
-       
+       <section className="splash-name">ScareBnb</section>
       <img className="air-bnb-front-logo" src="./airbnb.svg" alt="" />
         <SearchContainer /></div>
       
       : <SearchContainer />}
+
+      
     <GreetingContainer />
     <div className='nav-line-top'></div>
      <div className='nav-line-bottom'></div>

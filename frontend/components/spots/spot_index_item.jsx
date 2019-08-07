@@ -9,8 +9,9 @@ return (
     <div className="spot-item--container">
    {/* <DayPickerRangeControllerWrapper/> */}
         <div className="spot-item-cover">
-            <div className="spot-all-items">
+           
         <Link className="spot-link" to={`/spots/${spot.id}`}><img className="photo" src={spot.image_url} width='200' height='125' /></Link>
+         <div className="spot-all-items">
         <div className='spot-type-bedrooms'>{spot.spot_type}</div>
         <div className='spot-capacities'>{spot.max_guests} guests - {spot.bedrooms} beds - {spot.bathrooms}  bath</div>
         <div className='spot-amenities'>{spot.amenities} </div>

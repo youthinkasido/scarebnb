@@ -16,6 +16,7 @@
 
 }
 
+
 .photo{
     top: 10px;
     position: relative;
@@ -30,7 +31,7 @@
 }
 
 .flex-container > div{
-    background-color: black;
+background-color: black;
     width: 25%;
     width: 69.1vh;
     text-align: left;
@@ -39,9 +40,17 @@
     font-size: 14px;
     font-style: normal;
     border: 1px solid #403f3f;
-    height: 150px;
-    width: 56.1vh;
+    height: 190px;
+    width: 61.4vh;
 }
+
+.photo{
+        top: 10px;
+    position: relative;
+    margin-left: 10px;
+    height: 170px;
+}
+
 
 //////spot name, type/bedrooms in index page for each item 
 
@@ -68,9 +77,13 @@
     left: 220px;
 }
 
-.reviews{
-    
+.spot-all-items{
+    top: 10px;
+    position: relative;
+    margin-left: 10px;
+    height: 170px;
 }
+
 
 
 .spot-amenities{

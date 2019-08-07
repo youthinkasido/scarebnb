@@ -337,7 +337,9 @@ __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").crea
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, window.location.href === "http://localhost:3000/#/" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-page-search"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "splash-name"
+  }, "ScareBnb"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "air-bnb-front-logo",
     src: "./airbnb.svg",
     alt: ""
@@ -1343,7 +1345,10 @@ function (_React$Component) {
         spot_id: spotId
       }); // debugger
 
-      this.props.createReview(review); // this.setState({ rating: '' }) 
+      this.props.createReview(review);
+      this.setState({
+        comment: ''
+      });
     }
   }, {
     key: "update",
@@ -1631,8 +1636,6 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
     className: "spot-item--container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-item-cover"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-all-items"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "spot-link",
     to: "/spots/".concat(spot.id)
@@ -1642,6 +1645,8 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
     width: "200",
     height: "125"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-all-items"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-type-bedrooms"
   }, spot.spot_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-capacities"
