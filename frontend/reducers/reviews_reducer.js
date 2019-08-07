@@ -8,8 +8,10 @@ const reviewsReducer = (state = {}, action) => {// action will contain everythin
         case RECEIVE_SPOT:
             return merge({}, state, action.reviews);
         case RECEIVE_REVIEW:
+       
             return merge({}, state, { [action.review.id]: action.review });
         case RECEIVE_REVIEWS:
+            
             return action.reviews
         default:
             return state;

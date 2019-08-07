@@ -65,24 +65,7 @@ class SpotShow extends React.Component{
                 
                        </div>
                     <div className="spot-show-description">
-                        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            Quibusdam ipsa ex nihil ducimus officiis architecto saepe, 
-                            dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo 
-                            repudiandae cum porro. Vero, animi!
-                            
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            Quibusdam ipsa ex nihil ducimus officiis architecto saepe, 
-                            dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo 
-                            
-                            repudiandae cum porro. Vero, animi!
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            Quibusdam ipsa ex nihil ducimus officiis architecto saepe, 
-                            dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo 
-                            repudiandae cum porro. Vero, animi!
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            Quibusdam ipsa ex nihil ducimus officiis architecto saepe, 
-                            dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo 
-                            repudiandae cum porro. Vero, animi!
+                        <h1>{spot.description}
                         </h1>
                     </div>
 

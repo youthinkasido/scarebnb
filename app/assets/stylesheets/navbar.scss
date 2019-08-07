@@ -72,6 +72,7 @@
     z-index: 100;
     position: relative;
     height: 13px;
+  
 }
 
 .nav-black-bar{
@@ -149,8 +150,24 @@
     display: block;
     cursor: pointer;
     cursor: hand;
-    
 }
+
+.nav-secret :hover{
+   background: rgb(41, 41, 41);
+     text-decoration: none;
+    display: block;
+    cursor: pointer;
+    cursor: hand;
+}
+
+// .nav-secret{
+//     border: 1px solid white;
+//     width: 40%;
+//     height: 40px;
+//     left: 30%;
+//     right: 40%;
+//     position: absolute;
+// }
 
 .nav-dropdown-content > img :hover{
 color: red;
@@ -164,9 +181,8 @@ padding-left:90px;
     top: 46px;
     z-index: -2;
     cursor: pointer;
+    margin: -20px;
 }
-
-
 
 
 .nav-dropdown:hover .nav-dropdown-button {

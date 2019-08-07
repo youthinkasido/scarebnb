@@ -23,6 +23,8 @@
     left: -1%;
 }
 
+
+
 .rating {
     float:left;
 }
@@ -32,7 +34,7 @@
    //not checked tells browsers that don't support these rules to ignore these styling rules
 .rating:not(:checked) > input {
     position:absolute; //position of element on page
-    top:-9999px;
+   
     clip:rect(0,0,0,0);
 }
 

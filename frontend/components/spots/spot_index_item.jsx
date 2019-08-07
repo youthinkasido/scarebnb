@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const SpotIndexItem = ({spot}) => {
- debugger
+//  debugger
 return (
  
     <div className="spot-item--container">
@@ -18,7 +18,7 @@ return (
         <div className='cost-per-night'>{spot.cost_per_night}</div>
       
         <img className="skull-heart"src="./skullheart.svg"/>
-        <div className="rating">
+        {/* <div className="rating-stars"> */}
         <span className="fa fa-star checked"></span>
         <span className="fa fa-star checked"></span>
         <span className="fa fa-star checked"></span>
@@ -27,7 +27,7 @@ return (
                 </div>
         </div>
         </div>
-    </div>   
+   
   
     )
 }

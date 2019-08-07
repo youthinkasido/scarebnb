@@ -229,16 +229,11 @@ var RECEIVE_ALL_SPOTS = "RECEIVE_ALL_SPOTS";
 var RECEIVE_SPOT = "RECEIVE_SPOT";
 var RECEIVE_REVIEW = "RECEIVE_REVIEW";
 var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
-var receiveReview = function receiveReview(_ref) {
-  var review = _ref.review,
-      average_rating = _ref.average_rating,
-      reviewer = _ref.reviewer;
+var receiveReview = function receiveReview(review) {
   return {
     //where are we getting info from? // why destructured?
     type: RECEIVE_REVIEW,
-    review: review,
-    average_rating: average_rating,
-    reviewer: reviewer
+    review: review
   };
 };
 var receiveReviews = function receiveReviews(reviews) {
@@ -417,6 +412,8 @@ var Greeting = function Greeting(_ref) {
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "clown-profile",
       src: "./clownphoto.png"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "nav-secret"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "nav-dropdown-content"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1346,9 +1343,7 @@ function (_React$Component) {
         spot_id: spotId
       }); // debugger
 
-      this.props.createReview(review); // makes the api util request contains the promise 
-
-      this.props.returnToShowPage;
+      this.props.createReview(review); // this.setState({ rating: '' }) 
     }
   }, {
     key: "update",
@@ -1366,7 +1361,8 @@ function (_React$Component) {
         className: "review-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("fieldset", {
         className: "rating"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("legend", null, "Please rate:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.update('rating'),
         type: "radio",
         id: "star5",
         name: "rating",
@@ -1375,6 +1371,7 @@ function (_React$Component) {
         htmlFor: "star5",
         title: "Rocks!"
       }, "5 stars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.update('rating'),
         type: "radio",
         id: "star4",
         name: "rating",
@@ -1383,6 +1380,7 @@ function (_React$Component) {
         htmlFor: "star4",
         title: "Pretty good"
       }, "4 stars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.update('rating'),
         type: "radio",
         id: "star3",
         name: "rating",
@@ -1391,6 +1389,7 @@ function (_React$Component) {
         htmlFor: "star3",
         title: "Meh"
       }, "3 stars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.update('rating'),
         type: "radio",
         id: "star2",
         name: "rating",
@@ -1399,6 +1398,7 @@ function (_React$Component) {
         htmlFor: "star2",
         title: "Kinda bad"
       }, "2 stars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.update('rating'),
         type: "radio",
         id: "star1",
         name: "rating",
@@ -1408,11 +1408,7 @@ function (_React$Component) {
         title: "Sucks big time"
       }, "1 star")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Rating"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "number",
-        value: this.state.rating,
-        onChange: this.update('rating')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Comment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Comment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         cols: "20",
         rows: "10",
         value: this.state.comment,
@@ -1443,10 +1439,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _review_for_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./review_for_container */ "./frontend/components/spots/review_for_container.js");
 
-
+ // function calcStars(review){ 
+//     let arr =[]
+//     for (let h = 0; h < review.rating; h++){
+//        arr.push(<li className="review-star-star">★</li>)
+//         // how do i add to its padding each time?
+//     }
+//     return arr
+// }
 
 var ReviewIndexItem = function ReviewIndexItem(_ref) {
   var review = _ref.review;
+
+  // do we even need to destructure
+  // const calculateStars = (calcStars(review))
+  // debugger
+  var calcStars = function calcStars(review) {
+    var arr = [];
+
+    for (var h = 0; h < review.rating; h++) {
+      arr.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "review-review-star"
+      }, "\u2605")); // how do i add to its padding each time?
+    }
+
+    return arr;
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "review-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1455,9 +1474,9 @@ var ReviewIndexItem = function ReviewIndexItem(_ref) {
     className: "review-details"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "review-reviewer"
-  }, review.reviewer), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "review-rating"
-  }, "Rating ", review.rating), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, review.reviewer), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "display-review-stars"
+  }, calcStars(review)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "review-comment"
   }, review.comment)));
 };
@@ -1607,7 +1626,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var SpotIndexItem = function SpotIndexItem(_ref) {
   var spot = _ref.spot;
-  debugger;
+  //  debugger
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-item--container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1635,9 +1654,7 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
   }, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "skull-heart",
     src: "./skullheart.svg"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "rating"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "fa fa-star checked"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "fa fa-star checked"
@@ -1647,7 +1664,7 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
     className: "fa fa-star"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "fa fa-star"
-  })))));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotIndexItem);
@@ -1755,7 +1772,7 @@ function (_React$Component) {
         className: "spot-show-rooms"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, spot.max_guests, " guests ", spot.bedrooms, " beds ", spot.bathrooms, " bath")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show-description"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ipsa ex nihil ducimus officiis architecto saepe, dolorum optio debitis, perspiciatis rem? Ipsam animi nulla nemo repudiandae cum porro. Vero, animi!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, spot.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show-ameneties"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Amenities:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, spot.amenities)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show--reviews"

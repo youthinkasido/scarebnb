@@ -36,6 +36,7 @@ spot1 = Spot.create!(
   modified: nil,
   owner_id: user1.id,
   amenities: ['Soap  ', 'Mouthwash  ', 'AOL access  '],
+  image_urls: ['/Users/arshiakhoshnood/Desktop/finalproject/photos/shacks','/Users/arshiakhoshnood/Desktop/finalproject/photos/shacks'],
   cost_per_night: '$3 per night')
 
   spot2 = Spot.create!(
@@ -284,17 +285,32 @@ spot1 = Spot.create!(
 
   )
 
+file_paths = ['./public/apartment1.jpg', './public/apartment2.jpg',
+             './public/apartment3.jpg',  './public/shack.jpg',  './public/shack2.png',  
+             './public/shack3.jpg',  './public/shack4.jpg',  './public/shack5.jpg', 
+              './public/shack6.jpg',]
+
+file_names = ['apartment1.jpg', 'apartment2.jpg',
+      'apartment3.jpg',  'shack.jpg',  'shack2.png',  
+      'shack3.jpg',  'shack4.jpg',  'shack5.jpg', 
+      'shack6.jpg',]       
 
 
-
- 
   spots = [spot1,spot2,spot3,spot4,spot5,spot6,spot7,spot8,spot9]
 
+  i = 0
 spots.each do |spot|
+  spot.photo.attach(io:File.open(file_paths[i]),filename: file_names[i])
+  # debugger
+  i+=1
 
-  spot.photo.attach(io:File.open('./public/shack.jpg'),filename:'shack.jpg')
- 
 end
+
+
+
+# spots.each do |spot|
+#   spot.photo.attach(io:File.open('./public/shack.jpg'),filename:'shack.jpg')
+# end
 
 
 # spot_type: Storage unit, Shack, House, Other, Apartment, Condo

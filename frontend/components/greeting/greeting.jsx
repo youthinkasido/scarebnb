@@ -24,9 +24,9 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                       
                         <i className="far fa-user-circle nav-dropdown-button"></i>
                         <img className="clown-profile" src="./clownphoto.png"/>
-
+                            <div className="nav-secret"></div>
                         <div className="nav-dropdown-content">
-                      
+
                       
                             <p className="bookings"onClick={logout}>Bookings</p>
                             <p className="logout" onClick={logout}>Log Out</p>
