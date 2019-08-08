@@ -1457,8 +1457,6 @@ var ReviewIndexItem = function ReviewIndexItem(_ref) {
   var review = _ref.review;
 
   // do we even need to destructure
-  // const calculateStars = (calcStars(review))
-  // debugger
   var calcStars = function calcStars(review) {
     var arr = [];
 
@@ -1631,11 +1629,24 @@ __webpack_require__.r(__webpack_exports__);
 
 var SpotIndexItem = function SpotIndexItem(_ref) {
   var spot = _ref.spot;
+
   //  debugger
+  var calculateRating = function calculateRating(spot) {
+    //   debugger
+    var arr = [];
+
+    for (var s = 0; s < spot.rating / 2; s++) {
+      arr.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "index-review-star"
+      }, "\u2605"));
+    }
+
+    return arr;
+  }; //  debugger
+
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-item--container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-item-cover"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "spot-link",
     to: "/spots/".concat(spot.id)
@@ -1645,31 +1656,18 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
     width: "200",
     height: "125"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-all-items"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-item-details"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "spot-type-bedrooms"
-  }, spot.spot_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-capacities"
-  }, spot.max_guests, " guests - ", spot.bedrooms, " beds - ", spot.bathrooms, "  bath"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-amenities"
-  }, spot.amenities, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, spot.spot_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "spot-name"
-  }, spot.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, spot.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "spot-capacities"
+  }, spot.max_guests, " guests - ", spot.bedrooms, " beds - ", spot.bathrooms, "  bath"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "spot-amenities"
+  }, spot.amenities, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, calculateRating(spot)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "cost-per-night"
-  }, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "skull-heart",
-    src: "./skullheart.svg"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "fa fa-star checked"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "fa fa-star checked"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "fa fa-star checked"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "fa fa-star"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "fa fa-star"
-  }))));
+  }, spot.cost_per_night)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotIndexItem);
@@ -1784,6 +1782,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show-review"
       }, this.props.reviews.map(function (review) {
+        debugger;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_index_item__WEBPACK_IMPORTED_MODULE_5__["default"], {
           review: review
         });

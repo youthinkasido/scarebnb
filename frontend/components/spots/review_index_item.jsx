@@ -17,11 +17,6 @@ import review_for_container from './review_for_container';
 
 
 const ReviewIndexItem = ({review}) =>{ // do we even need to destructure
-
-
-// const calculateStars = (calcStars(review))
-    // debugger
-
     const calcStars = (review) =>{
         let arr = []
         for (let h = 0; h < review.rating; h++) {

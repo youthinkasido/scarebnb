@@ -31,17 +31,17 @@
 }
 
 .flex-container > div{
-background-color: black;
-    width: 25%;
-    width: 69.1vh;
-    text-align: left;
-    font-family: Helvetica, sans-serif;
-    color: white;
-    font-size: 14px;
-    font-style: normal;
-    border: 1px solid #403f3f;
-    height: 190px;
-    width: 61.4vh;
+// background-color: black;
+//     width: 25%;
+//     width: 69.1vh;
+//     text-align: left;
+//     font-family: Helvetica, sans-serif;
+//     color: white;
+//     font-size: 14px;
+//     font-style: normal;
+//     border: 1px solid #403f3f;
+//     height: 190px;
+//     width: 61.4vh;
 }
 
 .photo{
@@ -54,73 +54,74 @@ background-color: black;
 
 //////spot name, type/bedrooms in index page for each item 
 
-.spot-name{
-    font-size: 16px;
-    font-weight: 500;
+.index-review-star{
+    display: inline-block;
+    margin-left: 0px;
     position: relative;
-    top: -124px;
-    left: 220px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 400px;
-
+    color: red;
 }
 
 .spot-capacities{
-    font-size: 10px;
-  
 
-    // font-style: italic;
-    position: relative;
-    top: -75px;
-    left: 220px;
 }
 
-.spot-all-items{
-    top: 10px;
-    position: relative;
+.spot-item-details{
+    color: white;
+    width: 100%;
+    margin: 2%;
+    list-style: none;
+    line-height: normal;
+}
+
+
+.spot-item--container{
+    border: 1px solid grey;
+    background: black;
+    display: inline-flex;
+    width: 145%;
+}
+
+.spot-item--container{
+
+    background: black;
+    display: inline-flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.photo{
+        top: 10px;
+    /* position: absolute; */
     margin-left: 10px;
     height: 170px;
+    padding-bottom: 20px;
+    height: 195px;
 }
-
 
 
 .spot-amenities{
-    font-size: 14px;
-    font-weight: 200;
-    font-style: normal;
-    position: relative;
-    top: -60px;
-    left: 220px;
-    color: white;
+
 }
 
 .spot-type-bedrooms{
-    font-size: 10px;
-    font-style: bold;
-    position: relative;
-    top: -108px;
-    left: 220px;
+
 }
 
 .cost-per-night{
+    font-size: 20px;
+    margin-top: 34px;
     color: yellow;
-    font-size: 14px;
-    font-weight: 500;
-    font-style: bold;
-    position: relative;
-    top: -55px;
-    text-align: left;
-    left: 560px;
 }
 
 .skull-heart{ 
-    width: 20px;
-    position: relative;
-    left: 625px;
-    top: -175px;
+width:9%;
 
+}
+
+.spot-name{
+    font-size: 20px;
+    font-style: bold;
+    padding-bottom: 10px;
 }
 
 .skull-heart :hover{
@@ -129,10 +130,6 @@ background-color: black;
     cursor: pointer;
     cursor: hand;
 }
-
-
-
-
 //////////////////////REVIEW STARS
 .checked{
     color: red;
@@ -145,6 +142,16 @@ background-color: black;
     position: relative;
     left: 25%;
     bottom: -20px;
+}
+
+.index-review-star{
+   
+    // display: inline-block;
+    // margin-left: 0px;
+    // position: relative;
+    // left: 60px;
+    color: red;
+
 }
 
 

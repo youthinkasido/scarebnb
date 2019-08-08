@@ -9,6 +9,7 @@ import ReviewIndexItem from './review_index_item';
 
 class SpotShow extends React.Component{
     constructor(props){
+        
         super(props)
      
     }
@@ -75,10 +76,11 @@ class SpotShow extends React.Component{
 
                     <div className="spot-show--reviews">
                         <div className="spot-show-review">
-                    
                             {this.props.reviews.map(review => {
+                                debugger
                                 return <ReviewIndexItem review={review}/>
                             })}
+                            
                         </div>
                         <ReviewFormContainer/>
                     </div>
