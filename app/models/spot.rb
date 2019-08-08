@@ -7,6 +7,10 @@ validates :name, :description, :max_guests, :room_type, :address, :bedrooms, :ba
     foreign_key: :spot_id,
     class_name: 'Review'
 
+    belongs_to :owner,
+    foreign_key: :owner_id,
+    class_name: 'User'
+
 #   def self.in_bounds(bounds)
 #     self.where("lat < ?", bounds[:northEast][:lat])
 #       .where("lat > ?", bounds[:southWest][:lat])

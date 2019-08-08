@@ -4,14 +4,14 @@ import {connect} from 'react-redux'
 import { fetchSpot } from '../../actions/spot_actions';
 import ReviewFormContainer from './review_for_container';
 import ReviewIndexItem from './review_index_item';
+import BookingContainer from './booking_container';
 
 
 
 class SpotShow extends React.Component{
     constructor(props){
-        
         super(props)
-     
+
     }
     componentDidMount(){
         const {spotId} = this.props.match.params
@@ -77,7 +77,7 @@ class SpotShow extends React.Component{
                     <div className="spot-show--reviews">
                         <div className="spot-show-review">
                             {this.props.reviews.map(review => {
-                                debugger
+                       
                                 return <ReviewIndexItem review={review}/>
                             })}
                             
@@ -87,8 +87,12 @@ class SpotShow extends React.Component{
                 </section>
 
                 <div className="spot--bookings">Bookings
+
                 <div className="spot-booking-form-container">
                    
+                    <BookingContainer/>
+                        </div>
+                
                     <div className="spot-show-cost-per-night">{spot.cost_per_night}</div>
                         <h2>Dates</h2>
                         <div></div>
@@ -97,7 +101,7 @@ class SpotShow extends React.Component{
                      
                 </div>
 
-                </div>
+                
         )
     }
 }

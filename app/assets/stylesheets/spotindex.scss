@@ -55,10 +55,13 @@
 //////spot name, type/bedrooms in index page for each item 
 
 .index-review-star{
-    display: inline-block;
+     display: inline-block;
     margin-left: 0px;
     position: relative;
     color: red;
+    width: 20px;
+    top: 3px;
+    
 }
 
 .spot-capacities{
@@ -71,11 +74,12 @@
     margin: 2%;
     list-style: none;
     line-height: normal;
+   
 }
 
 
 .spot-item--container{
-    border: 1px solid grey;
+    // border: 1px solid grey;
     background: black;
     display: inline-flex;
     width: 145%;
@@ -100,7 +104,7 @@
 
 
 .spot-amenities{
-
+margin-top: 4px;
 }
 
 .spot-type-bedrooms{
@@ -136,6 +140,8 @@ width:9%;
 
 }
 
+
+
 .rating-stars span{
     font-size: 15px;
     font-style: bold;
@@ -144,37 +150,19 @@ width:9%;
     bottom: -20px;
 }
 
-.index-review-star{
-   
-    // display: inline-block;
-    // margin-left: 0px;
-    // position: relative;
-    // left: 60px;
-    color: red;
 
+.flex-container .spot-item--container:hover{
+   background: rgba(40,40,40,0.9);
+    color: white;
+ 
+}
+
+.rating{
+position: absolute;
+left: 0px;
+top: 33px;
 }
 
 
-////////////////////////media queries
-
-// .responsive{
-//     padding: 0 6px;
-//     float: left;
-//     width: 25%;
-
-// }
 
 
-// @media only screen and (max-width: 700px){
-//     .responsive{
-//         width: 50%;
-//         margin:6px 0;
-//     }
-// }
-
-// @media only screen and (max-width: 500px){
-//     .responsive{
-//         width: 100%;
-
-//     }
-// }

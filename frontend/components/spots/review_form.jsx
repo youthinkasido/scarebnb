@@ -21,16 +21,23 @@ class ReviewForm extends React.Component {
     }
 
     handleSubmit(e) {
+       
         e.preventDefault()
+
+        
         const spotId = parseInt(this.props.match.params.spotId); //? match
-        // debugger
         const review = Object.assign({}, this.state, {
             spot_id: spotId
         })
-        // debugger
+
+        // if (this.state.comment && e.target.value){ 
+        
         this.props.createReview(review)
         this.setState({ comment: '' }) 
-        
+        // }else{
+            // alert('Invalid Review Submission!')
+            // this.setState({ comment: '' }) 
+        // }
     }
 
     update(property) {
@@ -41,6 +48,7 @@ class ReviewForm extends React.Component {
     render() {
         return (
             <div className="review-form">
+                    <label className="review-label">Leave a review!</label>
                 <fieldset className="rating">
                     <input onChange={this.update('rating')} type="radio" id="star5" name="rating" value="5" /><label htmlFor="star5" title="Rocks!">5 stars</label>
                     <input onChange={this.update('rating')} type="radio" id="star4" name="rating" value="4" /><label htmlFor="star4" title="Pretty good">4 stars</label>
@@ -50,7 +58,6 @@ class ReviewForm extends React.Component {
                 </fieldset>
 
                 <form onSubmit={this.handleSubmit}>
-                    <label>Comment</label>
                     <textarea
                         cols="20"
                         rows="10"

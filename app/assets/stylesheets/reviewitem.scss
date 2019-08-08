@@ -1,17 +1,34 @@
 .review-item{
-   
     font-size: 20px;
     text-align: left;
     padding-top: 40px;
     border-top: 1px solid grey;
     list-style: none;
+    padding-bottom: 20;
+    margin-top: 30px;
 }
+
+
 
 .review-details{
     display: inline;
     margin: 20px;
     
 }
+
+textarea{
+  overflow: auto;
+    vertical-align: top;
+}
+
+.review-label{
+    color: white;
+    font-size: 22px;
+    display: block;
+    text-align: left;
+}
+
+
 .review-reviewer{
     display: inline;
     top: 20px;
@@ -27,17 +44,12 @@
     color: red;
 }
 
-// .review-rating{
-//     display: block;
-//     position: absolute;
-//     left: 163px;
-//     font-size: 12px;
-//     list-style-type: none;
+
 
 // }
 
-
-display-review-stars ul li{
+///////// check this?
+.display-review-stars ul li{
     position: relative;
     margin-left: -17.4%;
     
@@ -52,14 +64,8 @@ display-review-stars ul li{
 }
 
 
-
-
-
 .review-item img{
     width: 40px;
     display: inline;
 }
-
-
-
 

@@ -19,7 +19,9 @@ user6 = User.create!(first_name: 'Jnoosh', last_name: 'Shwergle', email:'scrimp@
 
 spot1 = Spot.create!(
   name: "Dilapitated Shack with an unbelievably clogged toilet since 1962.",
-  description: "Who knows what dark suprises await in this dirty storage unit.",
+  description: "Disorganized shack dating back from the  . Has seen its fair share of wear and 
+  tear especially after the Jim Clark Jalapeno incident of 92'. This location is rumored to have been haunted and featured on
+  the discovery channel 3 times this year alone!",
   lat: 33.748997,
   lng: -84.387985,
   max_guests: 1,
@@ -57,7 +59,7 @@ spot1 = Spot.create!(
   spot_type: "STURDY SHACK",
   modified: nil,
   owner_id: user2.id,
-  amenities: ['Clogged Toile  ', 'Free Water  ', 'Soap  ', 'Mouthwash  ', 'AOL access  '],
+  amenities: ['Clogged Toilet  ', 'Free Water  ', 'Soap  ', 'Mouthwash  ', 'AOL access  '],
   cost_per_night: '$13 per night')
 
   spot3 = Spot.create!(
@@ -101,7 +103,7 @@ spot1 = Spot.create!(
   spot_type: "Storage unit",
   modified: nil,
   owner_id: user4.id,
-  amenities: ['Deadbolt  ', 'Mouthwash  ', 'Cereal  '],
+  amenities: ['Deadbolt / ', 'Mouthwash / ', 'Cereal / '],
   cost_per_night: '$20 per night')
 
   spot5 = Spot.create!(
@@ -122,7 +124,7 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user5.id,
-  amenities: ['Convict-free  ', 'HBO  ', 'Toothpase  '],
+  amenities: ['Convict-free / ', 'HBO / ', 'Toothpase / '],
   cost_per_night: '$1 per night')
 
 
@@ -144,7 +146,7 @@ spot1 = Spot.create!(
   spot_type: "Apartment",
   modified: nil,
   owner_id: user6.id,
-  amenities: ['Clogged Toilet  ', 'Free Water  ', 'Soap', 'Mouthwash  '],
+  amenities: ['Clogged Toilet / ', 'Free Water / ', 'Soap / ', 'Mouthwash / '],
   cost_per_night: '$1 per night')
 
   spot7 = Spot.create!(

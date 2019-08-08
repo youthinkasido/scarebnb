@@ -19,7 +19,7 @@ import Map from './map';
 import { withRouter } from 'react-router-dom'
 import SpotShowContainer from './spots/spot_show_container'
 require("history").createBrowserHistory
-
+import 'react-dates/lib/css/_datepicker.css';
 
 
 const App = () => {

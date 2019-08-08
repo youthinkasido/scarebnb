@@ -32,37 +32,58 @@
     font-size: 32px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
 }
 
 .spot-show-city-state{
-color: yellow;
+    color: lightgrey;
+    font-size: 18px;
 }
 
 .spot-show-description{
  color: white;
- overflow: hidden;
+ font-size: 25px;
+ line-height: 30px;
+ padding-bottom: 20px;
+
 }
 
 .spot-show-rooms li{
     color: grey;
     display: inline-block;
+    color: grey;
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 20px;
 }
 
 .spot-show-ameneties li{
-    color: grey;
-  display:inline-block; 
- margin-left: -20px;
+    color: white;
+    list-style-type: none;
+    margin-left: 0 auto;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 20px;
+    padding-top: 20px;
 }
 
 .spot-show-ameneties li:before{
     content:" "; 
-    display:inline-block; 
-    width:32px;
+  
+    width:22px;
 }
 
 .spot-show-ameneties div{
-    color: red;
-      display: inline-block;
+    color: orange;
+    display: inline-block;
+    font-size: 22px;
+    padding-top: 20px;
+
+    
+}
+
+.spot-show-amenities div{
+
 }
 
 
@@ -72,39 +93,17 @@ color: yellow;
 }
 
 
-//     .review-form{
-    
-//     text-align: center;
-//     display: inline-grid; 
-// }
+
 
 
 
 .spot-show-review{
-    color: white;
-    font-size: 20px;
+ margin-bottom: 75px;
+
 }
 
 
 
-.spot--bookings{
-    float: right;
-    // border: 1px solid white;
-    // background: red;
-    width: 50%;
-    height: 366px;
-    overflow: hidden;
-}
-
-.spot-booking-form-container{
-    position: relative;
-    border: 1px solid white;
-    width: 70%;
-    height: 366px;
-    margin: 0 auto;
-    background: white;
-    top: -17px;
-}
 
 
 * {

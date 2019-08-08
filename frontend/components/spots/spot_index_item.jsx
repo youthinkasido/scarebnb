@@ -22,7 +22,7 @@ return (
    {/* <DayPickerRangeControllerWrapper/> */}
         <Link className="spot-link" to={`/spots/${spot.id}`}><img className="photo" src={spot.image_url} width='200' height='125' /></Link>
         <div className="spot-item-details">
-            
+            <Link className="spot-link" to={`/spots/${spot.id}`}></Link>
         <li className='spot-type-bedrooms'>{spot.spot_type}</li>
         <li className='spot-name'>{spot.name}</li>
         <li className='spot-capacities'>{spot.max_guests} guests - {spot.bedrooms} beds - {spot.bathrooms}  bath</li>

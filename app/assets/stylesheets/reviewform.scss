@@ -1,6 +1,11 @@
     .review-form form {
-    display: inline-grid;
+        display: inline-grid;
         width: 100%;
+        margin-top:50px;
+}
+
+.review-form{
+    position: relative;
 }
 
 .review-form input {
@@ -8,6 +13,7 @@
     height: 40px;
     border-radius: 3px;
     margin-top: 15px;
+    
 }
 
 .comment{
@@ -21,20 +27,26 @@
     position: relative;
     top: 18%;
     left: -1%;
+
+}
+
+.rating{
+    color: red;
+}
+
+.rating rating{
+    color: bl
 }
 
 
 
-.rating {
-    float:left;
-}
 
    // notes: 
 
    //not checked tells browsers that don't support these rules to ignore these styling rules
 .rating:not(:checked) > input {
     position:absolute; //position of element on page
-   
+  
     clip:rect(0,0,0,0);
 }
 
@@ -50,9 +62,13 @@
     color:#ddd;
     text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
 }
+.rating{
+    font-size: 10px;
+}
 
 .rating:not(:checked) > label:before {
     content: '★ '; // label inherits this content inside rating class
+    width: 10px;
 }
 
 .rating > input:checked ~ label {
