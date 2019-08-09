@@ -11,6 +11,8 @@ Features:
 Users can rest assured that there account information is safe
 using password encryption.
 
+![Home Page](./signup.png)
+
 
 - **Demo Login**
 Users can get a chance to view the locations without the hassle 
@@ -28,7 +30,7 @@ for better or for worse!
 Users can book a spot by selecting a start and end date, as well as the number of 
 guests they plan to bring.
 
-![Home Page](./spotshowpage.png)
+![Home Page](./spotindex.png)
 
 
 
