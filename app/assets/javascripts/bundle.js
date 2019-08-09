@@ -215,7 +215,6 @@ var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 var GO_TO_BOOKINGS = 'GO_TO_BOOKINGS';
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
-  debugger;
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser: currentUser
@@ -240,7 +239,6 @@ var goToBookings = function goToBookings(bookings) {
 };
 var fetchBookings = function fetchBookings(userId) {
   return function (dispatch) {
-    debugger;
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBookings"](userId).then(function (bookings) {
       return dispatch(goToBookings(bookings));
     });
@@ -378,24 +376,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
-/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
-/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
-/* harmony import */ var _session_form_splash_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/splash.jsx */ "./frontend/components/session_form/splash.jsx");
-/* harmony import */ var _session_form_splash_jsx__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_session_form_splash_jsx__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./search/search_container */ "./frontend/components/search/search_container.jsx");
-/* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
-/* harmony import */ var _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./spots/spot_index_container */ "./frontend/components/spots/spot_index_container.js");
-/* harmony import */ var _spots_spot_show__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./spots/spot_show */ "./frontend/components/spots/spot_show.jsx");
-/* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
-/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./map */ "./frontend/components/map.jsx");
-/* harmony import */ var _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./spots/spot_show_container */ "./frontend/components/spots/spot_show_container.js");
-/* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-dates/lib/css/_datepicker.css */ "./node_modules/react-dates/lib/css/_datepicker.css");
-/* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _spots_user_profile_container__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./spots/user_profile_container */ "./frontend/components/spots/user_profile_container.js");
+/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
+/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
+/* harmony import */ var _session_form_splash_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/splash.jsx */ "./frontend/components/session_form/splash.jsx");
+/* harmony import */ var _session_form_splash_jsx__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_session_form_splash_jsx__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./search/search_container */ "./frontend/components/search/search_container.jsx");
+/* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
+/* harmony import */ var _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./spots/spot_index_container */ "./frontend/components/spots/spot_index_container.js");
+/* harmony import */ var _spots_spot_show__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./spots/spot_show */ "./frontend/components/spots/spot_show.jsx");
+/* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./map */ "./frontend/components/map.jsx");
+/* harmony import */ var _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./spots/spot_show_container */ "./frontend/components/spots/spot_show_container.js");
+/* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-dates/lib/css/_datepicker.css */ "./node_modules/react-dates/lib/css/_datepicker.css");
+/* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _spots_user_profile_container__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./spots/user_profile_container */ "./frontend/components/spots/user_profile_container.js");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 
 
-
+ // import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
 
@@ -412,6 +410,7 @@ __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").crea
 
 
 
+
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, window.location.href === "http://localhost:3000/#/" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-page-search"
@@ -421,7 +420,7 @@ var App = function App() {
     className: "air-bnb-front-logo",
     src: "./airbnb.svg",
     alt: ""
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_6__["default"], null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-top"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-bottom"
@@ -430,16 +429,16 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/spots",
-    component: _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_9__["default"]
+    component: _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/spots/:spotId",
-    component: _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_13__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    component: _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_12__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_15__["ProtectedRoute"], {
     exact: true,
     path: "/users/:userId/bookings",
-    component: _spots_user_profile_container__WEBPACK_IMPORTED_MODULE_15__["default"]
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_11__["default"], null));
+    component: _spots_user_profile_container__WEBPACK_IMPORTED_MODULE_14__["default"]
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_10__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(App));
@@ -516,7 +515,7 @@ var Greeting = function Greeting(_ref) {
   return currentUser ? personalGreeting(currentUser, logout) : sessionLinks();
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Greeting);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Greeting));
 
 /***/ }),
 
@@ -2234,15 +2233,28 @@ function (_React$Component) {
       this.props.fetchBookings(this.props.currentUser);
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      debugger;
+
+      if (this.props.match.params.userId !== prevProps.match.params.userId) {
+        this.props.fetchBookings(this.props.currentUser);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       console.log(this.props.currentUser);
 
       if (!this.props.currentUser || !this.props.bookings.length > 0) {
         return null;
       } else {
-        //    debugger
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.bookings.map(function (booking) {
+        var finalBookings = this.props.bookings.filter(function (booking) {
+          return booking.booker_id === _this.props.currentUser.id;
+        });
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, finalBookings.map(function (booking) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "booking-item"
           }, "Start Date: ", booking.start_date, " End Date: ", booking.end_date, " Cost Per Night:", booking.price_per_day, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -2334,16 +2346,16 @@ var bookingReducer = function bookingReducer() {
 
   switch (action.type) {
     case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOOKING"]:
-      debugger;
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, action.booking);
 
     case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["SHOW_BOOKINGS"]:
       return action.bookings;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["GO_TO_BOOKINGS"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, action.bookings);
-
-    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__["RECEIVE_ALL_SPOTS"]: // return state
+      return action.bookings;
+    // return merge({}, state,action.bookings)
+    // case RECEIVE_ALL_SPOTS:
+    // return state
 
     default:
       return state;
@@ -2843,7 +2855,7 @@ var createBooking = function createBooking(bookerId, booking) {
 var fetchBookings = function fetchBookings(userId) {
   return $.ajax({
     method: 'GET',
-    url: "api/users/".concat(bookerId, "/bookings")
+    url: "api/users/".concat(userId, "/bookings")
   });
 };
 
@@ -2853,40 +2865,61 @@ var fetchBookings = function fetchBookings(userId) {
 /*!**************************************!*\
   !*** ./frontend/util/route_util.jsx ***!
   \**************************************/
-/*! no exports provided */
+/*! exports provided: AuthRoute, ProtectedRoute */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthRoute", function() { return AuthRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProtectedRoute", function() { return ProtectedRoute; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 
- // const Auth = ({ component: Component, path, loggedIn, exact }) => (
-//     <Route path={path} exact={exact} render={(props) => (
-//         !loggedIn ? (
-//             <Component {...props} />
-//         ) : (
-//                 <Redirect to="/search" />
-//             )
-//     )} />
-// );
-// const Protected = ({ component: Component, path, loggedIn, exact }) => (
-//     <Route path={path} exact={exact} render={(props) => (
-//         loggedIn ? (
-//             <Component {...props} />
-//         ) : (
-//                 <Redirect to="/login" />
-//             )
-//     )} />
-// );
-// const mapStateToProps = state => (
-//     { loggedIn: Boolean(state.session.currentUser) }
-// );
-// export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
-// export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
+
+
+var Auth = function Auth(_ref) {
+  var Component = _ref.component,
+      path = _ref.path,
+      loggedIn = _ref.loggedIn,
+      exact = _ref.exact;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: path,
+    exact: exact,
+    render: function render(props) {
+      return !loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/search"
+      });
+    }
+  });
+};
+
+var Protected = function Protected(_ref2) {
+  var Component = _ref2.component,
+      path = _ref2.path,
+      loggedIn = _ref2.loggedIn,
+      exact = _ref2.exact;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: path,
+    exact: exact,
+    render: function render(props) {
+      return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/"
+      });
+    }
+  });
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    loggedIn: Boolean(state.session.currentUser)
+  };
+};
+
+var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Auth));
+var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Protected));
 
 /***/ }),
 

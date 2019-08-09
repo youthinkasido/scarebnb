@@ -6,7 +6,7 @@ import React from 'react';
 
 import { Provider } from 'react-redux';
 import {Route,Redirect,Switch,Link,HashRouter} from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+// import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import splashPage from './session_form/splash.jsx';
@@ -21,7 +21,7 @@ import SpotShowContainer from './spots/spot_show_container'
 require("history").createBrowserHistory
 import 'react-dates/lib/css/_datepicker.css';
 import UserProfileContainer from './spots/user_profile_container';
-
+import {ProtectedRoute} from '../util/route_util'
 
 const App = () => {
 
@@ -52,7 +52,7 @@ return(
     <Switch>
       <Route exact path="/spots" component={SpotIndexContainer} />
       <Route exact path='/spots/:spotId' component={SpotShowContainer} />
-      <Route exact path='/users/:userId/bookings' component={UserProfileContainer} />
+      <ProtectedRoute exact path='/users/:userId/bookings' component={UserProfileContainer} />
 
     </Switch>
     

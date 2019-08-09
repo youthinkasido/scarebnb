@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchContainer from '../search/search_container'
 import { Link } from 'react-router-dom';
-import withRouter from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import UserProfileContainer from '../spots/user_profile_container';
 
 
@@ -44,4 +44,4 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     );
 };
 
-export default Greeting;
+export default withRouter(Greeting)

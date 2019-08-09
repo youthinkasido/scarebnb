@@ -6,7 +6,7 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const GO_TO_BOOKINGS = 'GO_TO_BOOKINGS'
 
 export const receiveCurrentUser = currentUser => {
-    debugger
+   
     return( 
     {type: RECEIVE_CURRENT_USER,
     currentUser}
@@ -28,7 +28,7 @@ export const goToBookings = (bookings) => ({
 })
 
 export const fetchBookings = (userId) => dispatch => {
-    debugger
+ 
     return(
         APIUtil.fetchBookings(userId).then(bookings=> dispatch(goToBookings(bookings)))
     )}

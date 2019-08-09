@@ -12,13 +12,15 @@ const bookingReducer = (state={}, action) => {
     switch(action.type){
         
         case RECEIVE_BOOKING:
-           debugger
+        
            return merge({}, state, action.booking)
         case SHOW_BOOKINGS:
+            
             return action.bookings
-            case GO_TO_BOOKINGS:
-            return merge({}, state,action.bookings)
-        case RECEIVE_ALL_SPOTS:
+        case GO_TO_BOOKINGS:
+            return action.bookings
+            // return merge({}, state,action.bookings)
+        // case RECEIVE_ALL_SPOTS:
             
             // return state
         default: 
