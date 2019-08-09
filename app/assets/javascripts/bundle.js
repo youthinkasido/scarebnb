@@ -240,6 +240,7 @@ var goToBookings = function goToBookings(bookings) {
 };
 var fetchBookings = function fetchBookings(userId) {
   return function (dispatch) {
+    debugger;
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBookings"](userId).then(function (bookings) {
       return dispatch(goToBookings(bookings));
     });
@@ -412,7 +413,7 @@ __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").crea
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, window.location.href === "https://scarebandb.herokuapp.com/#/" || "http://localhost:3000/#/" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, window.location.href === "http://localhost:3000/#/" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-page-search"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     className: "splash-name"
@@ -1359,7 +1360,8 @@ __webpack_require__.r(__webpack_exports__);
 var msp = function msp(state, ownProps) {
   return {
     currentUser: state.session.currentUser,
-    pricePerDay: state.entities.spots[ownProps.match.params.spotId].cost_per_night
+    pricePerDay: state.entities.spots[ownProps.match.params.spotId].cost_per_night // spot_id: state.enities.spots.id
+
   };
 };
 
@@ -2234,10 +2236,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // debugger
-      // if (!Object.values(this.props.currentUser.bookings).length > 0){
-      //     return null;
-      // }
       console.log(this.props.currentUser);
 
       if (!this.props.currentUser || !this.props.bookings.length > 0) {
@@ -2727,6 +2725,8 @@ var usersReducer = function usersReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.currentUser.user.id, action.currentUser.user));
+    // case GO_TO_BOOKINGS: 
+    //     return merge({}, state, action.bookings)
 
     default:
       return state;

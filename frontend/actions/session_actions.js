@@ -27,9 +27,11 @@ export const goToBookings = (bookings) => ({
     bookings
 })
 
-export const fetchBookings = (userId) => dispatch => (
+export const fetchBookings = (userId) => dispatch => {
+    debugger
+    return(
         APIUtil.fetchBookings(userId).then(bookings=> dispatch(goToBookings(bookings)))
-    )
+    )}
 
 
 export const signup = user => dispatch => (

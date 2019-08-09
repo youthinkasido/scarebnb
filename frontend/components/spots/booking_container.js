@@ -7,11 +7,13 @@ import {connect} from 'react-redux'
 import BookingShow from './booking_show'
 import {createBooking } from '../../actions/booking_actions'
 import {withRouter} from 'react-router-dom'
+
 const msp = (state, ownProps) =>{
 
     return {
         currentUser: state.session.currentUser,
         pricePerDay: state.entities.spots[ownProps.match.params.spotId].cost_per_night
+        // spot_id: state.enities.spots.id
     }
 
 }

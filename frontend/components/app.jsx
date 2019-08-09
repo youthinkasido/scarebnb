@@ -31,7 +31,7 @@ return(
 
 
 
-    {window.location.href === `https://scarebandb.herokuapp.com/#/` || `http://localhost:3000/#/` ? 
+    {window.location.href === `http://localhost:3000/#/` ? 
      
       <div className="splash-page-search">
        <section className="splash-name">ScareBnb</section>
