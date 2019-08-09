@@ -5,10 +5,13 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const GO_TO_BOOKINGS = 'GO_TO_BOOKINGS'
 
-export const receiveCurrentUser = currentUser => ({
-    type: RECEIVE_CURRENT_USER,
-    currentUser
-});
+export const receiveCurrentUser = currentUser => {
+    debugger
+    return( 
+    {type: RECEIVE_CURRENT_USER,
+    currentUser}
+    )
+}
 
 export const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER,
