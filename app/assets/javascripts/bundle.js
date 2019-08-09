@@ -90,32 +90,49 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/booking_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_BOOKING, receiveBooking, createBooking */
+/*! exports provided: CREATE_BOOKING, SHOW_BOOKINGS, receiveBooking, showAllBookings, createBooking, showBookings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BOOKING", function() { return RECEIVE_BOOKING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_BOOKING", function() { return CREATE_BOOKING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHOW_BOOKINGS", function() { return SHOW_BOOKINGS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBooking", function() { return receiveBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showAllBookings", function() { return showAllBookings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBooking", function() { return createBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showBookings", function() { return showBookings; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util_bookings_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/bookings_api_util */ "./frontend/util/bookings_api_util.js");
 
 
-var RECEIVE_BOOKING = 'CREATE_BOOKING';
+var CREATE_BOOKING = 'CREATE_BOOKING';
+var SHOW_BOOKINGS = "SHOW_BOOKINGS";
 var receiveBooking = function receiveBooking(booking) {
   return {
-    type: RECEIVE_BOOKING,
+    type: CREATE_BOOKING,
     booking: booking
   };
 };
-var createBooking = function createBooking(booking) {
+var showAllBookings = function showAllBookings(bookings) {
+  return {
+    type: SHOW_BOOKINGS,
+    bookings: bookings
+  };
+};
+var createBooking = function createBooking(userId, booking) {
   return function (dispatch) {
-    return _util_bookings_api_util__WEBPACK_IMPORTED_MODULE_1__["createBooking"](booking).then(function (booking) {
+    debugger;
+    return _util_bookings_api_util__WEBPACK_IMPORTED_MODULE_1__["createBooking"](userId, booking).then(function (booking) {
       return dispatch(receiveBooking(booking));
     });
   };
+};
+var showBookings = function showBookings(dispatch) {
+  // debugger
+  return _util_bookings_api_util__WEBPACK_IMPORTED_MODULE_1__["fetchBookings"]().then(function (bookings) {
+    return dispatch(showAllBookings(bookings));
+  });
 };
 
 /***/ }),
@@ -172,7 +189,7 @@ var demoLogin = function demoLogin() {
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_SESSION_ERRORS, receiveCurrentUser, logoutCurrentUser, receiveErrors, signup, login, logout */
+/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_SESSION_ERRORS, GO_TO_BOOKINGS, receiveCurrentUser, logoutCurrentUser, receiveErrors, goToBookings, fetchBookings, signup, login, logout */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -180,9 +197,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_USER", function() { return RECEIVE_CURRENT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_CURRENT_USER", function() { return LOGOUT_CURRENT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GO_TO_BOOKINGS", function() { return GO_TO_BOOKINGS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveCurrentUser", function() { return receiveCurrentUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutCurrentUser", function() { return logoutCurrentUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveErrors", function() { return receiveErrors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "goToBookings", function() { return goToBookings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBookings", function() { return fetchBookings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
@@ -191,6 +211,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+var GO_TO_BOOKINGS = 'GO_TO_BOOKINGS';
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
   return {
     type: RECEIVE_CURRENT_USER,
@@ -206,6 +227,19 @@ var receiveErrors = function receiveErrors(errors) {
   return {
     type: RECEIVE_SESSION_ERRORS,
     errors: errors
+  };
+};
+var goToBookings = function goToBookings(bookings) {
+  return {
+    type: GO_TO_BOOKINGS,
+    bookings: bookings
+  };
+};
+var fetchBookings = function fetchBookings(userId) {
+  return function (dispatch) {
+    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBookings"](userId).then(function (bookings) {
+      return dispatch(goToBookings(bookings));
+    });
   };
 };
 var signup = function signup(user) {
@@ -353,6 +387,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./spots/spot_show_container */ "./frontend/components/spots/spot_show_container.js");
 /* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-dates/lib/css/_datepicker.css */ "./node_modules/react-dates/lib/css/_datepicker.css");
 /* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _spots_user_profile_container__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./spots/user_profile_container */ "./frontend/components/spots/user_profile_container.js");
 
 
 
@@ -369,6 +404,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").createBrowserHistory;
+
 
 
 var App = function App() {
@@ -394,6 +430,10 @@ var App = function App() {
     exact: true,
     path: "/spots/:spotId",
     component: _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_13__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/users/:userId/bookings",
+    component: _spots_user_profile_container__WEBPACK_IMPORTED_MODULE_15__["default"]
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_11__["default"], null));
 };
 
@@ -414,6 +454,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../search/search_container */ "./frontend/components/search/search_container.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _spots_user_profile_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../spots/user_profile_container */ "./frontend/components/spots/user_profile_container.js");
+
+
 
 
 
@@ -422,6 +465,7 @@ var Greeting = function Greeting(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout,
       openModal = _ref.openModal;
+  debugger;
 
   var sessionLinks = function sessionLinks() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -455,9 +499,9 @@ var Greeting = function Greeting(_ref) {
       className: "nav-secret"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "nav-dropdown-content"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       className: "bookings",
-      onClick: logout
+      to: "api/users/".concat(currentUser.id, "/bookings")
     }, "Bookings"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "logout",
       onClick: logout
@@ -502,6 +546,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     openModal: function openModal(modal) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["openModal"])(modal));
+    },
+    fetchBookings: function fetchBookings(userId) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBookings"])(userId));
     }
   };
 };
@@ -871,6 +918,7 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      // if (window.location.href === `http://localhost:3000/#/){
       var dropDown = null;
 
       if (this.state.showResults) {
@@ -886,7 +934,7 @@ function (_React$Component) {
             className: "search-map-pin",
             src: "./pin.svg"
           }));
-        });
+        }); //  }
       }
 
       var _this$state = this.state,
@@ -1298,6 +1346,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _booking_show__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./booking_show */ "./frontend/components/spots/booking_show.jsx");
+/* harmony import */ var _actions_booking_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/booking_actions */ "./frontend/actions/booking_actions.js");
+
+
+
+
+
+
+
+
+
+var msp = function msp(state) {
+  return {// currentUser: this.state.entities.currentUser.id
+  };
+};
+
+var mdp = function mdp(dispatch) {
+  return {
+    createBooking: function createBooking(userId, formData) {
+      return dispatch(Object(_actions_booking_actions__WEBPACK_IMPORTED_MODULE_7__["createBooking"])(userId, formData));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(msp, mdp)(_booking_show__WEBPACK_IMPORTED_MODULE_6__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/spots/booking_show.jsx":
+/*!****************************************************!*\
+  !*** ./frontend/components/spots/booking_show.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dates */ "./node_modules/react-dates/index.js");
+/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dates/initialize */ "./node_modules/react-dates/initialize.js");
+/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dates/lib/css/_datepicker.css */ "./node_modules/react-dates/lib/css/_datepicker.css");
+/* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1308,9 +1405,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1322,30 +1419,54 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var BookingContainer =
+
+var BookingShow =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(BookingContainer, _React$Component);
+  _inherits(BookingShow, _React$Component);
 
-  function BookingContainer(props) {
+  function BookingShow(props) {
     var _this;
 
-    _classCallCheck(this, BookingContainer);
+    _classCallCheck(this, BookingShow);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(BookingContainer).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(BookingShow).call(this, props));
     _this.state = {
-      startDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(),
-      focusedInput: null,
-      endDate: moment__WEBPACK_IMPORTED_MODULE_3___default()()
+      startDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.start),
+      endDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.end),
+      num_guests: 3
     };
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
-  _createClass(BookingContainer, [{
+  _createClass(BookingShow, [{
+    key: "update",
+    value: function update(e) {
+      e.preventDefault();
+      this.setState({
+        max_guests: e.target.value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var data = {
+        start_date: new Date(this.state.startDate.toDate()),
+        end_date: new Date(this.state.endDate.toDate()),
+        num_guests: this.state.num_guests
+      };
+      e.preventDefault(); // debugger
+
+      this.props.createBooking(this.props.currentUser, data);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_0__["DateRangePicker"], {
         orientation: "vertical",
         startDate: this.state.startDate // momentPropTypes.momentObj or null,
@@ -1373,14 +1494,27 @@ function (_React$Component) {
           });
         } // PropTypes.func.isRequired,
 
-      }));
+      }), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
+        className: "spot-booking-guests"
+      }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("input", {
+        type: "number",
+        onChange: this.update,
+        name: "",
+        className: "spot-booking-guests",
+        placeholder: "guests",
+        value: this.state.max_guests
+      }), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
+        className: "spot-submit"
+      }, "Reserve"))));
     }
   }]);
 
-  return BookingContainer;
+  return BookingShow;
 }(react__WEBPACK_IMPORTED_MODULE_4___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (BookingContainer);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["withRouter"])(BookingShow));
 
 /***/ }),
 
@@ -1897,8 +2031,21 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // console.log(this.props.reviews)
-      var spot = this.props.spot; // debugger
+      var calculateRating = function calculateRating(spot) {
+        //   debugger
+        var arr = [];
+
+        for (var s = 0; s < spot.rating / 2; s++) {
+          arr.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            className: "index-review-star"
+          }, "\u2605"));
+        }
+
+        return arr;
+      }; // console.log(this.props.reviews)
+
+
+      var spot = this.props.spot;
 
       if (!spot) {
         return null;
@@ -1938,11 +2085,16 @@ function (_React$Component) {
         });
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_for_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot--bookings"
-      }, "Bookings", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-booking-form-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_booking_container__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spot-show-cost-per-night"
-      }, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Dates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-cost-per-night"
+      }, spot.cost_per_night), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "booking-rating"
+      }, calculateRating(spot)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_booking_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        formData: this.props.formData,
+        currentUser: this.props.currentUser
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show-calender"
       }, " ")));
     }
@@ -1984,9 +2136,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
 /* harmony import */ var _spot_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_show */ "./frontend/components/spots/spot_show.jsx");
 /* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _booking_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./booking_container */ "./frontend/components/spots/booking_container.js");
 
 
  // import { createReview } from '../../util/spots_api_util'; ?????
+
 
  //calls function from selector and passes props to component
 // need to get back review ids here and give it to spot_show component's slice of state
@@ -2016,6 +2170,115 @@ var mdp = function mdp(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/spots/user_profile.jsx":
+/*!****************************************************!*\
+  !*** ./frontend/components/spots/user_profile.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var UserProfile =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(UserProfile, _React$Component);
+
+  function UserProfile(props) {
+    _classCallCheck(this, UserProfile);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(UserProfile).call(this, props));
+  }
+
+  _createClass(UserProfile, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchBookings(this.props.currentUser);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      // if (!Object.values(this.props.currentUser.bookings).length > 0){
+      //     return null;
+      // }
+      // if (!this.props.currentUser.bookings){
+      //     return null;
+      // }
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-profile-container"
+      }, "hiiiiiiiiiii", this.props.currentUser.bookings[1]);
+    }
+  }]);
+
+  return UserProfile;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (UserProfile);
+
+/***/ }),
+
+/***/ "./frontend/components/spots/user_profile_container.js":
+/*!*************************************************************!*\
+  !*** ./frontend/components/spots/user_profile_container.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _user_profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_profile */ "./frontend/components/spots/user_profile.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+
+
+
+
+var msp = function msp(state) {
+  debugger;
+  return {
+    bookings: state.entities.bookings,
+    currentUser: state.entities.users[state.session.currentUser]
+  };
+};
+
+var mdp = function mdp(dispatch) {
+  return {
+    fetchBookings: function fetchBookings(userId) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBookings"])(userId));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(_user_profile__WEBPACK_IMPORTED_MODULE_2__["default"])));
+
+/***/ }),
+
 /***/ "./frontend/reducers/bookings_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/bookings_reducer.js ***!
@@ -2037,8 +2300,11 @@ var bookingReducer = function bookingReducer() {
   Object.freeze(state);
 
   switch (action.type) {
-    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOOKING"]:
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_BOOKING"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, action.booking);
+
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["SHOW_BOOKINGS"]:
+      return action.bookings;
 
     default:
       return state;
@@ -2421,6 +2687,9 @@ var usersReducer = function usersReducer() {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
 
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["GO_TO_BOOKINGS"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, action.bookings);
+
     default:
       return state;
   }
@@ -2517,19 +2786,27 @@ var configureStore = function configureStore() {
 /*!********************************************!*\
   !*** ./frontend/util/bookings_api_util.js ***!
   \********************************************/
-/*! exports provided: createBooking */
+/*! exports provided: createBooking, fetchBookings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBooking", function() { return createBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBookings", function() { return fetchBookings; });
 var createBooking = function createBooking(bookerId, booking) {
+  debugger;
   return $.ajax({
     method: 'POST',
     url: "api/users/".concat(bookerId, "/bookings"),
     data: {
       booking: booking
     }
+  });
+};
+var fetchBookings = function fetchBookings(userId) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/users/".concat(bookerId, "/bookings")
   });
 };
 
@@ -2580,7 +2857,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************!*\
   !*** ./frontend/util/session_api_util.js ***!
   \*******************************************/
-/*! exports provided: login, signup, logout */
+/*! exports provided: login, signup, logout, fetchBookings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2588,6 +2865,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBookings", function() { return fetchBookings; });
 var login = function login(user) {
   return $.ajax({
     method: 'POST',
@@ -2610,6 +2888,12 @@ var logout = function logout() {
   return $.ajax({
     method: 'DELETE',
     url: '/api/session'
+  });
+};
+var fetchBookings = function fetchBookings(userId) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/users/".concat(userId, "/bookings")
   });
 };
 

@@ -20,13 +20,16 @@ import { withRouter } from 'react-router-dom'
 import SpotShowContainer from './spots/spot_show_container'
 require("history").createBrowserHistory
 import 'react-dates/lib/css/_datepicker.css';
+import UserProfileContainer from './spots/user_profile_container';
 
 
 const App = () => {
- 
+
 return(
 
   <section>
+
+
 
     {window.location.href === `http://localhost:3000/#/` ? 
      
@@ -37,15 +40,20 @@ return(
       
       : <SearchContainer />}
 
-      
+    
     <GreetingContainer />
+
+  
+
     <div className='nav-line-top'></div>
      <div className='nav-line-bottom'></div>
     <div className="background-img" ></div>
-   
+
     <Switch>
       <Route exact path="/spots" component={SpotIndexContainer} />
       <Route exact path='/spots/:spotId' component={SpotShowContainer} />
+      <Route exact path='/users/:userId/bookings' component={UserProfileContainer} />
+
     </Switch>
     
     <Modal />

@@ -3,6 +3,7 @@ import { fetchSpot, fetchReviews, createReview } from '../../actions/spot_action
 import SpotShow from './spot_show';
 // import { createReview } from '../../util/spots_api_util'; ?????
 import { selectReviewsForSpot } from '../../reducers/selectors';
+import BookingContainer from './booking_container';
 
 
 //calls function from selector and passes props to component
@@ -13,15 +14,16 @@ import { selectReviewsForSpot } from '../../reducers/selectors';
 export const msp = (state) => {
 
     return({
-    reviews: Object.values(state.entities.reviews)
-    }
-    )
+    reviews: Object.values(state.entities.reviews),
+    
+    })
 }
 //mdp key, when called in component, makes ajax request then dispatches return data to spots reducer to update the store
 export const mdp = dispatch =>({
     fetchSpot: (id) => dispatch(fetchSpot(id)),
     fetchReviews: (id) => dispatch(fetchReviews(id)),
-    createReview: (id) => dispatch(createReview(id))
+    createReview: (id) => dispatch(createReview(id)),
+  
 })
 
 export default connect(msp, mdp)(SpotShow)

@@ -72,14 +72,14 @@
 }
 
 .rating > input:checked ~ label {
-    color: #f70;
+     color: red;
     text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
 }
 
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
-    color: gold;
-    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+    color: red;
+    text-shadow:1px 1px  red, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
 }
 
 .rating > input:checked + label:hover, // checks for whenever a radio input is checked and label is hovered over
@@ -87,8 +87,8 @@
 .rating > input:checked ~ label:hover,
 .rating > input:checked ~ label:hover ~ label,
 .rating > label:hover ~ input:checked ~ label {
-    color: #ea0;
-    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+     color: red;
+    text-shadow:1px 1px red, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
 }
 
 .rating > label:active { //specifies the state of an input label, activated by a user

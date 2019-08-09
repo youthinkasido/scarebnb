@@ -1,4 +1,4 @@
-import {RECEIVE_BOOKING} from '../actions/booking_actions'
+import {CREATE_BOOKING,SHOW_BOOKINGS} from '../actions/booking_actions'
 import merge from 'lodash/merge'
 
 
@@ -8,8 +8,10 @@ const bookingReducer = (state={}, action) => {
     Object.freeze(state)
     
     switch(action.type){
-        case RECEIVE_BOOKING:
+        case CREATE_BOOKING:
            return merge({}, state, action.booking)
+        case SHOW_BOOKINGS:
+            return action.bookings
         default: 
         return state
     }

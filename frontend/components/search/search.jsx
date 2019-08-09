@@ -88,7 +88,10 @@ hideSearchSuggestions(){
 
   }
   render(){ 
-    
+
+
+    // if (window.location.href === `http://localhost:3000/#/){
+
     let dropDown = null;
   if (this.state.showResults){
     const goodCities = this.state.cities.filter(searchingFor(this.state.term));
@@ -99,6 +102,8 @@ hideSearchSuggestions(){
         <img className="search-map-pin" src="./pin.svg" />
       </div>
     ))
+//  }
+
   }
 
     const {term, people}= this.state

@@ -5,6 +5,8 @@ export const RECEIVE_SPOT = "RECEIVE_SPOT"
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW"
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS"
 
+
+
 export const receiveReview = (review) => ({ //where are we getting info from? // why destructured?
     type: RECEIVE_REVIEW,
     review

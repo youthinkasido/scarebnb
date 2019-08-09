@@ -3,45 +3,22 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment';
 import React from 'react';
+import {connect} from 'react-redux'
+import BookingShow from './booking_show'
+import {createBooking } from '../../actions/booking_actions'
 
-class BookingContainer extends React.Component{
-    constructor(props){
-        super(props)
+const msp = (state) =>{
    
-
-    this.state = {
-        startDate: moment(),
-        focusedInput: null,
-        endDate: moment()
-
-        }
-    }
-
-    render (){
-
-    return( 
-        
-        <section>
-            
-      
-        <DateRangePicker
-        
-            orientation={"vertical"}
-            startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-            startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-            endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-            endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-            focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-            onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-            />  
-            {/* <TestInput placeholder="Input 1" /> */}
-            </section>
-
+    return {
        
-        
-        )
+            // currentUser: this.state.entities.currentUser.id
+           
     }
+
 }
 
-export default BookingContainer
+const mdp = (dispatch) => {
+    return { createBooking: (userId, formData) => dispatch(createBooking(userId, formData)) } 
+}
+
+export default connect(msp,mdp)(BookingShow)

@@ -1,19 +1,31 @@
 import React from 'react'
 import * as BookingApiUtil from '../util/bookings_api_util'
-export const RECEIVE_BOOKING = 'CREATE_BOOKING'
+export const CREATE_BOOKING = 'CREATE_BOOKING'
+export const SHOW_BOOKINGS = "SHOW_BOOKINGS"
 
 export const receiveBooking = booking => ({
-    type: RECEIVE_BOOKING,
+    type: CREATE_BOOKING,
     booking
 })
 
+export const showAllBookings = (bookings) => ({
+    type: SHOW_BOOKINGS,
+    bookings
+})
 
-export const createBooking = (booking) => dispatch => {
-
+export const createBooking = (userId,booking) => dispatch => {
+debugger
     return(
-        BookingApiUtil.createBooking(booking).then(booking=> dispatch(receiveBooking(booking)))
+        BookingApiUtil.createBooking(userId,booking).then(booking=> dispatch(receiveBooking(booking)))
     )
 } 
+
+export const showBookings = (dispatch) => {
+    // debugger
+    return (
+        BookingApiUtil.fetchBookings().then(bookings=> dispatch(showAllBookings(bookings)))
+    )
+}
 
 
 

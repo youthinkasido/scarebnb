@@ -1,12 +1,15 @@
 import React from 'react';
 import SearchContainer from '../search/search_container'
 import { Link } from 'react-router-dom';
+import withRouter from 'react-router-dom'
+import UserProfileContainer from '../spots/user_profile_container';
+
+
 
 
 
 const Greeting = ({ currentUser, logout, openModal }) => {
-    
-
+    debugger;
     const sessionLinks = () => (
 
         <nav className="nav-bar">
@@ -28,7 +31,11 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                         <div className="nav-dropdown-content">
 
                       
-                            <p className="bookings"onClick={logout}>Bookings</p>
+                        {/* <p className="bookings"><Link to={`api/users/${currentUser.id}`}>Bookings</Link></p> */}
+                        <Link className="bookings" to={`api/users/${currentUser.id}/bookings`}>
+                       Bookings
+                        </Link>
+                        
                             <p className="logout" onClick={logout}>Log Out</p>
                         </div>
 

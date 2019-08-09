@@ -4,7 +4,10 @@ class Api::BookingsController < ApplicationController
 
     def create 
         @booking = Booking.new(booking_params)
+       @booking.start_date = @booking.start_date.to_datetime
+       @booking.end_date = @booking.end_date.to_datetime
 
+       
        if @booking.save 
         render json: 'Successful booking!' 
        else 
@@ -14,7 +17,10 @@ class Api::BookingsController < ApplicationController
 
     def index 
         @bookings = Booking.all
+      
     end 
+
+
 
     
     private 

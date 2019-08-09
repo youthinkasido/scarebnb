@@ -20,3 +20,13 @@ export const logout = () => (
         url: '/api/session'
     })
 );
+
+export const fetchBookings = (userId) => (
+    $.ajax({
+        method: 'GET',
+        url: `api/users/${userId}/bookings`
+    })
+)
+
+
+
