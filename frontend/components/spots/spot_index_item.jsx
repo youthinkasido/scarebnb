@@ -9,7 +9,7 @@ const SpotIndexItem = ({spot}) => {
     //   debugger
         let arr = []
         for (let s = 0; s < spot.rating/2; s++) {
-            arr.push(<li className="index-review-star">★</li>)
+            arr.push(<li key={s} className="index-review-star">★</li>)
         }
         return arr
     }

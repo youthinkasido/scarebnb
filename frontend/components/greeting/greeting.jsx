@@ -9,7 +9,7 @@ import UserProfileContainer from '../spots/user_profile_container';
 
 
 const Greeting = ({ currentUser, logout, openModal }) => {
-    debugger;
+   
     const sessionLinks = () => (
 
         <nav className="nav-bar">
@@ -29,13 +29,8 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                         <img className="clown-profile" src="./clownphoto.png"/>
                             <div className="nav-secret"></div>
                         <div className="nav-dropdown-content">
-
-                      
-                        {/* <p className="bookings"><Link to={`api/users/${currentUser.id}`}>Bookings</Link></p> */}
-                        <Link className="bookings" to={`api/users/${currentUser.id}/bookings`}>
-                       Bookings
-                        </Link>
                         
+                        <p className="bookings"><a href={`/#/users/${currentUser.id}/bookings`}>Bookings</a></p>
                             <p className="logout" onClick={logout}>Log Out</p>
                         </div>
 

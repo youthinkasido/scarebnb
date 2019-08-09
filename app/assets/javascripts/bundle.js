@@ -124,7 +124,11 @@ var createBooking = function createBooking(userId, booking) {
   return function (dispatch) {
     debugger;
     return _util_bookings_api_util__WEBPACK_IMPORTED_MODULE_1__["createBooking"](userId, booking).then(function (booking) {
-      return dispatch(receiveBooking(booking));
+      debugger;
+      return dispatch({
+        type: CREATE_BOOKING,
+        booking: booking
+      });
     });
   };
 };
@@ -465,7 +469,6 @@ var Greeting = function Greeting(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout,
       openModal = _ref.openModal;
-  debugger;
 
   var sessionLinks = function sessionLinks() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -499,10 +502,11 @@ var Greeting = function Greeting(_ref) {
       className: "nav-secret"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "nav-dropdown-content"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-      className: "bookings",
-      to: "api/users/".concat(currentUser.id, "/bookings")
-    }, "Bookings"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "bookings"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      href: "/#/users/".concat(currentUser.id, "/bookings")
+    }, "Bookings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "logout",
       onClick: logout
     }, "Log Out")))));
@@ -916,25 +920,17 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       // if (window.location.href === `http://localhost:3000/#/){
       var dropDown = null;
 
-      if (this.state.showResults) {
-        var goodCities = this.state.cities.filter(searchingFor(this.state.term));
-        dropDown = goodCities.map(function (city) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            onClick: function onClick() {
-              return _this2.hideSearchSuggestions();
-            },
-            className: "search-completer drop",
-            key: city.id
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, city.name, " ", city.state), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            className: "search-map-pin",
-            src: "./pin.svg"
-          }));
-        }); //  }
+      if (this.state.showResults) {// const goodCities = this.state.cities.filter(searchingFor(this.state.term));
+        // dropDown = goodCities.map(city=>(
+        //   <div onClick={() => this.hideSearchSuggestions()} className="search-completer drop" key={city.id}>
+        //     <h1>{city.name} {city.state}</h1>
+        //     <img className="search-map-pin" src="./pin.svg" />
+        //   </div>
+        // ))
+        //  }
       }
 
       var _this$state = this.state,
@@ -1349,6 +1345,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _booking_show__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./booking_show */ "./frontend/components/spots/booking_show.jsx");
 /* harmony import */ var _actions_booking_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/booking_actions */ "./frontend/actions/booking_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 
 
@@ -1358,8 +1355,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var msp = function msp(state) {
-  return {// currentUser: this.state.entities.currentUser.id
+
+var msp = function msp(state, ownProps) {
+  return {
+    currentUser: state.session.currentUser,
+    pricePerDay: state.entities.spots[ownProps.match.params.spotId].cost_per_night
   };
 };
 
@@ -1371,7 +1371,7 @@ var mdp = function mdp(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(msp, mdp)(_booking_show__WEBPACK_IMPORTED_MODULE_6__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(msp, mdp)(_booking_show__WEBPACK_IMPORTED_MODULE_6__["default"])));
 
 /***/ }),
 
@@ -1434,7 +1434,11 @@ function (_React$Component) {
     _this.state = {
       startDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.start),
       endDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.end),
-      num_guests: 3
+      num_guests: 3,
+      spot_id: 1,
+      booker_id: _this.props.currentUser,
+      owner_id: _this.props.currentUser,
+      price_per_day: _this.props.pricePerDay
     };
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -1444,29 +1448,35 @@ function (_React$Component) {
   _createClass(BookingShow, [{
     key: "update",
     value: function update(e) {
-      e.preventDefault();
-      this.setState({
-        max_guests: e.target.value
-      });
+      var _this2 = this;
+
+      // e.preventDefault()
+      return function (e) {
+        return _this2.setState({
+          max_guests: e.target.value
+        });
+      };
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      e.preventDefault();
       var data = {
         start_date: new Date(this.state.startDate.toDate()),
         end_date: new Date(this.state.endDate.toDate()),
-        num_guests: this.state.num_guests
+        num_guests: this.state.num_guests,
+        spot_id: 1,
+        booker_id: this.props.currentUser,
+        owner_id: this.props.currentUser,
+        price_per_day: this.props.pricePerDay
       };
-      e.preventDefault(); // debugger
-
       this.props.createBooking(this.props.currentUser, data);
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_0__["DateRangePicker"], {
         orientation: "vertical",
         startDate: this.state.startDate // momentPropTypes.momentObj or null,
@@ -1480,7 +1490,7 @@ function (_React$Component) {
         onDatesChange: function onDatesChange(_ref) {
           var startDate = _ref.startDate,
               endDate = _ref.endDate;
-          return _this2.setState({
+          return _this3.setState({
             startDate: startDate,
             endDate: endDate
           });
@@ -1489,7 +1499,7 @@ function (_React$Component) {
         focusedInput: this.state.focusedInput // PropTypes.oneOf([START_DATE, END_DATE]) or null,
         ,
         onFocusChange: function onFocusChange(focusedInput) {
-          return _this2.setState({
+          return _this3.setState({
             focusedInput: focusedInput
           });
         } // PropTypes.func.isRequired,
@@ -1917,6 +1927,7 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
 
     for (var s = 0; s < spot.rating / 2; s++) {
       arr.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        key: s,
         className: "index-review-star"
       }, "\u2605"));
     }
@@ -2222,22 +2233,40 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // if (!Object.values(this.props.currentUser.bookings).length > 0){
+      debugger; // if (!Object.values(this.props.currentUser.bookings).length > 0){
       //     return null;
       // }
-      // if (!this.props.currentUser.bookings){
-      //     return null;
-      // }
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-profile-container"
-      }, "hiiiiiiiiiii", this.props.currentUser.bookings[1]);
+
+      if (!this.props.currentUser || !this.props.currentUser.bookings) {
+        return null;
+      } else {
+        debugger;
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, Object.values(this.props.bookings[0]).map(function (booking) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "booking-item"
+          }, "Start Date: ", booking.start_date, " End Date: ", booking.end_date, " Cost Per Night:", booking.cost_per_night, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: "./shack2.png"
+          })));
+        })) // <div className="booking-item">{bookies}</div>
+        ;
+      } // <div className="user-profile-container">
+      //     this.props.bookings.map(booking=>{
+      //     })
+      // <div className="booking-item"> {this.props.bookings.spot_id}</div>
+      // <div className="booking-item"> {this.props.bookings}</div>
+      // <div className="booking-item"> {this.props.bookings}</div>
+      // <div className="booking-item">Here is NOT a booking</div>
+      // <div className="booking-item">Here is NOT a booking</div>
+      // <div className="booking-item">Here is NOT a booking</div>
+      // </div> 
+
     }
   }]);
 
   return UserProfile;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (UserProfile);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(UserProfile));
 
 /***/ }),
 
@@ -2260,9 +2289,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state) {
-  debugger;
   return {
-    bookings: state.entities.bookings,
+    bookings: Object.values(state.entities.bookings),
     currentUser: state.entities.users[state.session.currentUser]
   };
 };
@@ -2291,6 +2319,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/booking_actions */ "./frontend/actions/booking_actions.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+
+
 
 
 
@@ -2301,10 +2333,18 @@ var bookingReducer = function bookingReducer() {
 
   switch (action.type) {
     case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_BOOKING"]:
+      debugger;
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, action.booking);
 
     case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["SHOW_BOOKINGS"]:
       return action.bookings;
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["GO_TO_BOOKINGS"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, action.bookings);
+
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__["RECEIVE_ALL_SPOTS"]:
+      debugger;
+      return state;
 
     default:
       return state;
@@ -2794,7 +2834,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBooking", function() { return createBooking; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBookings", function() { return fetchBookings; });
 var createBooking = function createBooking(bookerId, booking) {
-  debugger;
   return $.ajax({
     method: 'POST',
     url: "api/users/".concat(bookerId, "/bookings"),

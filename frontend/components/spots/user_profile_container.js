@@ -6,8 +6,8 @@ import {withRouter} from 'react-router-dom'
 
 
 const msp = (state) => {
-    debugger
-    return {bookings: state.entities.bookings,
+
+    return {bookings: Object.values(state.entities.bookings),
             currentUser: state.entities.users[state.session.currentUser]}
     
 }

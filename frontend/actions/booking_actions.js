@@ -13,13 +13,21 @@ export const showAllBookings = (bookings) => ({
     bookings
 })
 
-export const createBooking = (userId,booking) => dispatch => {
-debugger
-    return(
-        BookingApiUtil.createBooking(userId,booking).then(booking=> dispatch(receiveBooking(booking)))
-    )
-} 
 
+
+
+
+export const createBooking = (userId,booking) => dispatch => {
+    debugger
+    return(
+        BookingApiUtil.createBooking(userId,booking).then( booking =>{
+            
+           debugger
+        return dispatch({type: CREATE_BOOKING, booking})
+        }))
+    }
+
+    
 export const showBookings = (dispatch) => {
     // debugger
     return (

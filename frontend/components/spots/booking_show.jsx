@@ -15,10 +15,12 @@ class BookingShow extends React.Component {
 
             startDate: moment(event.start),
             endDate: moment(event.end),
-         
-            
-            
-            num_guests: 3
+            num_guests: 3,
+            spot_id: 1,
+            booker_id: this.props.currentUser,
+            owner_id: this.props.currentUser,
+            price_per_day: this.props.pricePerDay
+
         }
 
         this.update = this.update.bind(this)
@@ -28,24 +30,29 @@ class BookingShow extends React.Component {
     update(e) {
 
 
-        e.preventDefault()
-        this.setState({ max_guests: e.target.value })
+        // e.preventDefault()
+       return e => this.setState({ max_guests: e.target.value })
 
     }
 
     handleSubmit(e) {
+        e.preventDefault()
        let data = {start_date: new Date(this.state.startDate.toDate()), 
            end_date: new Date(this.state.endDate.toDate()),
-            num_guests: this.state.num_guests
+            num_guests: this.state.num_guests,
+            spot_id: 1,
+           booker_id: this.props.currentUser, 
+           owner_id: this.props.currentUser,
+           price_per_day: this.props.pricePerDay
     }
-        e.preventDefault()
-        // debugger
+      
+      
         this.props.createBooking(this.props.currentUser, data)
        
     }
 
     render() {
-        debugger
+      
         return (
 
             <section>

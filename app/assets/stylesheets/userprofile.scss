@@ -1,7 +1,25 @@
 .user-profile-container{
-    width: 380%;
-    background: white;
-    border: 2px solid black;
+        width: 90%;
+    background: black;
+    border: 2px solid white;
     text-align: center;
-    height:380%;
+    height: 700px;
+    position: absolute;
+    top: 90px;
+    margin-left: 60px;
+    display: inline-flex;
+    flex-flow: wrap;
+}
+
+.booking-item{
+    width: 30%;
+    height: 50%;
+    border: 1px solid white;
+    color: white;
+    margin: 0 auto;
+}
+
+.booking-item img{
+vertical-align: middle;
+    width: 100%;
 }

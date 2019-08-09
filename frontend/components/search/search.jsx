@@ -94,14 +94,14 @@ hideSearchSuggestions(){
 
     let dropDown = null;
   if (this.state.showResults){
-    const goodCities = this.state.cities.filter(searchingFor(this.state.term));
-    dropDown = goodCities.map(city=>(
-      <div onClick={() => this.hideSearchSuggestions()} className="search-completer drop" key={city.id}>
+    // const goodCities = this.state.cities.filter(searchingFor(this.state.term));
+    // dropDown = goodCities.map(city=>(
+    //   <div onClick={() => this.hideSearchSuggestions()} className="search-completer drop" key={city.id}>
 
-        <h1>{city.name} {city.state}</h1>
-        <img className="search-map-pin" src="./pin.svg" />
-      </div>
-    ))
+    //     <h1>{city.name} {city.state}</h1>
+    //     <img className="search-map-pin" src="./pin.svg" />
+    //   </div>
+    // ))
 //  }
 
   }
