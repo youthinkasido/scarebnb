@@ -36,7 +36,9 @@ class BookingShow extends React.Component {
     }
 
     handleSubmit(e) {
+        
         e.preventDefault()
+         alert('Booking Confirmed!')
        let data = {start_date: new Date(this.state.startDate.toDate()), 
            end_date: new Date(this.state.endDate.toDate()),
             num_guests: this.state.num_guests,
@@ -71,9 +73,9 @@ class BookingShow extends React.Component {
 
                 <div className="spot-booking-guests">
 
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleSubmit} >
                         <input type="number" onChange={this.update} name="" className="spot-booking-guests" placeholder="guests" value={this.state.max_guests} />
-                        <button className="spot-submit">Reserve</button>
+                        <button  className="spot-submit">Reserve</button>
                     </form>
 
                 </div>

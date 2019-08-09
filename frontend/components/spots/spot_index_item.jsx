@@ -31,8 +31,7 @@ return (
             <li>{calculateRating(spot)}</li>
         <li className='cost-per-night'>{spot.cost_per_night}</li>
       </div>
-        {/* <img className="skull-heart"src="./skullheart.svg"/> */}
-        {/* <div className="rating-stars"> */}
+
 
         </div>
     )

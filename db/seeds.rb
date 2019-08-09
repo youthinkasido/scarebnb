@@ -8,6 +8,7 @@
 Review.destroy_all
 User.destroy_all 
 Spot.destroy_all
+Booking.destroy_all
 
 user1 = User.create!(first_name: 'guest', last_name: 'guest', email:'guest1@gmail.com', password:'123456')
 user2 = User.create!(first_name: 'Ken', last_name: 'Kloostdaddy', email:'thekman@gmail.com', password:'123456')
@@ -37,7 +38,7 @@ spot1 = Spot.create!(
   spot_type: "Shack",
   modified: nil,
   owner_id: user1.id,
-  amenities: ['Soap  ', 'Mouthwash  ', 'AOL access  '],
+  amenities: ['Soap / ', 'Mouthwash / ', 'AOL access / '],
   image_urls: ['/Users/arshiakhoshnood/Desktop/finalproject/photos/shacks','/Users/arshiakhoshnood/Desktop/finalproject/photos/shacks'],
   cost_per_night: '$3 per night')
 
@@ -59,7 +60,7 @@ spot1 = Spot.create!(
   spot_type: "STURDY SHACK",
   modified: nil,
   owner_id: user2.id,
-  amenities: ['Clogged Toilet  ', 'Free Water  ', 'Soap  ', 'Mouthwash  ', 'AOL access  '],
+  amenities: ['Clogged Toilet / ', 'Free Water / ', 'Soap / ', 'Mouthwash / ', 'AOL access / '],
   cost_per_night: '$13 per night')
 
   spot3 = Spot.create!(
@@ -150,8 +151,8 @@ spot1 = Spot.create!(
   cost_per_night: '$1 per night')
 
   spot7 = Spot.create!(
-  name: "Nice Bench",
-  description: "Bench available for short term lease. Prime location in downtown Atlanta. No incidents reported in over 3 months",
+  name: "Old Country Shack",
+  description: "Shack available for short term lease. Prime location in downtown Atlanta. No incidents reported in over 3 months",
   lat: 33.743297,
   lng: -84.383985,
   max_guests: 2,
@@ -167,7 +168,7 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user4.id,
-  amenities: ['Clogged Toilet  ', 'Free Water  ', 'Soap  ', 'Mouthwash  ', 'AOL access  '],
+  amenities: ['Clogged Toilet / ', 'Free Water / ', 'Soap / ', 'Mouthwash / ', 'AOL access / '],
   cost_per_night: '$5 per night')
 
     spot8 = Spot.create!(
@@ -188,7 +189,7 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user2.id,
-  amenities: ['Clogged Toilet  ', 'Free Water  ', 'Soap  ', 'Mouthwash  ', 'AOL access  '],
+  amenities: ['Clogged Toilet / ', 'Free Water / ', 'Soap / ', 'Mouthwash / ', 'AOL access / '],
   cost_per_night: '$2 per night')
 
   spot9 = Spot.create!(
@@ -209,7 +210,7 @@ spot1 = Spot.create!(
   spot_type: "Other",
   modified: nil,
   owner_id: user2.id,
-  amenities: ['Clogged Toilet  ', 'Free Water  ', 'Soap  ', 'Mouthwash  ', 'AOL access  '],
+  amenities: ['Clogged Toilet  ', 'Free Water / ', 'Soap / ', 'Mouthwash / ', 'AOL access / '],
   cost_per_night: '$13 per night')
 
 

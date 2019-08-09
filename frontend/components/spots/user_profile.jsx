@@ -18,24 +18,25 @@ componentDidMount(){
 
     render(){
        
-        debugger
+       
+        // debugger
         // if (!Object.values(this.props.currentUser.bookings).length > 0){
         //     return null;
         // }
         
 
         
-        
-        if (!this.props.currentUser || !this.props.currentUser.bookings){
+        console.log(this.props.currentUser)
+        if (!this.props.currentUser || !this.props.bookings.length > 0 ){
             return null 
         }else{
-       debugger
+    //    debugger
             return (
                <div>
-                    {Object.values(this.props.bookings[0]).map(booking => 
+                    {this.props.bookings.map(booking => 
                     <div>
                       
-                    <div className="booking-item">Start Date: {booking.start_date} End Date: {booking.end_date} Cost Per Night:{booking.cost_per_night}
+                    <div className="booking-item">Start Date: {booking.start_date} End Date: {booking.end_date} Cost Per Night:{booking.price_per_day}
                     
                                 <img src="./shack2.png"></img></div>
                     </div>)}</div>

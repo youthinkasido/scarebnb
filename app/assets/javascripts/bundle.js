@@ -90,12 +90,12 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/booking_actions.js ***!
   \*********************************************/
-/*! exports provided: CREATE_BOOKING, SHOW_BOOKINGS, receiveBooking, showAllBookings, createBooking, showBookings */
+/*! exports provided: RECEIVE_BOOKING, SHOW_BOOKINGS, receiveBooking, showAllBookings, createBooking, showBookings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_BOOKING", function() { return CREATE_BOOKING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BOOKING", function() { return RECEIVE_BOOKING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHOW_BOOKINGS", function() { return SHOW_BOOKINGS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBooking", function() { return receiveBooking; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showAllBookings", function() { return showAllBookings; });
@@ -106,11 +106,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_bookings_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/bookings_api_util */ "./frontend/util/bookings_api_util.js");
 
 
-var CREATE_BOOKING = 'CREATE_BOOKING';
+var RECEIVE_BOOKING = 'RECEIVE_BOOKING';
 var SHOW_BOOKINGS = "SHOW_BOOKINGS";
 var receiveBooking = function receiveBooking(booking) {
   return {
-    type: CREATE_BOOKING,
+    type: RECEIVE_BOOKING,
     booking: booking
   };
 };
@@ -122,11 +122,9 @@ var showAllBookings = function showAllBookings(bookings) {
 };
 var createBooking = function createBooking(userId, booking) {
   return function (dispatch) {
-    debugger;
     return _util_bookings_api_util__WEBPACK_IMPORTED_MODULE_1__["createBooking"](userId, booking).then(function (booking) {
-      debugger;
       return dispatch({
-        type: CREATE_BOOKING,
+        type: RECEIVE_BOOKING,
         booking: booking
       });
     });
@@ -257,6 +255,7 @@ var signup = function signup(user) {
 };
 var login = function login(user) {
   return function (dispatch) {
+    debugger;
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (user) {
       return dispatch(receiveCurrentUser(user));
     }, function (err) {
@@ -267,7 +266,7 @@ var login = function login(user) {
 var logout = function logout() {
   return function (dispatch) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["logout"]().then(function (user) {
-      return dispatch(logoutCurrentUser());
+      return dispatch(logoutCurrentUser(user));
     });
   };
 };
@@ -1461,6 +1460,7 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
+      alert('Booking Confirmed!');
       var data = {
         start_date: new Date(this.state.startDate.toDate()),
         end_date: new Date(this.state.endDate.toDate()),
@@ -2233,18 +2233,20 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger; // if (!Object.values(this.props.currentUser.bookings).length > 0){
+      // debugger
+      // if (!Object.values(this.props.currentUser.bookings).length > 0){
       //     return null;
       // }
+      console.log(this.props.currentUser);
 
-      if (!this.props.currentUser || !this.props.currentUser.bookings) {
+      if (!this.props.currentUser || !this.props.bookings.length > 0) {
         return null;
       } else {
-        debugger;
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, Object.values(this.props.bookings[0]).map(function (booking) {
+        //    debugger
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.bookings.map(function (booking) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "booking-item"
-          }, "Start Date: ", booking.start_date, " End Date: ", booking.end_date, " Cost Per Night:", booking.cost_per_night, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          }, "Start Date: ", booking.start_date, " End Date: ", booking.end_date, " Cost Per Night:", booking.price_per_day, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
             src: "./shack2.png"
           })));
         })) // <div className="booking-item">{bookies}</div>
@@ -2332,7 +2334,7 @@ var bookingReducer = function bookingReducer() {
   Object.freeze(state);
 
   switch (action.type) {
-    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_BOOKING"]:
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOOKING"]:
       debugger;
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, action.booking);
 
@@ -2342,9 +2344,7 @@ var bookingReducer = function bookingReducer() {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["GO_TO_BOOKINGS"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, action.bookings);
 
-    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__["RECEIVE_ALL_SPOTS"]:
-      debugger;
-      return state;
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__["RECEIVE_ALL_SPOTS"]: // return state
 
     default:
       return state;
@@ -2602,10 +2602,10 @@ var sessionReducer = function sessionReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      // return { currentUser: action.currentUser};
       return {
-        currentUser: action.currentUser.id
+        currentUser: action.currentUser.user.id
       };
+    // return { currentUser: action.currentUser.id };
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
       return _nullUser;
@@ -2726,9 +2726,6 @@ var usersReducer = function usersReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
-
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["GO_TO_BOOKINGS"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, action.bookings);
 
     default:
       return state;

@@ -17,7 +17,7 @@ class Api::BookingsController < ApplicationController
     end 
 
     def index 
-        @bookings = Booking.all
+        @bookings = Booking.where(booker_id: current_user.id)
     end 
     
     private 
