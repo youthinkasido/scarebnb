@@ -411,7 +411,7 @@ __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").crea
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, window.location.href === "http://localhost:3000/#/" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, window.location.href === "https://scarebandb.herokuapp.com/#/" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-page-search"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     className: "splash-name"
