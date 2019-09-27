@@ -5,6 +5,8 @@
 Don't have the proper funds for an adequate weekend getaway with the Mrs?
 Scare Bnb is the ultimate solution for all your low-end and low-cost booking needs.
 
+https://scarebandb.herokuapp.com
+
 Features:
 
 - **Account Creation**
