@@ -1,168 +1,144 @@
-
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
-
-
 
 //SPOT INDEX
-.flex-container{
-    display: inline-grid;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    position: absolute;
-    top: 71.7px;
-
+.flex-container {
+  display: inline-grid;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 71.7px;
+  margin-top: 100px;
 }
 
-
-.photo{
-    top: 10px;
-    position: relative;
-    margin-left: 10px;
-
+.photo {
+  top: 10px;
+  position: relative;
+  margin-left: 10px;
 }
 
-.flex-container > img{
+.flex-container > img {
   margin: 10px;
   text-align: center;
-
 }
 
-.flex-container > div{
-// background-color: black;
-//     width: 25%;
-//     width: 69.1vh;
-//     text-align: left;
-//     font-family: Helvetica, sans-serif;
-//     color: white;
-//     font-size: 14px;
-//     font-style: normal;
-//     border: 1px solid #403f3f;
-//     height: 190px;
-//     width: 61.4vh;
+.flex-container > div {
+  // background-color: black;
+  //     width: 25%;
+  //     width: 69.1vh;
+  //     text-align: left;
+  //     font-family: Helvetica, sans-serif;
+  //     color: white;
+  //     font-size: 14px;
+  //     font-style: normal;
+  //     border: 1px solid #403f3f;
+  //     height: 190px;
+  //     width: 61.4vh;
 }
 
-.photo{
-        top: 10px;
-    position: relative;
-    margin-left: 10px;
-    height: 170px;
+.photo {
+  top: 10px;
+  position: relative;
+  margin-left: 10px;
+  height: 170px;
 }
 
+//////spot name, type/bedrooms in index page for each item
 
-//////spot name, type/bedrooms in index page for each item 
-
-.index-review-star{
-     display: inline-block;
-    margin-left: 0px;
-    position: relative;
-    color: red;
-    width: 20px;
-    top: 3px;
-    
+.index-review-star {
+  display: inline-block;
+  margin-left: 0px;
+  position: relative;
+  color: red;
+  width: 20px;
+  top: 3px;
 }
 
-.spot-capacities{
-
+.spot-capacities {
 }
 
-.spot-item-details{
-    color: white;
-    width: 100%;
-    margin: 2%;
-    list-style: none;
-    line-height: normal;
-   
+.spot-item-details {
+  color: white;
+  width: 100%;
+  margin: 2%;
+  list-style: none;
+  line-height: normal;
 }
 
-
-.spot-item--container{
-    // border: 1px solid grey;
-    background: black;
-    display: inline-flex;
-    width: 145%;
+.spot-item--container {
+  // border: 1px solid grey;
+  background: black;
+  display: inline-flex;
+  width: 145%;
 }
 
-.spot-item--container{
-
-    background: black;
-    display: inline-flex;
-    overflow: hidden;
-    width: 100%;
+.spot-item--container {
+  background: black;
+  display: inline-flex;
+  overflow: hidden;
+  width: 100%;
 }
 
-.photo{
-        top: 10px;
-    /* position: absolute; */
-    margin-left: 10px;
-    height: 170px;
-    padding-bottom: 20px;
-    height: 195px;
+.photo {
+  top: 10px;
+  /* position: absolute; */
+  margin-left: 10px;
+  height: 170px;
+  padding-bottom: 20px;
+  height: 195px;
 }
 
-
-.spot-amenities{
-margin-top: 4px;
+.spot-amenities {
+  margin-top: 4px;
 }
 
-.spot-type-bedrooms{
-
+.spot-type-bedrooms {
 }
 
-.cost-per-night{
-    font-size: 20px;
-    margin-top: 34px;
-    color: yellow;
+.cost-per-night {
+  font-size: 20px;
+  margin-top: 34px;
+  color: yellow;
 }
 
-.skull-heart{ 
-width:9%;
-
+.skull-heart {
+  width: 9%;
 }
 
-.spot-name{
-    font-size: 20px;
-    font-style: bold;
-    padding-bottom: 10px;
+.spot-name {
+  font-size: 20px;
+  font-style: bold;
+  padding-bottom: 10px;
 }
 
-.skull-heart :hover{
-    background: rgb(41, 41, 41);
-    display: block;
-    cursor: pointer;
-    cursor: hand;
+.skull-heart :hover {
+  background: rgb(41, 41, 41);
+  display: block;
+  cursor: pointer;
+  cursor: hand;
 }
 //////////////////////REVIEW STARS
-.checked{
-    color: red;
-
+.checked {
+  color: red;
 }
 
-
-
-.rating-stars span{
-    font-size: 15px;
-    font-style: bold;
-    position: relative;
-    left: 25%;
-    bottom: -20px;
+.rating-stars span {
+  font-size: 15px;
+  font-style: bold;
+  position: relative;
+  left: 25%;
+  bottom: -20px;
 }
 
-
-.flex-container .spot-item--container:hover{
-   background: rgba(40,40,40,0.9);
-    color: white;
- 
+.flex-container .spot-item--container:hover {
+  background: rgba(40, 40, 40, 0.9);
+  color: white;
 }
 
-.rating{
-position: absolute;
-left: 0px;
-top: 33px;
+.rating {
+  position: absolute;
+  left: 0px;
+  top: 33px;
 }
-
-
-
-

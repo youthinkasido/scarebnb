@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { Route } from 'react-router-dom'
 
@@ -15,7 +15,7 @@ const cities = [
     id: 1,
     name: 'Atlanta, ',
     state: 'GA'
-  
+
   },
 
   {
@@ -28,7 +28,7 @@ const cities = [
     id: 3,
     name: 'New York, ',
     state: 'NY'
-  
+
   },
   {
     id: 4,
@@ -37,11 +37,11 @@ const cities = [
 
   },
 
-{
-  id: 5,
+  {
+    id: 5,
     name: 'Biltmore, ',
     state: 'NC'
-}
+  }
 
 ]
 
@@ -52,8 +52,8 @@ function searchingFor(term) {
   }
 }
 
-class Search extends React.Component{
-  constructor(props){
+class Search extends React.Component {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -62,7 +62,7 @@ class Search extends React.Component{
       showResults: false
     }
 
-     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.hideSearchSuggestions = this.hideSearchSuggestions.bind(this)
   }
@@ -72,79 +72,52 @@ class Search extends React.Component{
     this.props.history.push('/spots')
   }
 
-  handleChange(e){
+  handleChange(e) {
     e.preventDefault()
-    this.setState({ term: e.target.value})
-    this.setState({showResults: true})
+    this.setState({ term: e.target.value })
+    this.setState({ showResults: true })
   }
 
-hideSearchSuggestions(){
-
-  this.setState({
-    showResults: false
-  })
-
-  this.props.history.push('/spots')
-
+  hideSearchSuggestions() {
+    this.setState({
+      showResults: false
+    })
+    this.props.history.push('/spots')
   }
-  render(){ 
+  render() {
 
 
-    // if (window.location.href === `http://localhost:3000/#/){
-
+    const goodCities = this.state.cities.filter(searchingFor(this.state.term));
     let dropDown = null;
-  if (this.state.showResults){
-    // const goodCities = this.state.cities.filter(searchingFor(this.state.term));
-    // dropDown = goodCities.map(city=>(
-    //   <div onClick={() => this.hideSearchSuggestions()} className="search-completer drop" key={city.id}>
+    if (this.props.location.pathname === '/spots' && this.state.showResults) {
+      dropDown = goodCities.map(city => (
+        <div onClick={() => this.hideSearchSuggestions()} className="search-completer" key={city.id}>
 
-    //     <h1>{city.name} {city.state}</h1>
-    //     <img className="search-map-pin" src="./pin.svg" />
-    //   </div>
-    // ))
-//  }
+          <h1>{city.name} {city.state}</h1>
+          <img className="search-map-pin" src="./pin.svg" />
+        </div>
+      ))
+    }
 
-  }
+    const { term, people } = this.state
+    return (
+      <div className='search'>
+        <div className="search-container">
+          <img className="magnifying-glass" src="/magnifying-glass.png" />
+          {/* <img id={this.props.location.pathname === '/' ? "search-button-orange" : 'hide'} src="./search.png" /> */}
 
-    const {term, people}= this.state
-  return (
-    <div className='search'>
-
-
-      
-       <div className="search-container">
-         <div>
-          
-         </div>
-        <Link to="/"><img className="air-bnb-logo" src="./airbnb.svg" alt="" /></Link>
-          <img className="magnifying-glass" src="/magnifying-glass.png"/>
           <span className="icon"></span>
           <div className="google-map">
-           
           </div>
           <form onSubmit={this.handleSubmit}>
-          <input className="search-bar" onChange={this.handleChange} type="text" placeholder="try 'Atlanta'" value={term}/>
-         </form>
 
+
+            <input id="search-bar" className="search-bar" onChange={this.handleChange} type="text" placeholder="try 'Atlanta'" value={term} />
+          </form>
           {dropDown}
         </div>
-    </div>
+      </div>
     )
   }
-
-
-
 }
-
-
-
 export default withRouter(Search)
-
-
-
-
-///// steps
-
-// created a class
-// set the state
-// added form and handleSubmit 

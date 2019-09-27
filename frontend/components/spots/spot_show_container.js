@@ -16,6 +16,7 @@ export const msp = (state) => {
     return({
     reviews: Object.values(state.entities.reviews),
     
+    
     })
 }
 //mdp key, when called in component, makes ajax request then dispatches return data to spots reducer to update the store

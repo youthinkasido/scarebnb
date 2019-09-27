@@ -1,102 +1,93 @@
-
-html { 
-  background: image_url('scarebnb.jpg'); 
+html {
+  background: image_url("scarebnb.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-   background-attachment: fixed;
+  background-attachment: fixed;
 }
-
 
 // splash page settings
-.tagline{
-position: absolute;
-    left: 500px;
-    top: 240px;
-    color: white;
-    font-size: 40px;
-}
-
-
-.splash-name{
-    position: absolute;
-    color: white;
-    left: 100px;
-    font-size: 30px;
-    top: 28px;
-}
-
-
-.splash-page-search h1{
+.tagline {
+  position: absolute;
+  left: 500px;
+  top: 240px;
   color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
-    width: 800px;
-    position: absolute;
-   top: -40px; 
-
+  font-size: 40px;
 }
 
-.splash-page-search > div{
-    width: 200px;
-    left: 35%;
-    top: 25%;
-    float: right;
-    position: relative;
-    left: -60%;
-    bottom: 40%;
-    text-align: left;
-    top: 25vh;
+.splash-name {
+  position: absolute;
+  color: white;
+  left: 100px;
+  font-size: 30px;
+  top: 28px;
 }
 
-.splash-page-completer > div{
-    color: white;
-    text-align: left;
-    width: 9100px;
-    border: 1px solid white;
-    padding: 15px;
-    padding-left: 40px;
-    background: black;
+.splash-page-search h1 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  width: 800px;
+  position: absolute;
+  top: -40px;
 }
 
-.air-bnb-front-logo{
-    top: -2440px;
-    margin: 0 auto;
-    left: -279px;
+.splash-page-search > div {
+  width: 200px;
+  left: 35%;
+  top: 25%;
+  float: right;
+  position: relative;
+  left: -60%;
+  bottom: 40%;
+  text-align: left;
+  top: 25vh;
 }
 
-.splash-page-search input{
-    height: 80px;
-    width: 625px;
-    box-shadow: 0 0 19px 12px #666;
-    behavior: url(PIE.htc);
-    color: black;
-    font-size: 30px;
-    padding-left: 70px;
-   
+.splash-page-completer > div {
+  color: white;
+  text-align: left;
+  width: 9100px;
+  border: 1px solid white;
+  padding: 15px;
+  padding-left: 40px;
+  background: black;
 }
 
+.air-bnb-front-logo {
+  top: -2440px;
+  margin: 0 auto;
+  left: -279px;
+}
+
+.splash-page-search input {
+  height: 80px;
+  width: 625px;
+  box-shadow: 0 0 19px 12px #666;
+  behavior: url(PIE.htc);
+  color: black;
+  font-size: 30px;
+  padding-left: 70px;
+}
 
 .float_center {
-
+}
+.splash-page-search img {
+  // makes the logo too small
+  width: 30px;
+  position: absolute;
+  left: 43px;
+  top: 28px;
+  color: grey;
 }
 
-.splash-page-search img{ // makes the logo too small
-    width: 30px;
-    position: absolute;
-    left: 43px;
-    top: 28px;
-    color: grey;
-}
 
-.splash-page-search h1{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
- 
-    width: 800px;
-    position: absolute;
-    top: -40px;
-    left: 75px;
+
+.splash-page-search h1 {
+  font-weight: 700;
+  font-size: 44px;
+  color: white;
+  text-shadow: 1px 6px 84px rgba(0, 0, 0, 0.8);
+  line-height: 6px;
 }

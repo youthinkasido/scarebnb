@@ -1,25 +1,56 @@
-.user-profile-container{
-        width: 90%;
-    background: black;
-    border: 2px solid white;
-    text-align: center;
-    height: 700px;
-    position: absolute;
-    top: 90px;
-    margin-left: 60px;
-    display: inline-flex;
-    flex-flow: wrap;
+// .user-profile-container{
+//         width: 90%;
+//     background: black;
+//     border: 2px solid white;
+//     text-align: center;
+//     height: 700px;
+//     position: absolute;
+//     top: 90px;
+//     margin-left: 60px;
+//     display: inline-flex;
+//     flex-flow: wrap;
+// }
+
+.booking-item-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
 }
 
-.booking-item{
-    width: 30%;
-    height: 50%;
-    border: 1px solid white;
-    color: white;
-    margin: 0 auto;
+.booking-index-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 82px;
+  width: 80%;
+  margin: 0 auto;
 }
 
-.booking-item img{
-vertical-align: middle;
-    width: 100%;
+.booking-item {
+  width: 40%;
+  border: 1px solid white;
+  color: white;
+  margin: 10px;
+  position: relative;
+  top: 200px;
+}
+.booking-index-container > h1 {
+  padding: 10px;
+  font-size: 36px;
+  font-weight: 800;
+  color: white;
+  margin: auto;
+}
+
+.booking-item img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.cancel-button {
+  color: white;
+  background: orange;
+  font-family: sans-serif;
+  font-weight: 800;
 }

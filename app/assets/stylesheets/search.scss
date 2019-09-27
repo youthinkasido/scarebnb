@@ -1,96 +1,100 @@
-
-.search{
-    width: 100%;
-    line-height: normal;
-    position: absolute;
-    top: 20px;
-    left: 55px;
+.search {
+  width: 100%;
+  line-height: normal;
+  top: 20px;
+  left: 55px;
 }
 
-.search-container{
-     width: 200vh;
-    color: black;
-    position: absolute;
-    padding-left: 20px;
-    z-index: 10;
+.search-container {
+  color: black;
+  padding-left: 20px;
 
+  top: 20px;
+  right: 850px;
 }
 
-
-
-.search-container .search-completer:hover{
-     background: rgb(41, 41, 41);
-    display: block;
-    cursor: pointer;
-    cursor: hand;
+.search-bar-button {
 }
 
-.search-bar{
-    width: 300px;
-    height: 31px;
-    font-size: 12px;
-    padding-left: 25px;
-    font-style: bold;
+.search-button-orange {
+  width: 1230px;
+  height: auto;
+  display: inline;
 }
 
-.air-bnb-logo{
-    width: 34px;
-    padding-right: 10px;
-    position: absolute;
-    left: -20px;
-    top: 4px;
+.hide {
+  visibility: hidden;
 }
 
-.search-completer{
-    color: white;
-    text-align: left;
-    width: 300px;
-    border: 1px solid white;
-    padding: 15px;
-    padding-left: 40px;
-    background: black;
+.search-container .search-completer:hover {
+  background: rgb(41, 41, 41);
+  display: block;
+  cursor: pointer;
+  cursor: hand;
 }
 
-.search-completer h1{
-
-      margin-top: -20px;
-    margin-left: 6px;
-    position: relative;
-    bottom: -18px;
-        margin-top: -20px;
-    margin-left: 6px;
+.search-bar {
+  width: 300px;
+  height: 31px;
+  font-size: 12px;
+  padding-left: 25px;
+  font-style: bold;
+  z-index: 15;
 }
 
-.search-map-pin{
-    width: 24px;
-    padding-right: 10px;
-    margin-left: -20px;
-    top: 8px;
-    right: 20px;
-    margin-bottom: 4px;
+.search-bar-container {
+  border: 1px solid red;
 }
 
-.magnifying-glass{
-     width: 13px;
-    position: absolute;
-    left: 28px;
-    top: 10px;
+.air-bnb-logo {
+  width: 34px;
+  padding-right: 10px;
+  position: absolute;
+  left: -20px;
+  top: 4px;
 }
 
-.search-completer-test{
-    visibility: hidden;
+.search-completer {
+  color: white;
+  text-align: left;
+  width: 300px;
+  border: 1px solid white;
+  padding: 15px;
+  padding-left: 40px;
+  background: black;
 }
 
+.search-completer-splash {
+  color: white;
+  text-align: left;
+  width: 700px;
+  border: 1px solid white;
+  padding: 15px;
+  padding-left: 40px;
+  background: black;
+}
 
-// .google-map div{
-//     position: fixed;
+.search-completer h1 {
+  margin-top: -20px;
+  margin-left: 6px;
+  position: relative;
+  bottom: -18px;
+  margin-top: -20px;
+  margin-left: 6px;
+}
 
-//             top: 72px;
-//             width: 1000px;
-//             height: 1000px;
-//             left: 700px;
-           
+.search-map-pin {
+  width: 24px;
+  padding-right: 10px;
+  margin-left: -20px;
+  top: 8px;
+  right: 20px;
+  margin-bottom: 4px;
+}
 
-// }
-
-
+.magnifying-glass {
+  width: 13px;
+  position: absolute;
+  left: 28px;
+  top: 10px;
+}

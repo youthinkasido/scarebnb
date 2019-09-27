@@ -90,15 +90,17 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/booking_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_BOOKING, SHOW_BOOKINGS, receiveBooking, showAllBookings, createBooking, showBookings */
+/*! exports provided: RECEIVE_BOOKING, SHOW_BOOKINGS, CANCEL_BOOKING, receiveBooking, showAllBookings, cancelBooking, createBooking, showBookings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BOOKING", function() { return RECEIVE_BOOKING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHOW_BOOKINGS", function() { return SHOW_BOOKINGS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CANCEL_BOOKING", function() { return CANCEL_BOOKING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBooking", function() { return receiveBooking; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showAllBookings", function() { return showAllBookings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cancelBooking", function() { return cancelBooking; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBooking", function() { return createBooking; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showBookings", function() { return showBookings; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -108,6 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var RECEIVE_BOOKING = 'RECEIVE_BOOKING';
 var SHOW_BOOKINGS = "SHOW_BOOKINGS";
+var CANCEL_BOOKING = "SHOW_BOOKINGS";
 var receiveBooking = function receiveBooking(booking) {
   return {
     type: RECEIVE_BOOKING,
@@ -118,6 +121,16 @@ var showAllBookings = function showAllBookings(bookings) {
   return {
     type: SHOW_BOOKINGS,
     bookings: bookings
+  };
+};
+var cancelBooking = function cancelBooking(booking) {
+  return function (dispatch) {
+    return _util_bookings_api_util__WEBPACK_IMPORTED_MODULE_1__["cancelBooking"](booking).then(function (booking) {
+      return dispatch({
+        type: CANCEL_BOOKING,
+        booking: booking
+      });
+    });
   };
 };
 var createBooking = function createBooking(userId, booking) {
@@ -255,7 +268,6 @@ var signup = function signup(user) {
 };
 var login = function login(user) {
   return function (dispatch) {
-    debugger;
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (user) {
       return dispatch(receiveCurrentUser(user));
     }, function (err) {
@@ -412,15 +424,7 @@ __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").crea
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, window.location.href === "http://localhost:3000/#/" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "splash-page-search"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-    className: "splash-name"
-  }, "ScareBnb"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "air-bnb-front-logo",
-    src: "./airbnb.svg",
-    alt: ""
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_6__["default"], null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-top"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-bottom"
@@ -470,37 +474,72 @@ var Greeting = function Greeting(_ref) {
       logout = _ref.logout,
       openModal = _ref.openModal;
 
+  window.onclick = function (e) {
+    var clownProfile = document.getElementById('clown-profile');
+    var navDropDownContent = document.getElementById('nav-dropdown-content');
+
+    if (e.target.id === 'clown-profile') {
+      navDropDownContent.classList.toggle('show-nav');
+    } else if (e.target.id !== 'clown-profile' && navDropDownContent.classList.contains('show-nav')) {
+      navDropDownContent.classList.toggle('show-nav');
+    }
+  };
+
   var sessionLinks = function sessionLinks() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "nav-container"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       className: "nav-bar"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "air-bnb-front-logo",
+      src: "./human-skull.svg",
+      alt: ""
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      className: "nav-bar-heading"
+    }, "Scarebnb"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       className: "nav-login-button",
       onClick: function onClick() {
         return openModal('login');
       }
-    }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       className: "nav-signup-button",
       onClick: function onClick() {
         return openModal('signup');
       }
-    }, "Signup"));
+    }, "Signup")));
   };
 
   var personalGreeting = function personalGreeting() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
       className: "header-group"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "nav-container"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      className: "nav-bar"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "air-bnb-front-logo",
+      src: "./human-skull.svg",
+      alt: ""
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      to: '/'
+    }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      className: "nav-bar-heading"
+    }, "Scarebnb")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
       className: "logged-in-nav-bar"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "nav-bar"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "nav-dropdown"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "far fa-user-circle nav-dropdown-button"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      id: "clown-profile",
       className: "clown-profile",
       src: "./clownphoto.png"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "far fa-user-circle nav-dropdown-button"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "nav-secret"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "nav-dropdown-content",
       className: "nav-dropdown-content"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "bookings"
@@ -920,17 +959,24 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // if (window.location.href === `http://localhost:3000/#/){
+      var _this2 = this;
+
+      var goodCities = this.state.cities.filter(searchingFor(this.state.term));
       var dropDown = null;
 
-      if (this.state.showResults) {// const goodCities = this.state.cities.filter(searchingFor(this.state.term));
-        // dropDown = goodCities.map(city=>(
-        //   <div onClick={() => this.hideSearchSuggestions()} className="search-completer drop" key={city.id}>
-        //     <h1>{city.name} {city.state}</h1>
-        //     <img className="search-map-pin" src="./pin.svg" />
-        //   </div>
-        // ))
-        //  }
+      if (this.props.location.pathname === '/spots' && this.state.showResults) {
+        dropDown = goodCities.map(function (city) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            onClick: function onClick() {
+              return _this2.hideSearchSuggestions();
+            },
+            className: "search-completer",
+            key: city.id
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, city.name, " ", city.state), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "search-map-pin",
+            src: "./pin.svg"
+          }));
+        });
       }
 
       var _this$state = this.state,
@@ -940,13 +986,7 @@ function (_React$Component) {
         className: "search"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "air-bnb-logo",
-        src: "./airbnb.svg",
-        alt: ""
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "magnifying-glass",
         src: "/magnifying-glass.png"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -956,6 +996,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "search-bar",
         className: "search-bar",
         onChange: this.handleChange,
         type: "text",
@@ -968,10 +1009,7 @@ function (_React$Component) {
   return Search;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Search)); ///// steps
-// created a class
-// set the state
-// added form and handleSubmit
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Search));
 
 /***/ }),
 
@@ -1359,8 +1397,8 @@ __webpack_require__.r(__webpack_exports__);
 var msp = function msp(state, ownProps) {
   return {
     currentUser: state.session.currentUser,
-    pricePerDay: state.entities.spots[ownProps.match.params.spotId].cost_per_night // spot_id: state.enities.spots.id
-
+    pricePerDay: state.entities.spots[ownProps.match.params.spotId].cost_per_night,
+    bookingImage: state.entities.spots[ownProps.match.params.spotId].image_url
   };
 };
 
@@ -1439,7 +1477,8 @@ function (_React$Component) {
       spot_id: 1,
       booker_id: _this.props.currentUser,
       owner_id: _this.props.currentUser,
-      price_per_day: _this.props.pricePerDay
+      price_per_day: _this.props.pricePerDay,
+      booking_image_url: _this.props.bookingImage
     };
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -1470,7 +1509,8 @@ function (_React$Component) {
         spot_id: 1,
         booker_id: this.props.currentUser,
         owner_id: this.props.currentUser,
-        price_per_day: this.props.pricePerDay
+        price_per_day: this.props.pricePerDay,
+        booking_image_url: this.props.bookingImage
       };
       this.props.createBooking(this.props.currentUser, data);
     }
@@ -1479,7 +1519,7 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_0__["DateRangePicker"], {
+      return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_0__["DateRangePicker"], {
         orientation: "vertical",
         startDate: this.state.startDate // momentPropTypes.momentObj or null,
         ,
@@ -2205,9 +2245,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -2222,9 +2262,13 @@ function (_React$Component) {
   _inherits(UserProfile, _React$Component);
 
   function UserProfile(props) {
+    var _this;
+
     _classCallCheck(this, UserProfile);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(UserProfile).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UserProfile).call(this, props));
+    _this.cancelBooking = _this.cancelBooking.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(UserProfile, [{
@@ -2235,16 +2279,25 @@ function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      debugger;
-
       if (this.props.match.params.userId !== prevProps.match.params.userId) {
         this.props.fetchBookings(this.props.currentUser);
       }
     }
   }, {
+    key: "cancelBooking",
+    value: function cancelBooking(booking) {
+      var _this2 = this;
+
+      return function (e) {
+        e.preventDefault();
+
+        _this2.props.cancelBooking(booking);
+      };
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this3 = this;
 
       console.log(this.props.currentUser);
 
@@ -2252,27 +2305,28 @@ function (_React$Component) {
         return null;
       } else {
         var finalBookings = this.props.bookings.filter(function (booking) {
-          return booking.booker_id === _this.props.currentUser.id;
+          return booking.booker_id === _this3.props.currentUser.id;
         });
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, finalBookings.map(function (booking) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "booking-index-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "booking-header"
+        }, "Your next doomed destination.."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "booking-item-container"
+        }, finalBookings.map(function (booking) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "booking-item"
-          }, "Start Date: ", booking.start_date, " End Date: ", booking.end_date, " Cost Per Night:", booking.price_per_day, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "./shack2.png"
-          })));
-        })) // <div className="booking-item">{bookies}</div>
-        ;
-      } // <div className="user-profile-container">
-      //     this.props.bookings.map(booking=>{
-      //     })
-      // <div className="booking-item"> {this.props.bookings.spot_id}</div>
-      // <div className="booking-item"> {this.props.bookings}</div>
-      // <div className="booking-item"> {this.props.bookings}</div>
-      // <div className="booking-item">Here is NOT a booking</div>
-      // <div className="booking-item">Here is NOT a booking</div>
-      // <div className="booking-item">Here is NOT a booking</div>
-      // </div> 
-
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: booking.booking_image_url
+          }), booking.start_date, " to ", booking.end_date, "Cost Per Night:", booking.price_per_day, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            className: "cancel-button",
+            type: "submit",
+            onClick: _this3.cancelBooking(booking),
+            name: "Cancel",
+            value: "Cancel Booking"
+          }));
+        })));
+      }
     }
   }]);
 
@@ -2296,6 +2350,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _user_profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_profile */ "./frontend/components/spots/user_profile.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _actions_booking_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/booking_actions */ "./frontend/actions/booking_actions.js");
+
 
 
 
@@ -2312,6 +2368,9 @@ var mdp = function mdp(dispatch) {
   return {
     fetchBookings: function fetchBookings(userId) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBookings"])(userId));
+    },
+    cancelBooking: function cancelBooking(bookingId) {
+      return dispatch(Object(_actions_booking_actions__WEBPACK_IMPORTED_MODULE_4__["cancelBooking"])(bookingId));
     }
   };
 };
@@ -2836,13 +2895,14 @@ var configureStore = function configureStore() {
 /*!********************************************!*\
   !*** ./frontend/util/bookings_api_util.js ***!
   \********************************************/
-/*! exports provided: createBooking, fetchBookings */
+/*! exports provided: createBooking, fetchBookings, cancelBooking */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBooking", function() { return createBooking; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBookings", function() { return fetchBookings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cancelBooking", function() { return cancelBooking; });
 var createBooking = function createBooking(bookerId, booking) {
   return $.ajax({
     method: 'POST',
@@ -2856,6 +2916,12 @@ var fetchBookings = function fetchBookings(userId) {
   return $.ajax({
     method: 'GET',
     url: "api/users/".concat(userId, "/bookings")
+  });
+};
+var cancelBooking = function cancelBooking(booking) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "api/users/".concat(booking.booker_id, "/bookings/").concat(booking.id)
   });
 };
 

@@ -15,4 +15,12 @@ return $.ajax({
     })
 }
 
+export const cancelBooking = (booking) =>{
+    
+    return $.ajax({
+        method: 'DELETE',
+        url: `api/users/${booking.booker_id}/bookings/${booking.id}`
+    })
+}
+
 

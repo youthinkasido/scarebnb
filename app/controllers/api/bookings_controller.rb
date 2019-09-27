@@ -23,6 +23,13 @@ class Api::BookingsController < ApplicationController
     private 
 
     def booking_params
-        params.require(:booking).permit(:booker_id, :start_date, :end_date, :num_guests, :spot_id, :owner_id, :price_per_day)
+        params.require(:booking).permit(:booker_id, :start_date, :end_date, :num_guests, :spot_id, :owner_id, :price_per_day, :booking_image_url)
+    end
+
+    def destroy
+  
+        @booking = Booking.find(:booker_id)
+   
+    
     end
 end

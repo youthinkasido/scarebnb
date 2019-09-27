@@ -2,6 +2,7 @@ import React from 'react'
 import * as BookingApiUtil from '../util/bookings_api_util'
 export const RECEIVE_BOOKING = 'RECEIVE_BOOKING'
 export const SHOW_BOOKINGS = "SHOW_BOOKINGS"
+export const CANCEL_BOOKING = "SHOW_BOOKINGS"
 
 export const receiveBooking = booking => ({
     type: RECEIVE_BOOKING,
@@ -13,8 +14,12 @@ export const showAllBookings = (bookings) => ({
     bookings
 })
 
-
-
+export const cancelBooking = (booking) => dispatch => {
+    return(
+        BookingApiUtil.cancelBooking(booking).then( booking => {
+            return dispatch({type: CANCEL_BOOKING, booking})
+        }))
+}
 
 
 export const createBooking = (userId,booking) => dispatch => {

@@ -27,7 +27,6 @@ class SpotShow extends React.Component {
     }
 
 
-
     render() {
 
         const calculateRating = (spot) => {
@@ -128,7 +127,6 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = dispatch => {
-
     return { fetchSpot: (id) => dispatch(fetchSpot(id)) }
 }
 

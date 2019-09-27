@@ -12,7 +12,6 @@ export const receiveReview = (review) => ({ //where are we getting info from? //
 });
 
 
-
 export const receiveReviews = (reviews) => ({ //where are we getting info from? // why destructured?
     type: RECEIVE_REVIEWS,
     reviews
