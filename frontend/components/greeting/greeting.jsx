@@ -11,7 +11,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
         let clownProfile = document.getElementById('clown-profile')
         let navDropDownContent = document.getElementById('nav-dropdown-content')
 
-        if (e.target.id === 'clown-profile') {
+        if (e.target.id === 'clown-profile' && navDropDownContent) {
             navDropDownContent.classList.toggle('show-nav')
         } else if (e.target.id !== 'clown-profile' && navDropDownContent.classList.contains('show-nav')) {
             navDropDownContent.classList.toggle('show-nav')

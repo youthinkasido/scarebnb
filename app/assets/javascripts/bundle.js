@@ -478,7 +478,7 @@ var Greeting = function Greeting(_ref) {
     var clownProfile = document.getElementById('clown-profile');
     var navDropDownContent = document.getElementById('nav-dropdown-content');
 
-    if (e.target.id === 'clown-profile') {
+    if (e.target.id === 'clown-profile' && navDropDownContent) {
       navDropDownContent.classList.toggle('show-nav');
     } else if (e.target.id !== 'clown-profile' && navDropDownContent.classList.contains('show-nav')) {
       navDropDownContent.classList.toggle('show-nav');
@@ -1473,8 +1473,8 @@ function (_React$Component) {
     _this.state = {
       startDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.start),
       endDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.end),
-      num_guests: 3,
-      spot_id: 1,
+      num_guests: _this.props.num_guests,
+      spot_id: _this.props.spot_id,
       booker_id: _this.props.currentUser,
       owner_id: _this.props.currentUser,
       price_per_day: _this.props.pricePerDay,
@@ -2268,6 +2268,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UserProfile).call(this, props));
     _this.cancelBooking = _this.cancelBooking.bind(_assertThisInitialized(_this));
+    _this.requestFumigation = _this.requestFumigation.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2295,6 +2296,14 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "requestFumigation",
+    value: function requestFumigation() {
+      return function (e) {
+        e.preventDefault();
+        alert('fumigation allowed');
+      };
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
@@ -2318,12 +2327,20 @@ function (_React$Component) {
             className: "booking-item"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
             src: booking.booking_image_url
-          }), booking.start_date, " to ", booking.end_date, "Cost Per Night:", booking.price_per_day, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            className: "booking-header"
+          }, "Disgusting Broken Down Shack"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, booking.start_date.slice(0, 10), " to ", booking.end_date.slice(0, 10)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", booking.num_guests, " guests"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, booking.price_per_day), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             className: "cancel-button",
             type: "submit",
             onClick: _this3.cancelBooking(booking),
             name: "Cancel",
             value: "Cancel Booking"
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            className: "cancel-button",
+            type: "submit",
+            onClick: _this3.requestFumigation(booking),
+            name: "Cancel",
+            value: "Request Fumigation"
           }));
         })));
       }

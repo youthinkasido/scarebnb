@@ -10,13 +10,12 @@ import { withRouter } from 'react-router-dom'
 class BookingShow extends React.Component {
     constructor(props) {
         super(props)
-
         this.state = {
 
             startDate: moment(event.start),
             endDate: moment(event.end),
-            num_guests: 3,
-            spot_id: 1,
+            num_guests: this.props.num_guests,
+            spot_id: this.props.spot_id,
             booker_id: this.props.currentUser,
             owner_id: this.props.currentUser,
             price_per_day: this.props.pricePerDay,
@@ -61,7 +60,7 @@ class BookingShow extends React.Component {
         return (
 
             <div>
-                
+
                 <DateRangePicker
                     orientation={"vertical"}
                     startDate={this.state.startDate} // momentPropTypes.momentObj or null,

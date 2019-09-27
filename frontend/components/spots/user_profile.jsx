@@ -5,6 +5,7 @@ class UserProfile extends React.Component {
     constructor(props) {
         super(props)
         this.cancelBooking = this.cancelBooking.bind(this)
+        this.requestFumigation = this.requestFumigation.bind(this)
     }
 
     componentDidMount() {
@@ -23,7 +24,16 @@ class UserProfile extends React.Component {
             this.props.cancelBooking(booking)
         }
     }
+
+    requestFumigation() {
+        return e => {
+            e.preventDefault()
+            alert('fumigation allowed')
+        }
+    }
+
     render() {
+
 
         console.log(this.props.currentUser)
         if (!this.props.currentUser || !this.props.bookings.length > 0) {
@@ -37,9 +47,13 @@ class UserProfile extends React.Component {
                         {finalBookings.map(booking =>
                             <div className="booking-item">
                                 <img src={booking.booking_image_url}></img>
-                                {booking.start_date} to {booking.end_date}
-                                Cost Per Night:{booking.price_per_day}
+                                <p className="booking-header">Disgusting Broken Down Shack</p>
+                                <p>{booking.start_date.slice(0, 10)} to {booking.end_date.slice(0, 10)}</p>
+                                <p> {booking.num_guests} guests</p>
+                                <p>{booking.price_per_day}</p>
                                 <input className="cancel-button" type="submit" onClick={this.cancelBooking(booking)} name="Cancel" value="Cancel Booking" />
+                                <input className="cancel-button" type="submit" onClick={this.requestFumigation(booking)} name="Cancel" value="Request Fumigation" />
+
                             </div>)}
                     </div>
                 </div>
