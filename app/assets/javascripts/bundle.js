@@ -421,6 +421,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _spots_user_profile_container__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./spots/user_profile_container */ "./frontend/components/spots/user_profile_container.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _frontpagebooking_frontpagebooking__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./frontpagebooking/frontpagebooking */ "./frontend/components/frontpagebooking/frontpagebooking.jsx");
 
 
  // import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -441,6 +442,7 @@ __webpack_require__(/*! history */ "./node_modules/history/esm/history.js").crea
 
 
 
+
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-line-top"
@@ -449,6 +451,10 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "background-img"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/",
+    component: _frontpagebooking_frontpagebooking__WEBPACK_IMPORTED_MODULE_16__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/spots",
     component: _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_8__["default"]
@@ -464,6 +470,113 @@ var App = function App() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(App));
+
+/***/ }),
+
+/***/ "./frontend/components/frontpagebooking/frontpagebooking.jsx":
+/*!*******************************************************************!*\
+  !*** ./frontend/components/frontpagebooking/frontpagebooking.jsx ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dates */ "./node_modules/react-dates/index.js");
+/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dates/initialize */ "./node_modules/react-dates/initialize.js");
+/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var FrontPageBooking =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(FrontPageBooking, _Component);
+
+  function FrontPageBooking(props) {
+    var _this;
+
+    _classCallCheck(this, FrontPageBooking);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(FrontPageBooking).call(this, props));
+    _this.state = {
+      startDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.start),
+      endDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.end),
+      num_guests: null,
+      spot_id: null,
+      booker_id: null,
+      owner_id: null,
+      price_per_day: null,
+      booking_image_url: null
+    };
+    return _this;
+  }
+
+  _createClass(FrontPageBooking, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null) // <div>
+      //     <div className="splash-container">
+      //         <div className="splash-booking">
+      //             <form className="splash-booking-form">
+      //                 <h1 className="splash-booking-header">Find your next nightmare</h1>
+      //                 <div>
+      //                     <label>WHERE</label>
+      //                     <input className="splash-location" />
+      //                     <DateRangePicker
+      //                         orientation={"vertical"}
+      //                         startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+      //                         startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+      //                         endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+      //                         endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+      //                         onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+      //                         focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+      //                         onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+      //                     />
+      //                     <div className="spot-booking-guests">
+      //                         <form onSubmit={this.handleSubmit} >
+      //                             <input type="number" onChange={this.update} name="" className="splash-guests" placeholder="guests" value={this.state.num_guests} />
+      //                             <button className="spot-submit">Reserve</button>
+      //                         </form>
+      //                     </div>
+      //                 </div>
+      //             </form>
+      //         </div>
+      //     </div>
+      // </div>
+      ;
+    }
+  }]);
+
+  return FrontPageBooking;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (FrontPageBooking);
 
 /***/ }),
 
@@ -1524,7 +1637,6 @@ function (_React$Component) {
         price_per_day: this.props.pricePerDay,
         booking_image_url: this.props.bookingImage
       };
-      debugger;
       this.props.createBooking(this.props.currentUser, data);
     }
   }, {

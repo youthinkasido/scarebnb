@@ -24,6 +24,7 @@
     "react-calendar": "^2.19.0",
     "react-datepicker": "^2.8.0",
     "react-dates": "^20.2.5",
+    "react-day-picker": "^7.3.2",
     "react-dom": "^16.8.6",
     "react-moment-proptypes": "^1.6.0",
     "react-redux": "^5.0.5",

@@ -44,7 +44,7 @@ class BookingShow extends React.Component {
             price_per_day: this.props.pricePerDay,
             booking_image_url: this.props.bookingImage
         }
-        debugger
+      
         this.props.createBooking(this.props.currentUser, data)
     }
 

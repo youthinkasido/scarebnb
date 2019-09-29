@@ -22,29 +22,25 @@ require("history").createBrowserHistory
 import 'react-dates/lib/css/_datepicker.css';
 import UserProfileContainer from './spots/user_profile_container';
 import { ProtectedRoute } from '../util/route_util'
+import FrontPageBooking from './frontpagebooking/frontpagebooking';
 
 const App = () => {
-
   return (
 
     <div>
-  
-
       <GreetingContainer />
 
-
       <div className='nav-line-top'></div>
-
       <div className='nav-line-bottom'></div>
-      <div className="background-img" ></div>
+      <div className="background-img"></div>
 
       <Switch>
+        <Route exact path="/" component={FrontPageBooking} />
         <Route exact path="/spots" component={SpotIndexContainer} />
         <Route exact path='/spots/:spotId' component={SpotShowContainer} />
         <ProtectedRoute exact path='/users/:userId/bookings' component={UserProfileContainer} />
 
       </Switch>
-
       <Modal />
     </div>
   )
