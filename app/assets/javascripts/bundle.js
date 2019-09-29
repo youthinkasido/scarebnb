@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var RECEIVE_BOOKING = 'RECEIVE_BOOKING';
 var SHOW_BOOKINGS = "SHOW_BOOKINGS";
-var CANCEL_BOOKING = "SHOW_BOOKINGS";
+var CANCEL_BOOKING = "CANCEL_BOOKINGS";
 var receiveBooking = function receiveBooking(booking) {
   return {
     type: RECEIVE_BOOKING,
@@ -289,7 +289,7 @@ var logout = function logout() {
 /*!******************************************!*\
   !*** ./frontend/actions/spot_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_ALL_SPOTS, RECEIVE_SPOT, RECEIVE_REVIEW, RECEIVE_REVIEWS, receiveReview, receiveReviews, receiveAllSpots, receiveSpot, fetchReviews, fetchAllSpots, createReview, fetchSpot */
+/*! exports provided: RECEIVE_ALL_SPOTS, RECEIVE_SPOT, RECEIVE_REVIEW, RECEIVE_REVIEWS, SEARCH_SPOT, receiveReview, searchSpotAction, receiveReviews, receiveAllSpots, receiveSpot, fetchReviews, searchSpot, fetchAllSpots, createReview, fetchSpot */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -298,11 +298,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SPOT", function() { return RECEIVE_SPOT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEWS", function() { return RECEIVE_REVIEWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_SPOT", function() { return SEARCH_SPOT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "searchSpotAction", function() { return searchSpotAction; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReviews", function() { return receiveReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllSpots", function() { return receiveAllSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSpot", function() { return receiveSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "searchSpot", function() { return searchSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllSpots", function() { return fetchAllSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
@@ -312,11 +315,19 @@ var RECEIVE_ALL_SPOTS = "RECEIVE_ALL_SPOTS";
 var RECEIVE_SPOT = "RECEIVE_SPOT";
 var RECEIVE_REVIEW = "RECEIVE_REVIEW";
 var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
+var SEARCH_SPOT = "SEARCH_SPOT";
 var receiveReview = function receiveReview(review) {
   return {
     //where are we getting info from? // why destructured?
     type: RECEIVE_REVIEW,
     review: review
+  };
+};
+var searchSpotAction = function searchSpotAction(city, spots) {
+  return {
+    type: SEARCH_SPOT,
+    spots: spots,
+    city: city
   };
 };
 var receiveReviews = function receiveReviews(reviews) {
@@ -342,6 +353,13 @@ var fetchReviews = function fetchReviews(spotId) {
   return function (dispatch) {
     return _util_spots_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchReviews"](spotId).then(function (reviews) {
       return dispatch(receiveReviews(reviews));
+    });
+  };
+};
+var searchSpot = function searchSpot(city) {
+  return function (dispatch) {
+    return _util_spots_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"]().then(function (spots) {
+      return dispatch(searchSpotAction(city, spots));
     });
   };
 };
@@ -855,6 +873,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
 /* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../map */ "./frontend/components/map.jsx");
 /* harmony import */ var _spots_spot_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../spots/spot_index */ "./frontend/components/spots/spot_index.jsx");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -872,6 +891,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -947,6 +967,7 @@ function (_React$Component) {
       this.setState({
         showResults: true
       });
+      this.props.searchSpot(e.target.value);
     }
   }, {
     key: "hideSearchSuggestions",
@@ -1027,6 +1048,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
 /* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./search */ "./frontend/components/search/search.jsx");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+
 
 
 
@@ -1040,6 +1063,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     updateFilter: function updateFilter(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateFilter"])(filter, value));
+    },
+    searchSpot: function searchSpot(city) {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["searchSpot"])(city));
     }
   };
 };
@@ -1370,23 +1396,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dates */ "./node_modules/react-dates/index.js");
-/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dates/initialize */ "./node_modules/react-dates/initialize.js");
-/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dates/lib/css/_datepicker.css */ "./node_modules/react-dates/lib/css/_datepicker.css");
-/* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _booking_show__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./booking_show */ "./frontend/components/spots/booking_show.jsx");
-/* harmony import */ var _actions_booking_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/booking_actions */ "./frontend/actions/booking_actions.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-
-
+/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dates/initialize */ "./node_modules/react-dates/initialize.js");
+/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dates/lib/css/_datepicker.css */ "./node_modules/react-dates/lib/css/_datepicker.css");
+/* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _booking_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./booking_show */ "./frontend/components/spots/booking_show.jsx");
+/* harmony import */ var _actions_booking_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/booking_actions */ "./frontend/actions/booking_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 
 
@@ -1398,19 +1415,20 @@ var msp = function msp(state, ownProps) {
   return {
     currentUser: state.session.currentUser,
     pricePerDay: state.entities.spots[ownProps.match.params.spotId].cost_per_night,
-    bookingImage: state.entities.spots[ownProps.match.params.spotId].image_url
+    bookingImage: state.entities.spots[ownProps.match.params.spotId].image_url,
+    spots: state.entities.spots
   };
 };
 
 var mdp = function mdp(dispatch) {
   return {
     createBooking: function createBooking(userId, formData) {
-      return dispatch(Object(_actions_booking_actions__WEBPACK_IMPORTED_MODULE_7__["createBooking"])(userId, formData));
+      return dispatch(Object(_actions_booking_actions__WEBPACK_IMPORTED_MODULE_4__["createBooking"])(userId, formData));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(msp, mdp)(_booking_show__WEBPACK_IMPORTED_MODULE_6__["default"])));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(msp, mdp)(_booking_show__WEBPACK_IMPORTED_MODULE_3__["default"])));
 
 /***/ }),
 
@@ -1473,8 +1491,8 @@ function (_React$Component) {
     _this.state = {
       startDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.start),
       endDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.end),
-      num_guests: _this.props.num_guests,
-      spot_id: _this.props.spot_id,
+      num_guests: '',
+      spot_id: Object.values(_this.props.spots)[0].id,
       booker_id: _this.props.currentUser,
       owner_id: _this.props.currentUser,
       price_per_day: _this.props.pricePerDay,
@@ -1488,36 +1506,31 @@ function (_React$Component) {
   _createClass(BookingShow, [{
     key: "update",
     value: function update(e) {
-      var _this2 = this;
-
-      // e.preventDefault()
-      return function (e) {
-        return _this2.setState({
-          max_guests: e.target.value
-        });
-      };
+      this.setState({
+        num_guests: e.target.value
+      });
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      alert('Booking Confirmed!');
       var data = {
         start_date: new Date(this.state.startDate.toDate()),
         end_date: new Date(this.state.endDate.toDate()),
         num_guests: this.state.num_guests,
-        spot_id: 1,
+        spot_id: Object.values(this.props.spots)[0].id,
         booker_id: this.props.currentUser,
         owner_id: this.props.currentUser,
         price_per_day: this.props.pricePerDay,
         booking_image_url: this.props.bookingImage
       };
+      debugger;
       this.props.createBooking(this.props.currentUser, data);
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_0__["DateRangePicker"], {
         orientation: "vertical",
@@ -1532,7 +1545,7 @@ function (_React$Component) {
         onDatesChange: function onDatesChange(_ref) {
           var startDate = _ref.startDate,
               endDate = _ref.endDate;
-          return _this3.setState({
+          return _this2.setState({
             startDate: startDate,
             endDate: endDate
           });
@@ -1541,7 +1554,7 @@ function (_React$Component) {
         focusedInput: this.state.focusedInput // PropTypes.oneOf([START_DATE, END_DATE]) or null,
         ,
         onFocusChange: function onFocusChange(focusedInput) {
-          return _this3.setState({
+          return _this2.setState({
             focusedInput: focusedInput
           });
         } // PropTypes.func.isRequired,
@@ -1556,7 +1569,7 @@ function (_React$Component) {
         name: "",
         className: "spot-booking-guests",
         placeholder: "guests",
-        value: this.state.max_guests
+        value: this.state.num_guests
       }), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
         className: "spot-submit"
       }, "Reserve"))));
@@ -2269,6 +2282,9 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UserProfile).call(this, props));
     _this.cancelBooking = _this.cancelBooking.bind(_assertThisInitialized(_this));
     _this.requestFumigation = _this.requestFumigation.bind(_assertThisInitialized(_this));
+    _this.state = {
+      cancelBooking: false
+    };
     return _this;
   }
 
@@ -2286,14 +2302,13 @@ function (_React$Component) {
     }
   }, {
     key: "cancelBooking",
-    value: function cancelBooking(booking) {
-      var _this2 = this;
-
-      return function (e) {
-        e.preventDefault();
-
-        _this2.props.cancelBooking(booking);
-      };
+    value: function cancelBooking(booking, e) {
+      e.preventDefault();
+      this.props.cancelBooking(booking);
+      this.setState({
+        cancelBooking: !this.state.cancelBooking
+      });
+      window.location.reload();
     }
   }, {
     key: "requestFumigation",
@@ -2306,7 +2321,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       console.log(this.props.currentUser);
 
@@ -2314,7 +2329,7 @@ function (_React$Component) {
         return null;
       } else {
         var finalBookings = this.props.bookings.filter(function (booking) {
-          return booking.booker_id === _this3.props.currentUser.id;
+          return booking.booker_id === _this2.props.currentUser.id;
         });
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "booking-index-container"
@@ -2332,13 +2347,15 @@ function (_React$Component) {
           }, "Disgusting Broken Down Shack"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, booking.start_date.slice(0, 10), " to ", booking.end_date.slice(0, 10)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", booking.num_guests, " guests"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, booking.price_per_day), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             className: "cancel-button",
             type: "submit",
-            onClick: _this3.cancelBooking(booking),
+            onClick: function onClick(e) {
+              return _this2.cancelBooking(booking, e);
+            },
             name: "Cancel",
             value: "Cancel Booking"
           }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             className: "cancel-button",
             type: "submit",
-            onClick: _this3.requestFumigation(booking),
+            onClick: _this2.requestFumigation(booking),
             name: "Cancel",
             value: "Request Fumigation"
           }));
@@ -2409,8 +2426,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/spot_actions */ "./frontend/actions/spot_actions.js");
-
 
 
 
@@ -2429,9 +2444,11 @@ var bookingReducer = function bookingReducer() {
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["GO_TO_BOOKINGS"]:
       return action.bookings;
-    // return merge({}, state,action.bookings)
-    // case RECEIVE_ALL_SPOTS:
-    // return state
+
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["CANCEL_BOOKING"]:
+      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state);
+      delete newState[action.booking];
+      return newState;
 
     default:
       return state;
@@ -2723,6 +2740,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // RECEIVE_SPOT
 
 
+var newState;
 
 var spotReducer = function spotReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -2732,10 +2750,22 @@ var spotReducer = function spotReducer() {
   // debugger
   switch (action.type) {
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_SPOTS"]:
+      //console.log('SPORT REducER->>>>>>', typeof action.spots)
       return action.spots;
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SPOT"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.spot.id, action.spot));
+
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["SEARCH_SPOT"]:
+      var a = [];
+      var spots = Object.values(action.spots);
+      debugger;
+      newState = spots.filter(function (spot) {
+        return spot.city.split('').filter(function (substring) {
+          return action.city.includes(substring);
+        });
+      });
+      return newState;
 
     default:
       return state;
@@ -2901,7 +2931,7 @@ __webpack_require__.r(__webpack_exports__);
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   // debugger
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_2___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_2___default.a), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

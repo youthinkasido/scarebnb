@@ -9,32 +9,32 @@ import FilterForm from './filter_form';
 import GreetingContainer from '../greeting/greeting_container';
 import Map from '../map';
 import SpotsIndex from '../spots/spot_index';
+import { searchSpot } from '../../actions/spot_actions';
+
+
+
 
 const cities = [
   {
     id: 1,
     name: 'Atlanta, ',
     state: 'GA'
-
   },
 
   {
     id: 2,
     name: 'San Francisco, ',
     state: 'CA'
-
   },
   {
     id: 3,
     name: 'New York, ',
     state: 'NY'
-
   },
   {
     id: 4,
     name: 'Detroit, ',
     state: 'MI'
-
   },
 
   {
@@ -76,6 +76,7 @@ class Search extends React.Component {
     e.preventDefault()
     this.setState({ term: e.target.value })
     this.setState({ showResults: true })
+    this.props.searchSpot(e.target.value)
   }
 
   hideSearchSuggestions() {
@@ -85,8 +86,6 @@ class Search extends React.Component {
     this.props.history.push('/spots')
   }
   render() {
-
-
     const goodCities = this.state.cities.filter(searchingFor(this.state.term));
     let dropDown = null;
     if (this.props.location.pathname === '/spots' && this.state.showResults) {

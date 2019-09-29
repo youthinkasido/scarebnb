@@ -4,13 +4,18 @@ export const RECEIVE_ALL_SPOTS = "RECEIVE_ALL_SPOTS"
 export const RECEIVE_SPOT = "RECEIVE_SPOT"
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW"
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS"
-
+export const SEARCH_SPOT = "SEARCH_SPOT"
 
 export const receiveReview = (review) => ({ //where are we getting info from? // why destructured?
     type: RECEIVE_REVIEW,
     review
 });
 
+export const searchSpotAction = (city, spots) => ({
+    type: SEARCH_SPOT,
+    spots,
+    city
+})
 
 export const receiveReviews = (reviews) => ({ //where are we getting info from? // why destructured?
     type: RECEIVE_REVIEWS,
@@ -35,6 +40,10 @@ export const fetchReviews = (spotId) => dispatch => (
     SpotsApiUtil.fetchReviews(spotId).then(
         (reviews) =>  dispatch(receiveReviews(reviews))
         )
+)
+
+export const searchSpot = (city) => dispatch => (
+    SpotsApiUtil.fetchSpots().then((spots) => dispatch(searchSpotAction(city, spots)))
 )
 
 export const fetchAllSpots = () => dispatch => (

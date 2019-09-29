@@ -17,7 +17,7 @@ const mdp = dispatch => {
   return {
      fetchBookings: userId => dispatch(fetchBookings(userId)),
      cancelBooking: (bookingId) => dispatch(cancelBooking(bookingId))
-    
+
     };
 };
 

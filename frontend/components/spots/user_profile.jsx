@@ -3,9 +3,14 @@ import { withRouter } from 'react-router-dom';
 
 class UserProfile extends React.Component {
     constructor(props) {
+
         super(props)
         this.cancelBooking = this.cancelBooking.bind(this)
         this.requestFumigation = this.requestFumigation.bind(this)
+        this.state = {
+            cancelBooking: false
+        }
+
     }
 
     componentDidMount() {
@@ -18,11 +23,11 @@ class UserProfile extends React.Component {
         }
     }
 
-    cancelBooking(booking) {
-        return e => {
-            e.preventDefault()
-            this.props.cancelBooking(booking)
-        }
+    cancelBooking(booking, e) {
+        e.preventDefault()
+        this.props.cancelBooking(booking)
+        this.setState({ cancelBooking: !this.state.cancelBooking })
+        window.location.reload()
     }
 
     requestFumigation() {
@@ -33,8 +38,6 @@ class UserProfile extends React.Component {
     }
 
     render() {
-
-
         console.log(this.props.currentUser)
         if (!this.props.currentUser || !this.props.bookings.length > 0) {
             return null
@@ -51,7 +54,7 @@ class UserProfile extends React.Component {
                                 <p>{booking.start_date.slice(0, 10)} to {booking.end_date.slice(0, 10)}</p>
                                 <p> {booking.num_guests} guests</p>
                                 <p>{booking.price_per_day}</p>
-                                <input className="cancel-button" type="submit" onClick={this.cancelBooking(booking)} name="Cancel" value="Cancel Booking" />
+                                <input className="cancel-button" type="submit" onClick={(e) => this.cancelBooking(booking, e)} name="Cancel" value="Cancel Booking" />
                                 <input className="cancel-button" type="submit" onClick={this.requestFumigation(booking)} name="Cancel" value="Request Fumigation" />
 
                             </div>)}

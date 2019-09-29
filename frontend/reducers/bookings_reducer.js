@@ -1,31 +1,35 @@
-import {RECEIVE_BOOKING,SHOW_BOOKINGS} from '../actions/booking_actions'
+import { RECEIVE_BOOKING, SHOW_BOOKINGS, CANCEL_BOOKING } from '../actions/booking_actions'
 import merge from 'lodash/merge'
 import { GO_TO_BOOKINGS } from '../actions/session_actions';
-import { RECEIVE_ALL_SPOTS } from '../actions/spot_actions';
 
 
 
-const bookingReducer = (state={}, action) => {
- 
+
+const bookingReducer = (state = {}, action) => {
+
     Object.freeze(state)
-   
-    switch(action.type){
-        
+
+    switch (action.type) {
+
+
         case RECEIVE_BOOKING:
-        
-           return merge({}, state, action.booking)
+
+            return merge({}, state, action.booking)
         case SHOW_BOOKINGS:
-            
+
             return action.bookings
         case GO_TO_BOOKINGS:
             return action.bookings
-            // return merge({}, state,action.bookings)
-        // case RECEIVE_ALL_SPOTS:
+
+        case CANCEL_BOOKING:
             
-            // return state
-        default: 
-        return state
+            let newState = merge({}, state);
+            delete newState[action.booking];
+            return newState;
+
+        default:
+            return state
     }
-} 
+}
 
 export default bookingReducer

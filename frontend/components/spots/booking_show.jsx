@@ -5,22 +5,20 @@ import moment from 'moment';
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 
-
-
 class BookingShow extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = {
 
+        super(props)
+
+        this.state = {
             startDate: moment(event.start),
             endDate: moment(event.end),
-            num_guests: this.props.num_guests,
-            spot_id: this.props.spot_id,
+            num_guests: '',
+            spot_id: Object.values(this.props.spots)[0].id,
             booker_id: this.props.currentUser,
             owner_id: this.props.currentUser,
             price_per_day: this.props.pricePerDay,
             booking_image_url: this.props.bookingImage
-
         }
 
         this.update = this.update.bind(this)
@@ -29,38 +27,30 @@ class BookingShow extends React.Component {
     }
     update(e) {
 
-
-        // e.preventDefault()
-        return e => this.setState({ max_guests: e.target.value })
-
+        this.setState({ num_guests: e.target.value })
     }
 
     handleSubmit(e) {
 
         e.preventDefault()
-        alert('Booking Confirmed!')
+
         let data = {
             start_date: new Date(this.state.startDate.toDate()),
             end_date: new Date(this.state.endDate.toDate()),
             num_guests: this.state.num_guests,
-            spot_id: 1,
+            spot_id: Object.values(this.props.spots)[0].id,
             booker_id: this.props.currentUser,
             owner_id: this.props.currentUser,
             price_per_day: this.props.pricePerDay,
             booking_image_url: this.props.bookingImage
         }
-
-
+        debugger
         this.props.createBooking(this.props.currentUser, data)
-
     }
 
     render() {
-
         return (
-
             <div>
-
                 <DateRangePicker
                     orientation={"vertical"}
                     startDate={this.state.startDate} // momentPropTypes.momentObj or null,
@@ -73,18 +63,12 @@ class BookingShow extends React.Component {
                 />
 
                 <div className="spot-booking-guests">
-
                     <form onSubmit={this.handleSubmit} >
-                        <input type="number" onChange={this.update} name="" className="spot-booking-guests" placeholder="guests" value={this.state.max_guests} />
+                        <input type="number" onChange={this.update} name="" className="spot-booking-guests" placeholder="guests" value={this.state.num_guests} />
                         <button className="spot-submit">Reserve</button>
                     </form>
-
                 </div>
-
             </div>
-
-
-
         )
     }
 }
