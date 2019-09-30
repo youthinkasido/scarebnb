@@ -1,6 +1,6 @@
 # [Scarebnb](https://scarebandb.herokuapp.com/#/)
 
-Scarebnb is a Haunted house experience web app, inspired by Airbnb, built with **Rails, React, Redux, PostgreSQL and AWS	 
+Scarebnb is a Haunted house experience web app, inspired by Airbnb, built with **Rails, React, Redux, PostgreSQL and AWS**	 
 
 ## FEATURES
 
