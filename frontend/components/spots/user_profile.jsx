@@ -43,7 +43,11 @@ class UserProfile extends React.Component {
     requestFumigation() {
         return e => {
             e.preventDefault()
-            alert('fumigation allowed')
+            Swal.fire(
+                'Fumigation in progress!',
+                'Your booking will be bug free!',
+                'success'
+            )
         }
     }
 

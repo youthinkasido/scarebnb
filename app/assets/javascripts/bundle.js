@@ -2480,7 +2480,7 @@ function (_React$Component) {
     value: function requestFumigation() {
       return function (e) {
         e.preventDefault();
-        alert('fumigation allowed');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire('Fumigation in progress!', 'Your booking will be bug free!', 'success');
       };
     }
   }, {
