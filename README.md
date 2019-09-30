@@ -24,6 +24,22 @@ using password encryption.
 
 ![Home Page](./signup.png)
 
+```javascript
+  def create 
+    @user = User.find_by_credentials(
+      params["user"]["email"], 
+      params["user"]["password"]
+      )
+    if @user
+      login(@user) 
+      render 'api/users/show' # sends users show json 
+    else
+      render json: ["Invalid Credentials"], status: 401
+      
+    end
+  end
+```
+
 - **Booking a spot**
 Users can book a spot by selecting a start and end date, as well as the number of 
 guests they plan to bring.
