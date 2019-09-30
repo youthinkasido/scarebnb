@@ -2,7 +2,7 @@
 
 Scarebnb is a Haunted house experience web app, inspired by Airbnb, built with **Rails, React, Redux, PostgreSQL and AWS	 
 
-Features:
+## FEATURES
 
 
 
@@ -10,8 +10,16 @@ Demo Login: Users can get a chance to view the locations without the hassle
 of registering.
 
 
-- **Spot Gallery**
-View a fantastic selection of Homes/Shacks/Apartments to book for your next adventure!
+**Spot Gallery**
+Listings are rendered to the user based on their selected city using regular expressions.
+
+```javascript function searchingFor(term) {
+  return function (cityInList) {
+    return cityInList.name.toLowerCase().includes(term.toLowerCase()) || !term
+  }
+}
+```
+
 ![Home Page](https://www.awesomescreenshot.com/upload//1054043/dded00a8-a19b-4f87-5aa9-0b360e70eb26.png)
 
 
