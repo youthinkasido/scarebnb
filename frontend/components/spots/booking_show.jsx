@@ -46,7 +46,7 @@ class BookingShow extends React.Component {
             start_date: new Date(this.state.startDate.toDate()),
             end_date: new Date(this.state.endDate.toDate()),
             num_guests: this.state.num_guests,
-            spot_id: Object.values(this.props.spots)[0].id,
+            spot_id: this.props.spotId,
             booker_id: this.props.currentUser,
             owner_id: this.props.currentUser,
             price_per_day: this.props.pricePerDay,

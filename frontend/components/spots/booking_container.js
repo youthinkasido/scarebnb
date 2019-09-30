@@ -12,7 +12,8 @@ const msp = (state, ownProps) => {
     pricePerDay:
       state.entities.spots[ownProps.match.params.spotId].cost_per_night,
     bookingImage: state.entities.spots[ownProps.match.params.spotId].image_url,
-    spots: state.entities.spots
+    spots: state.entities.spots,
+    spotId: ownProps.match.params.spotId
   };
 };
 

@@ -1577,7 +1577,8 @@ var msp = function msp(state, ownProps) {
     currentUser: state.session.currentUser,
     pricePerDay: state.entities.spots[ownProps.match.params.spotId].cost_per_night,
     bookingImage: state.entities.spots[ownProps.match.params.spotId].image_url,
-    spots: state.entities.spots
+    spots: state.entities.spots,
+    spotId: ownProps.match.params.spotId
   };
 };
 
@@ -1683,7 +1684,7 @@ function (_React$Component) {
         start_date: new Date(this.state.startDate.toDate()),
         end_date: new Date(this.state.endDate.toDate()),
         num_guests: this.state.num_guests,
-        spot_id: Object.values(this.props.spots)[0].id,
+        spot_id: this.props.spotId,
         booker_id: this.props.currentUser,
         owner_id: this.props.currentUser,
         price_per_day: this.props.pricePerDay,
