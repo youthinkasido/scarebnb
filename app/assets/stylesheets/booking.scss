@@ -1,67 +1,63 @@
-.spot-booking-container{
-    text-align: center;
+.spot-booking-container {
+  text-align: center;
 
-    margin-top: 50px;
+  margin-top: 50px;
 }
 .DateRangePicker {
-    position: relative;
-    display: inline-block;
-    margin-top: 40px;
+  position: relative;
+  display: inline-block;
+  margin-top: 40px;
 }
 
-.spot--bookings{
-    float: right;
-    text-align: center;
-    width: 50%;
-    height: 366px;
-    margin-top: 50px;
+.spot--bookings {
+  float: right;
+  text-align: center;
+  width: 50%;
+  height: 366px;
+  margin-top: 50px;
 }
 
-.booking-rating{
-    text-align: left;
-    margin-left: 49px;
-    font-size: 20px;
-    margin-top: 10px;
+.booking-rating {
+  text-align: left;
+  margin-left: 49px;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
-.spot-cost-per-night{
-
-    text-align: left;
-    font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 50px;
-    margin-top: 60px;
-
+.spot-cost-per-night {
+  text-align: left;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 50px;
+  margin-top: 60px;
 }
 
-.spot-booking-guests input{
-    width: 72%;
-    height: 50px;
-    margin-top: 45px;
-    padding: 20px;
-    border-radius: 3px;
+.spot-booking-guests input {
+  width: 72%;
+  height: 50px;
+  margin-top: 45px;
+  padding: 20px;
+  border-radius: 3px;
 }
 
-.spot-submit{
-    width: 73%;
-    text-align: center;
-    height: 60px;
-    background:#ff5a5f;
-    color: white;
-    margin-top: 20px;
-    border-radius: 3px;
+.spot-submit {
+  width: 73%;
+  text-align: center;
+  height: 60px;
+  background: #ff5a5f;
+  color: white;
+  margin-top: 20px;
+  border-radius: 3px;
 }
 
-.spot-booking-form-container{
-    position: relative;
-    border: 1px solid white;
-    width: 400px;
-    height: 430px;
-    margin: 0 auto;
-    background: white;
-    top: -17px;
-    margin-top: 60px;
-
+.spot-booking-form-container {
+  position: relative;
+  border: 1px solid white;
+  width: 400px;
+  height: 430px;
+  margin: 0 auto;
+  background: white;
+  top: -17px;
+  margin-top: 60px;
+  border-radius: 3px;
 }
-
-

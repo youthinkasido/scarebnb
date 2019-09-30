@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 class UserProfile extends React.Component {
     constructor(props) {
@@ -24,10 +25,19 @@ class UserProfile extends React.Component {
     }
 
     cancelBooking(booking, e) {
-        e.preventDefault()
+
         this.props.cancelBooking(booking)
-        this.setState({ cancelBooking: !this.state.cancelBooking })
-        window.location.reload()
+        Swal.fire(
+            'Booking Cancelled',
+            'Your booking has been cancelled :(',
+            'success'
+        )
+
+        setTimeout(function () { window.location.reload() }, 1000)
+
+
+
+
     }
 
     requestFumigation() {

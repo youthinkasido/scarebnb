@@ -66,7 +66,7 @@ const allSpots = [
         render(){
         
         return (
-            <div>       
+            <div className="google-map">       
                 <div id='map' ref='map' />
             </div>
         );

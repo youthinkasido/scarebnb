@@ -8,6 +8,7 @@ import BookingContainer from './booking_container';
 
 
 
+
 class SpotShow extends React.Component {
     constructor(props) {
 
@@ -15,6 +16,10 @@ class SpotShow extends React.Component {
 
     }
     componentDidMount() {
+
+    
+        window.scrollTo(0, 0);
+
         const { spotId } = this.props.match.params
 
         this.props.fetchSpot(spotId).then(() => this.props.fetchReviews(spotId))
@@ -39,7 +44,7 @@ class SpotShow extends React.Component {
         }
         // console.log(this.props.reviews)
         const spot = this.props.spot
-       
+
         if (!spot) {
             return null;
         }

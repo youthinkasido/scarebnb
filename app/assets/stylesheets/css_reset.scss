@@ -212,8 +212,10 @@ html {
  */
 
 a:focus {
-  outline: thin dotted;
+  outline: none;
+  text-decoration: none;
 }
+
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
@@ -221,7 +223,8 @@ a:focus {
 
 a:active,
 a:hover {
-  outline: 0;
+  outline: none;
+  text-decoration: none;
 }
 
 /**
@@ -449,5 +452,5 @@ textarea {
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }

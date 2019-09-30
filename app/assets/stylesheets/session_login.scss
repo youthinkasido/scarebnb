@@ -1,124 +1,114 @@
-
-.modal-background{
-
-position: fixed;
-   top: 0;
-   bottom: 0;
-   right: 0;
-   left: 0;
-   background: rgba(0, 0, 0, 0.7);
-   z-index: 10;
-    
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
 }
 
-.modal-child{
-
-position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-
-
+.form-errors {
+  font-family: sans-serif;
+  font-weight: 400;
+  color: red;
+  margin-top: 20px;
 }
 
-.login-form-container{
-
-width: 400px;
-   padding: 70px;
-   background-color: #fff;
-}  
-
-.logout :hover{
-cursor: pointer;
+.hide {
+  display: none;
 }
 
-.bookings :hover{
-cursor: pointer;
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-form-container {
+  width: 400px;
+  padding: 70px;
+  background-color: #fff;
+}
+
+.logout :hover {
+  cursor: pointer;
+}
+
+.bookings :hover {
+  cursor: pointer;
 }
 
 .logout {
-color:white
+  color: white;
 }
 
 .bookings {
-color:white
+  color: white;
 }
 
-
-
-.login-form-box{
-
-    text-align: center;
+.login-form-box {
+  text-align: center;
 }
 
+.form-exit-button {
+  position: absolute;
+  border-style: none;
+  font-size: 25px;
+  top: 4%;
+  left: 4%;
 
-.form-exit-button{
-    position: absolute;
-   border-style: none;
-   font-size: 25px;
-   top: 4%;
-   left: 4%;
-
-     -moz-box-shadow:    3px 3px 6px 6px #ccc;
+  -moz-box-shadow: 3px 3px 6px 6px #ccc;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow:         1px 1px 5px 1px #ccc;
+  box-shadow: 1px 1px 5px 1px #ccc;
 
-   
-    cursor:pointer;
-    color :#a9a9a9;
-    border: 1px solid #AEAEAE;
-    border-radius: 30px;
-    background: white;
- 
-  
-    display: inline-block;
-    line-height: 0px;
-    padding: 11px 3px;    
+  cursor: pointer;
+  color: #a9a9a9;
+  border: 1px solid #aeaeae;
+  border-radius: 30px;
+  background: white;
+
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 3px;
 }
 
-
-
-.login-form-heading{
-
-font-size: 26px;
-   margin-bottom: 30px;
-   display: inline-block;
-   font-family: "Helvetica Neue", Helvetica;
-  color:  #484848;
+.login-form-heading {
+  font-size: 26px;
+  margin-bottom: 30px;
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica;
+  color: #484848;
 }
 
-.login-input{
-    width: 100%;
-   padding: 10px;
-   margin-bottom: 15px;
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
 }
 
-
-.session-submit{
-
-   width: 100%;
-   padding: 15px;
-   margin-bottom: 10px;
-   color: #fff;
-   background-color: #ff5a5f;
-   border-radius: 2px;
+.session-submit {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  color: #fff;
+  background-color: #ff5a5f;
+  border-radius: 2px;
 }
 
-
-.session-help{
-
-    color: #727272;
-   text-align: center;
+.session-help {
+  color: #727272;
+  text-align: center;
 }
 
-.alt-form-link{
-color: #008489;
-   border-style: none;
-   text-decoration: underline;
+.alt-form-link {
+  color: #008489;
+  border-style: none;
+  text-decoration: underline;
 }
 
 .errors {
-   font-family: "Helvetica Neue", Helvetica;
-  color:  red;
-
+  font-family: "Helvetica Neue", Helvetica;
+  color: red;
 }

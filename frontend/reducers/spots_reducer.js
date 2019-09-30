@@ -22,7 +22,7 @@ const spotReducer = (state = {}, action) => { // action is dispatched aciton tha
         case SEARCH_SPOT:
             const a = []
             let spots = Object.values(action.spots)
-            debugger
+           
             newState = spots.filter(spot => spot.city.split('').filter(substring => action.city.includes(substring)))
             return newState
         default:

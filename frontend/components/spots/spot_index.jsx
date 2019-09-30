@@ -14,14 +14,13 @@ class SpotsIndex extends Component {
         this.props.fetchAllSpots();
     }
 
-    
 
-    render() { 
+    render() {
         const { spots } = this.props;
         const spoties = spots.map(spot => <SpotIndexItem key={spot.id} spot={spot} />)
-       
+
         return (
-            
+
             <div>
                 <div className="google-map"><Map spots={spots} center={{ lat: 33.748997, lng: -84.387985 }} /></div>
                 <div className="responsive">

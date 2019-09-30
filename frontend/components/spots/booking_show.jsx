@@ -4,6 +4,8 @@ import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment';
 import React from 'react';
 import { withRouter } from 'react-router-dom'
+import Swal from 'sweetalert2'
+
 
 class BookingShow extends React.Component {
     constructor(props) {
@@ -32,6 +34,12 @@ class BookingShow extends React.Component {
 
     handleSubmit(e) {
 
+        Swal.fire(
+            'Congratulations!',
+            'Your reservation has been confirmed!',
+            'success'
+        )
+
         e.preventDefault()
 
         let data = {
@@ -44,7 +52,7 @@ class BookingShow extends React.Component {
             price_per_day: this.props.pricePerDay,
             booking_image_url: this.props.bookingImage
         }
-      
+
         this.props.createBooking(this.props.currentUser, data)
     }
 
