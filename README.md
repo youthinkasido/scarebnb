@@ -16,7 +16,7 @@ of registering.
 
 - **Spot Gallery**
 View a fantastic selection of Homes/Shacks/Apartments to book for your next adventure!
-![Home Page](./spotindex.png)
+![Home Page](https://www.awesomescreenshot.com/upload//1054043/dded00a8-a19b-4f87-5aa9-0b360e70eb26.png)
 
 - **Booking a spot**
 Users can book a spot by selecting a start and end date, as well as the number of 
