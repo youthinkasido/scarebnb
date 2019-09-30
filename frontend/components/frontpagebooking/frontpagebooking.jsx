@@ -3,8 +3,8 @@ import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'rea
 import 'react-dates/initialize';
 import moment from 'moment';
 import { withRouter } from 'react-router-dom'
-
-
+import "react-day-picker/lib/style.css"
+import DayPickerInput from "react-day-picker/DayPickerInput"
 
 class FrontPageBooking extends Component {
     constructor(props) {
@@ -53,7 +53,7 @@ class FrontPageBooking extends Component {
                                 <div className="splash-calender">
                                     <img className="splash-calender-icon" alt="scarebnb" src={"calendar.png"} />
 
-                                    <DateRangePicker
+                                    <DayPickerInput
                                         orientation={"vertical"}
                                         startDate={this.state.startDate} // momentPropTypes.momentObj or null,
                                         startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
