@@ -576,13 +576,11 @@ function (_Component) {
         className: "splash-guests",
         placeholder: "guests",
         defaultValue: this.state.num_guests
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "CHECK IN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "check-in"
+      }, "CHECK IN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash-calender"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "splash-calender-icon",
-        alt: "scarebnb",
-        src: "calendar.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_6___default.a, {
         orientation: "vertical",
         startDate: this.state.startDate // momentPropTypes.momentObj or null,
         ,
@@ -595,6 +593,33 @@ function (_Component) {
         onDatesChange: function onDatesChange(_ref) {
           var startDate = _ref.startDate,
               endDate = _ref.endDate;
+          return _this2.setState({
+            startDate: startDate,
+            endDate: endDate
+          });
+        } // PropTypes.func.isRequired,
+        ,
+        focusedInput: this.state.focusedInput // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+        ,
+        onFocusChange: function onFocusChange(focusedInput) {
+          return _this2.setState({
+            focusedInput: focusedInput
+          });
+        } // PropTypes.func.isRequired,
+
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_6___default.a, {
+        orientation: "vertical",
+        startDate: this.state.startDate // momentPropTypes.momentObj or null,
+        ,
+        startDateId: "your_unique_start_date_id" // PropTypes.string.isRequired,
+        ,
+        endDate: this.state.endDate // momentPropTypes.momentObj or null,
+        ,
+        endDateId: "your_unique_end_date_id" // PropTypes.string.isRequired,
+        ,
+        onDatesChange: function onDatesChange(_ref2) {
+          var startDate = _ref2.startDate,
+              endDate = _ref2.endDate;
           return _this2.setState({
             startDate: startDate,
             endDate: endDate

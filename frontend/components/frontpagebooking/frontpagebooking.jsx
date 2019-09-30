@@ -49,39 +49,48 @@ class FrontPageBooking extends Component {
                                 <label>GUESTS</label>
                                 <input type="number" onChange={this.update} name="" className="splash-guests" placeholder="guests" defaultValue={this.state.num_guests} />
 
-                                <label>CHECK IN</label>
+                                <label className="check-in">CHECK IN</label>
                                 <div className="splash-calender">
-                                    <img className="splash-calender-icon" alt="scarebnb" src={"calendar.png"} />
+                                    
+                                <DayPickerInput
+                                    orientation={"vertical"}
+                                    startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                                    startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                                    endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+                                    endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+                                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                                    focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                                    onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+                                />
 
-                                    <DayPickerInput
-                                        orientation={"vertical"}
-                                        startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-                                        startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-                                        endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-                                        endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-                                        onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-                                        focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                                        onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-
-                                    />
-                                </div>
-
-
-
-                                <div className="splash-booking-guests">
-                                    <form onSubmit={this.sendToSearch} >
-                                        <button className="splash-submit">Search</button>
-                                    </form>
-                                </div>
-
-
+                                <DayPickerInput
+                                    orientation={"vertical"}
+                                    startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                                    startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                                    endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+                                    endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+                                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                                    focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                                    onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+                                />
                             </div>
 
+
+
+                            <div className="splash-booking-guests">
+                                <form onSubmit={this.sendToSearch} >
+                                    <button className="splash-submit">Search</button>
+                                </form>
+                            </div>
+
+
                         </div>
+
                     </div>
                 </div>
-            </div >
-        )
+            </div>
+                </div >
+                )
     }
 }
 
