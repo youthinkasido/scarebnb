@@ -62,11 +62,6 @@ guests they plan to bring, through the utilization of the react-date-picker depe
 
 ![Home Page](./spotshowpage.png)
 
-Leave a Review for a spot:
-Users get a chance to share their experiences with other potential bookers,
-for better or for worse!
-
-
 
 
 
