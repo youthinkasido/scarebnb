@@ -4,11 +4,7 @@ Scarebnb is a Haunted house experience web app, inspired by Airbnb, built with *
 
 Features:
 
-- **Account Creation**
-Users can rest assured that there account information is safe
-using password encryption.
 
-![Home Page](./signup.png)
 
 Demo Login: Users can get a chance to view the locations without the hassle 
 of registering.
@@ -17,6 +13,13 @@ of registering.
 - **Spot Gallery**
 View a fantastic selection of Homes/Shacks/Apartments to book for your next adventure!
 ![Home Page](https://www.awesomescreenshot.com/upload//1054043/dded00a8-a19b-4f87-5aa9-0b360e70eb26.png)
+
+
+ **User Authentication**
+Users can rest assured that there account information is safe
+using password encryption.
+
+![Home Page](./signup.png)
 
 - **Booking a spot**
 Users can book a spot by selecting a start and end date, as well as the number of 
