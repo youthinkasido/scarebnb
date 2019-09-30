@@ -1,27 +1,44 @@
-# README
+# [Scarebnb](https://scarebandb.herokuapp.com/#/)
+
+Scarebnb is a Haunted house experience web app, inspired by Airbnb, built with **Rails, React, Redux, PostgreSQL and AWS**	 
+
+## FEATURES
 
 
+**Spot Gallery**
+Listings are rendered to the user based on their selected city using regular expressions.
 
-Don't have the proper funds for an adequate weekend getaway with the Mrs?
-Scare Bnb is the ultimate solution for all your low-end and low-cost booking needs.
+```javascript function searchingFor(term) {
+  return function (cityInList) {
+    return cityInList.name.toLowerCase().includes(term.toLowerCase()) || !term
+  }
+}
+```
 
-https://scarebandb.herokuapp.com
+![Home Page](https://www.awesomescreenshot.com/upload//1054043/dded00a8-a19b-4f87-5aa9-0b360e70eb26.png)
 
-Features:
 
-- **Account Creation**
+ **User Authentication**
 Users can rest assured that there account information is safe
 using password encryption.
 
 ![Home Page](./signup.png)
 
-Demo Login: Users can get a chance to view the locations without the hassle 
-of registering.
-
-
-- **Spot Gallery**
-View a fantastic selection of Homes/Shacks/Apartments to book for your next adventure!
-![Home Page](./spotindex.png)
+```javascript
+  def create 
+    @user = User.find_by_credentials(
+      params["user"]["email"], 
+      params["user"]["password"]
+      )
+    if @user
+      login(@user) 
+      render 'api/users/show' # sends users show json 
+    else
+      render json: ["Invalid Credentials"], status: 401
+      
+    end
+  end
+```
 
 - **Booking a spot**
 Users can book a spot by selecting a start and end date, as well as the number of 
