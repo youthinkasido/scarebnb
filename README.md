@@ -22,8 +22,6 @@ Listings are rendered to the user based on their selected city using regular exp
 Users can rest assured that there account information is safe
 using password encryption.
 
-![Home Page](./signup.png)
-
 ```javascript
   def create 
     @user = User.find_by_credentials(
@@ -39,6 +37,10 @@ using password encryption.
     end
   end
 ```
+
+![Home Page](./signup.png)
+
+
 
 - **Booking a spot**
 Users can book a spot by selecting a start and end date, as well as the number of 
