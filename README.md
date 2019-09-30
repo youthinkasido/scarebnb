@@ -5,11 +5,6 @@ Scarebnb is a Haunted house experience web app, inspired by Airbnb, built with *
 ## FEATURES
 
 
-
-Demo Login: Users can get a chance to view the locations without the hassle 
-of registering.
-
-
 **Spot Gallery**
 Listings are rendered to the user based on their selected city using regular expressions.
 
