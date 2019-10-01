@@ -1,120 +1,101 @@
-.spot-show--wrapper{
-      display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding-top: 59px;
-    width: 101%;
+.spot-show--wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 59px;
+  width: 101%;
 }
 
-.spot-show--wrapper > div >img{
-    background: #eee;
-    margin-left: -13px;
-    width: 100%;
+.spot-show--wrapper > div > img {
+  background: #eee;
+  margin-left: -13px;
+  width: 100%;
 }
 
-.spot-show--wrapper  div:nth-child(5) {
-   grid-column: 1 / 3;
-   grid-row: 1 / 3;
+.spot-show--wrapper div:nth-child(5) {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
 }
-
 
 .spot-show--details {
-    display: inline-grid;
-    grid-gap: 10px;
-    background: black;
-    padding: 10px;
-    width: 50%;
-    padding-left: 100px;
-    border-top-color: 1px solid white;
+  display: inline-grid;
+  grid-gap: 10px;
+  background: black;
+  padding: 10px;
+  width: 50%;
+  padding-left: 100px;
+  border-top-color: 1px solid white;
 }
 
-
-.spot-show-name{
-    font-size: 32px;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 20px;
+.spot-show-name {
+  font-size: 32px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
 }
 
-.spot-show-city-state{
-    color: lightgrey;
-    font-size: 18px;
+.spot-show-city-state {
+  color: lightgrey;
+  font-size: 18px;
 }
 
-.spot-show-description{
- color: white;
- font-size: 25px;
- line-height: 30px;
- padding-bottom: 20px;
-
+.spot-show-description {
+  color: white;
+  font-size: 25px;
+  line-height: 30px;
+  padding-bottom: 20px;
 }
 
-.spot-show-rooms li{
-    color: grey;
-    display: inline-block;
-    color: grey;
-    display: inline-block;
-    font-size: 20px;
-    margin-top: 20px;
+.spot-show-rooms li {
+  color: grey;
+  display: inline-block;
+  color: grey;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 20px;
 }
 
-.spot-show-ameneties li{
-    color: white;
-    list-style-type: none;
-    margin-left: 0 auto;
-    margin-bottom: 20px;
-    text-align: left;
-    font-size: 20px;
-    padding-top: 20px;
+.spot-show-ameneties li {
+  color: white;
+  list-style-type: none;
+  margin-left: 0 auto;
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 20px;
+  padding-top: 20px;
 }
 
-.spot-show-ameneties li:before{
-    content:" "; 
-  
-    width:22px;
+.spot-show-ameneties li:before {
+  content: " ";
+
+  width: 22px;
 }
 
-.spot-show-ameneties div{
-    color: orange;
-    display: inline-block;
-    font-size: 22px;
-    padding-top: 20px;
-
-    
+.spot-show-ameneties div {
+  color: orange;
+  display: inline-block;
+  font-size: 22px;
+  padding-top: 20px;
 }
 
-.spot-show-amenities div{
-
+.spot-show-amenities div {
 }
 
-
-.spot-show--reviews{
-      text-align: center;
-    display: inline-grid; 
+.spot-show--reviews {
+  text-align: center;
+  display: inline-grid;
 }
 
-
-
-
-
-
-.spot-show-review{
- margin-bottom: 75px;
-
+.spot-show-review {
+  margin-bottom: 75px;
 }
-
-
-
-
 
 * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-
 
 ////////////////////////// ON HOVER ZOOM TRACK
 // .image-box {
@@ -136,10 +117,6 @@
 //     transform: scale(1.1);
 // }
 
-
-
-
-
 // .spot-show-container-small-images{
 
 // }
@@ -149,7 +126,7 @@
 // }
 
 // .spot-show-container-small-images{
-    
+
 // }
 
 // .spot-show-container-details-container{
@@ -157,12 +134,10 @@
 // }
 
 // .spot-show-container-booking-container{
-    
+
 // }
 
-
 .wrapper > div {
-    background: white;
-    padding: 1em;
- }
-
+  background: white;
+  padding: 1em;
+}

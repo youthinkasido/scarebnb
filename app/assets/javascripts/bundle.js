@@ -2166,9 +2166,7 @@ __webpack_require__.r(__webpack_exports__);
 var SpotIndexItem = function SpotIndexItem(_ref) {
   var spot = _ref.spot;
 
-  //  debugger
   var calculateRating = function calculateRating(spot) {
-    //   debugger
     var arr = [];
 
     for (var s = 0; s < spot.rating / 2; s++) {
@@ -2179,8 +2177,7 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
     }
 
     return arr;
-  }; //  debugger
-
+  };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/spots/".concat(spot.id),
@@ -2308,16 +2305,26 @@ function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show--wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-thumb"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: spot.image_url
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: spot.image_url
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: spot.image_url
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: spot.image_url
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: spot.image_url
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-thumb"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.image_urls[0]
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        lassName: "spot-thumb"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.image_urls[1]
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        lassName: "spot-thumb"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.image_urls[2]
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        lassName: "spot-thumb"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.image_urls[3]
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "spot-show--details"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

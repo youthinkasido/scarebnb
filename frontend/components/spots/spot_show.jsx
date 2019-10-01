@@ -17,7 +17,7 @@ class SpotShow extends React.Component {
     }
     componentDidMount() {
 
-    
+
         window.scrollTo(0, 0);
 
         const { spotId } = this.props.match.params
@@ -52,24 +52,24 @@ class SpotShow extends React.Component {
         return (
             <div>
                 <div className="spot-show--wrapper">
-                    <div>
+                    <div className="spot-thumb">
                         <img src={spot.image_url} />
                     </div>
 
-                    <div>
-                        <img src={spot.image_url} />
+                    <div className="spot-thumb">
+                        <img src={spot.image_urls[0]} />
                     </div>
 
-                    <div>
-                        <img src={spot.image_url} />
+                    <div lassName="spot-thumb">
+                        <img src={spot.image_urls[1]} />
                     </div>
 
-                    <div>
-                        <img src={spot.image_url} />
+                    <div lassName="spot-thumb">
+                        <img src={spot.image_urls[2]} />
                     </div>
 
-                    <div>
-                        <img src={spot.image_url} />
+                    <div lassName="spot-thumb">
+                        <img src={spot.image_urls[3]} />
                     </div>
                 </div>
 

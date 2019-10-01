@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 
 
 const SpotIndexItem = ({ spot }) => {
-    //  debugger
     const calculateRating = (spot) => {
-        //   debugger
+
         let arr = []
         for (let s = 0; s < spot.rating / 2; s++) {
             arr.push(<li key={s} className="index-review-star">★</li>)
@@ -16,11 +15,10 @@ const SpotIndexItem = ({ spot }) => {
 
 
 
-    //  debugger
+
     return (
 
         <Link to={`/spots/${spot.id}`} className="spot-item--container">
-            {/* <DayPickerRangeControllerWrapper/> */}
             <div className="spot-link"><img className="photo" src={spot.image_url} width='200' height='125' /></div>
             <div className="spot-item-details">
 
