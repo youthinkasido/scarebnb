@@ -22,8 +22,6 @@ Listings are rendered to the user based on their selected city using regular exp
 Users can rest assured that there account information is safe
 using password encryption.
 
-![Home Page](./signup.png)
-
 ```javascript
   def create 
     @user = User.find_by_credentials(
@@ -40,16 +38,29 @@ using password encryption.
   end
 ```
 
+![Home Page](./signup.png)
+
+
+
 - **Booking a spot**
 Users can book a spot by selecting a start and end date, as well as the number of 
-guests they plan to bring.
+guests they plan to bring, through the utilization of the react-date-picker dependency
+
+```javascript
+<DayPickerInput
+      orientation={"vertical"}
+      startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+      startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+      endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+      endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+      onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+      focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+      onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+  />
+```
+
 
 ![Home Page](./spotshowpage.png)
-
-Leave a Review for a spot:
-Users get a chance to share their experiences with other potential bookers,
-for better or for worse!
-
 
 
 
