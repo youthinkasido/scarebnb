@@ -52,7 +52,7 @@ class SpotShow extends React.Component {
         return (
             <div>
                 <div className="spot-show--wrapper">
-                    <div className="spot-thumb">
+                    <div>
                         <img src={spot.image_url} />
                     </div>
 
