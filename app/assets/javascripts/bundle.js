@@ -744,6 +744,7 @@ var Greeting = function Greeting(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "bookings"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "nav-bookings",
       href: "/#/users/".concat(currentUser.id, "/bookings")
     }, "Bookings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "logout",

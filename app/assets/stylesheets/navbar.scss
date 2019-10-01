@@ -8,8 +8,18 @@
   top: -5px;
 }
 
+input {
+  line-height: normal;
+  height: 43px;
+  width: 179px;
+}
+
 .ul a :hover {
   color: red;
+}
+
+.nav-bookings {
+  padding: 20px;
 }
 
 .nav-container {
@@ -121,13 +131,12 @@ a:hover {
   display: block;
   font-size: 10px;
   position: relative;
-  text-align: left;
+  text-align: center;
   font-family: Helvetica, sans-serif;
-  padding: 10px 2px;
   border-bottom: 0.1px solid lightgrey;
   border-left: 0.1px solid lightgrey;
-  padding-left: 40px;
   font-size: 14px;
+  padding: 15px;
 }
 
 .book-icon {
@@ -153,17 +162,13 @@ a:hover {
   z-index: 19;
 }
 
-.nav-dropdown-content :hover {
-  background: rgb(41, 41, 41);
-}
-
-.nav-dropdown-content p :hover {
-  background: rgb(41, 41, 41);
-  text-decoration: none;
-  display: block;
-  cursor: pointer;
-  cursor: hand;
-}
+// .nav-dropdown-content p :hover {
+//   background: rgb(41, 41, 41);
+//   text-decoration: none;
+//   display: block;
+//   cursor: pointer;
+//   cursor: hand;
+// }
 
 .nav-secret :hover {
   background: rgb(41, 41, 41);
@@ -181,12 +186,6 @@ a:hover {
 //     right: 40%;
 //     position: absolute;
 // }
-
-.nav-dropdown-content > img :hover {
-  color: red;
-
-  padding-left: 90px;
-}
 
 .show-nav {
   display: block;

@@ -55,7 +55,8 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                     <i className="far fa-user-circle nav-dropdown-button"></i>
                     <div className="nav-secret"></div>
                     <div id="nav-dropdown-content" className="nav-dropdown-content">
-                        <p className="bookings"><a href={`/#/users/${currentUser.id}/bookings`}>Bookings</a></p>
+                        <p className="bookings">
+                            <a className="nav-bookings" href={`/#/users/${currentUser.id}/bookings`}>Bookings</a></p>
                         <p className="logout" onClick={logout}>Log Out</p>
                     </div>
 
