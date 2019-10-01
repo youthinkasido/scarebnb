@@ -1,30 +1,67 @@
-.spot-show--wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding-top: 59px;
-  width: 101%;
-}
-
-.spot-show--wrapper > div > img {
-  background: #eee;
-  margin-left: -13px;
-  width: 400px;
-  height: 300px;
-}
-
-.spot-show--wrapper div:nth-child(5) {
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
-}
-
 .spot-show--details {
   display: inline-grid;
   grid-gap: 10px;
   background: black;
   padding: 10px;
   width: 50%;
-  padding-left: 100px;
-  border-top-color: 1px solid white;
+  margin-left: 50px;
+  height: 1000px;
+  transform: translate(0px, 60px);
+  margin-top: 10px;
+}
+
+.spot-show--wrapper {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  position: relative;
+  top: 69px;
+  transition: all 0.7s;
+  overflow: hidden;
+}
+
+.spot-show--main-image {
+  width: 50%;
+  background-size: 100% 100%;
+  transition: all 0.7s;
+  overflow: hidden;
+}
+
+.spot-thumb {
+  width: 25%;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.spot-thumb-up-1 {
+  display: block;
+  width: 100%;
+  height: 50%;
+  background-size: 100% 100%;
+  transition: all 0.7s;
+}
+
+.spot-thumb-up-2 {
+  display: block;
+  width: 100%;
+  height: 50%;
+  background-size: 100% 100%;
+  transition: all 0.7s;
+}
+
+.spot-thumb-up-2 {
+  filter: brightness(100%);
+  transform: scale(1.05);
+  overflow: hidden;
+  width: 100%;
+}
+
+.spot-thumb-down-2 {
+  display: block;
+  width: 100%;
+  height: 50%;
+  background-size: 100% 100%;
+  transition: all 0.7s;
 }
 
 .spot-show-name {
@@ -98,47 +135,14 @@
   padding: 0;
 }
 
-////////////////////////// ON HOVER ZOOM TRACK
-// .image-box {
-//     position: relative;
-//     margin: auto;
-//     overflow: hidden;
-//     // width: 540px;
-// }
-// .image-box img {
-//     max-width: 100%;
-//     transition: all 0.3s;
-//     display: block;
-//     width: 100%;
-//     height: auto;
-//     transform: scale(1);
-// }
-
-// .image-box:hover img {
-//     transform: scale(1.1);
-// }
-
-// .spot-show-container-small-images{
-
-// }
-
-// .small-images img{
-
-// }
-
-// .spot-show-container-small-images{
-
-// }
-
-// .spot-show-container-details-container{
-
-// }
-
-// .spot-show-container-booking-container{
-
-// }
-
 .wrapper > div {
   background: white;
   padding: 1em;
+}
+
+.spot-thumb img {
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  height: 50%;
 }

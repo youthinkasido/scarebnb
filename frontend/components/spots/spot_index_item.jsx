@@ -19,7 +19,7 @@ const SpotIndexItem = ({ spot }) => {
     return (
 
         <Link to={`/spots/${spot.id}`} className="spot-item--container">
-            <div className="spot-link"><img className="photo" src={spot.image_url} width='200' height='125' /></div>
+            <div className="spot-link"><img className="photo" src={spot.image_urls[3]} width='200' height='125' /></div>
             <div className="spot-item-details">
 
                 <li className='spot-type-bedrooms'>{spot.spot_type}</li>

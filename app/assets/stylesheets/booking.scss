@@ -30,6 +30,7 @@
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 50px;
   margin-top: 60px;
+  transform: translate(10px, 20px);
 }
 
 .spot-booking-guests input {
@@ -46,18 +47,17 @@
   height: 60px;
   background: #ff5a5f;
   color: white;
-  margin-top: 20px;
+  margin-top: 47px;
   border-radius: 3px;
 }
 
 .spot-booking-form-container {
   position: relative;
-  border: 1px solid white;
   width: 400px;
-  height: 430px;
+  height: 360px;
   margin: 0 auto;
   background: white;
   top: -17px;
-  margin-top: 60px;
   border-radius: 3px;
+  transform: translate(10px, -970px);
 }

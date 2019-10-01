@@ -62,7 +62,7 @@ spot1 = Spot.create!(
   modified: nil,
   owner_id: user2.id,
   amenities: ['Clogged Toilet / ', 'Free Water / ', 'Soap / ', 'Mouthwash / ', 'AOL access'],
-  image_urls: ['./inside1.jpg','./inside12.jpg','./inside3.jpg','./inside4.jpg' ],
+  image_urls: ['./inside5.jpg','./inside6.jpg','./inside7.jpg','./inside8.jpg' ],
   cost_per_night: '$13 per night')
 
   spot3 = Spot.create!(
@@ -84,7 +84,7 @@ spot1 = Spot.create!(
   modified: nil,
   owner_id: user3.id,
   amenities: ['AOL access '],
-  image_urls: ['./inside1.jpg','./inside12.jpg','./inside3.jpg','./inside4.jpg' ],
+  image_urls: ['./inside9.jpg','./inside10.jpg','./inside11.jpg','./inside12.jpg' ],
   cost_per_night: '$53 per night')
 
 
@@ -108,6 +108,7 @@ spot1 = Spot.create!(
   modified: nil,
   owner_id: user4.id,
   amenities: ['Deadbolt / ', 'Mouthwash / ', 'Cereal '],
+  image_urls: ['./inside13.jpg','./inside14.jpg','./inside15.jpg','./inside16.jpg' ],
   cost_per_night: '$20 per night')
 
   spot5 = Spot.create!(
@@ -129,7 +130,7 @@ spot1 = Spot.create!(
   modified: nil,
   owner_id: user5.id,
   amenities: ['Convict-free / ', 'HBO / ', 'Toothpase '],
-  image_urls: ['./inside1.jpg','./inside12.jpg','./inside3.jpg','./inside4.jpg' ],
+  image_urls: ['./inside17.jpg','./inside18.jpg','./inside19.jpg','./inside20.jpg' ],
   cost_per_night: '$1 per night')
 
 
@@ -152,7 +153,7 @@ spot1 = Spot.create!(
   modified: nil,
   owner_id: user6.id,
   amenities: ['Clogged Toilet / ', 'Free Water / ', 'Soap / ', 'Mouthwash '],
-  image_urls: ['./inside1.jpg','./inside12.jpg','./inside3.jpg','./inside4.jpg' ],
+  image_urls: ['./inside21.jpg','./inside1.jpg','./inside6.jpg','./inside4.jpg' ],
   cost_per_night: '$1 per night')
 
   spot7 = Spot.create!(
@@ -174,7 +175,7 @@ spot1 = Spot.create!(
   modified: nil,
   owner_id: user4.id,
   amenities: ['Clogged Toilet / ', 'Free Water / ', 'Soap / ', 'Mouthwash / ', 'AOL access '],
-  image_urls: ['./inside1.jpg','./inside12.jpg','./inside3.jpg','./inside4.jpg' ],
+  image_urls: ['./inside2.jpg','./inside3.jpg','./inside5.jpg','./inside6.jpg' ],
   cost_per_night: '$5 per night')
 
     spot8 = Spot.create!(
@@ -196,7 +197,7 @@ spot1 = Spot.create!(
   modified: nil,
   owner_id: user2.id,
   amenities: ['Clogged Toilet / ', 'Free Water / ', 'Soap / ', 'Mouthwash / ', 'AOL access '],
-  image_urls: ['./inside1.jpg','./inside12.jpg','./inside3.jpg','./inside4.jpg' ],
+  image_urls: ['./inside9.jpg','./inside10.jpg','./inside8.jpg','./inside7.jpg' ],
   cost_per_night: '$2 per night')
 
   spot9 = Spot.create!(
@@ -218,7 +219,7 @@ spot1 = Spot.create!(
   modified: nil,
   owner_id: user2.id,
   amenities: ['Clogged Toilet  ', 'Free Water / ', 'Soap / ', 'Mouthwash / ', 'AOL access '],
-  image_urls: ['./inside1.jpg','./inside12.jpg','./inside3.jpg','./inside4.jpg' ],
+  image_urls: ['./inside11.jpg','./inside12.jpg','./inside13.jpg','./inside14.jpg' ],
   cost_per_night: '$13 per night')
 
 

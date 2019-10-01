@@ -52,26 +52,21 @@ class SpotShow extends React.Component {
         return (
             <div>
                 <div className="spot-show--wrapper">
-                    <div>
-                        <img src={spot.image_url} />
-                    </div>
+                    <img className="spot-show--main-image" src={spot.image_urls[3]} />
+
 
                     <div className="spot-thumb">
-                        <img src={spot.image_urls[0]} />
+                        <img className="spot-thumb-up-1" src={spot.image_urls[0]} />
+                        <img className="spot-thumb-down-1" src={spot.image_urls[1]} />
                     </div>
 
-                    <div lassName="spot-thumb">
-                        <img src={spot.image_urls[1]} />
-                    </div>
 
-                    <div lassName="spot-thumb">
-                        <img src={spot.image_urls[2]} />
-                    </div>
-
-                    <div lassName="spot-thumb">
-                        <img src={spot.image_urls[3]} />
+                    <div className="spot-thumb">
+                        <img className="spot-thumb-up-2" src={spot.image_urls[2]} />
+                        <img className="spot-thumb-down-2" src={spot.image_urls[3]} />
                     </div>
                 </div>
+
 
                 <section className="spot-show--details">
 

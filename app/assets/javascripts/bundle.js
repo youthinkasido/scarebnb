@@ -2186,7 +2186,7 @@ var SpotIndexItem = function SpotIndexItem(_ref) {
     className: "spot-link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "photo",
-    src: spot.image_url,
+    src: spot.image_urls[3],
     width: "200",
     height: "125"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2305,23 +2305,24 @@ function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show--wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: spot.image_url
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "spot-show--main-image",
+        src: spot.image_urls[3]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-thumb"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "spot-thumb-up-1",
+        src: spot.image_urls[0]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "spot-thumb-down-1",
+        src: spot.image_urls[1]
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-thumb"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: spot.image_urls[0]
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        lassName: "spot-thumb"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: spot.image_urls[1]
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        lassName: "spot-thumb"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "spot-thumb-up-2",
         src: spot.image_urls[2]
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        lassName: "spot-thumb"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "spot-thumb-down-2",
         src: spot.image_urls[3]
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "spot-show--details"
