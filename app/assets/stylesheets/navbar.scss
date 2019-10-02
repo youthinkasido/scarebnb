@@ -178,19 +178,10 @@ a:hover {
   cursor: hand;
 }
 
-// .nav-secret{
-//     border: 1px solid white;
-//     width: 40%;
-//     height: 40px;
-//     left: 30%;
-//     right: 40%;
-//     position: absolute;
-// }
-
 .show-nav {
   display: block;
   top: 80px;
-  z-index: 4;
+  z-index: 10;
   cursor: pointer;
   margin: -20px;
 }

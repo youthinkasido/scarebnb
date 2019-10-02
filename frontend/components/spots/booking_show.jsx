@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 
 class BookingShow extends React.Component {
     constructor(props) {
-
+        debugger
         super(props)
 
         this.state = {
@@ -34,11 +34,27 @@ class BookingShow extends React.Component {
 
     handleSubmit(e) {
 
-        Swal.fire(
-            'Congratulations!',
-            'Your reservation has been confirmed!',
-            'success'
-        )
+        if (this.props.currentUser && this.state.num_guests <= this.props.booking.maxGuests) {
+            Swal.fire(
+                'Congratulations!',
+                'Your reservation has been confirmed!',
+                'success'
+            )
+        }
+
+        if (!this.props.currentUser) {
+            this.props.openModal('login')
+        }
+
+        if (this.props.currentUser && this.state.num_guests > this.props.booking.maxGuests) {
+            Swal.fire(
+                'Sorry, thats too many guests!',
+                `You can only bring ${this.props.booking.maxGuests} other guests!`,
+                'error'
+            )
+        }
+
+
 
         e.preventDefault()
 

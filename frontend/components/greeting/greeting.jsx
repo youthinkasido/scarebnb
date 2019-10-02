@@ -17,16 +17,13 @@ const Greeting = ({ currentUser, logout, openModal }) => {
         }
     }
 
-
-
     const sessionLinks = () => (
 
 
         <div className="nav-container">
             <ul className="nav-bar">
                 <img className="air-bnb-front-logo" src="./human-skull.svg" alt="" />
-                <h1 className="nav-bar-heading">Scarebnb</h1>
-
+                <Link to={"/spots"}><h1 className="nav-bar-heading">Scarebnb</h1></Link>
                 <SearchContainer />
 
                 <li className="nav-login-button" onClick={() => openModal('login')}>Login</li>
@@ -41,7 +38,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
             <div className="nav-container">
                 <ul className="nav-bar">
                     <img className="air-bnb-front-logo" src="./human-skull.svg" alt="" />
-                    <Link to={"/"}><h1 className="nav-bar-heading">Scarebnb</h1></Link>
+                    <Link to={"/spots"}><h1 className="nav-bar-heading">Scarebnb</h1></Link>
                     <SearchContainer />
                 </ul>
             </div >
