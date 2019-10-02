@@ -216,7 +216,6 @@ a:focus {
   text-decoration: none;
 }
 
-
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
@@ -452,5 +451,8 @@ textarea {
 html,
 body {
   max-width: 100%;
-  // overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
 }

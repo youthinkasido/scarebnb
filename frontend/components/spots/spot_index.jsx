@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
 import SpotIndexItem from './spot_index_item'
-import { Link } from 'react-router-dom';
 import Map from '../map';
+import {GoogleApiWrapper} from 'google-maps-react'
 
 
 class SpotsIndex extends Component {
