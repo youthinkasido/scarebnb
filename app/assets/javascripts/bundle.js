@@ -1681,7 +1681,6 @@ function (_React$Component) {
 
     _classCallCheck(this, BookingShow);
 
-    debugger;
     _this = _possibleConstructorReturn(this, _getPrototypeOf(BookingShow).call(this, props));
     _this.state = {
       startDate: moment__WEBPACK_IMPORTED_MODULE_3___default()(event.start),
@@ -1702,36 +1701,36 @@ function (_React$Component) {
     key: "update",
     value: function update(e) {
       this.setState({
-        num_guests: e.target.value
+        num_guests: parseInt(e.target.value)
       });
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      if (this.props.currentUser && this.state.num_guests <= this.props.booking.maxGuests) {
+      e.preventDefault();
+
+      if (this.props.currentUser && this.state.num_guests <= this.props.booking.max_guests) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire('Congratulations!', 'Your reservation has been confirmed!', 'success');
+        var data = {
+          start_date: new Date(this.state.startDate.toDate()),
+          end_date: new Date(this.state.endDate.toDate()),
+          num_guests: this.state.num_guests,
+          spot_id: this.props.spotId,
+          booker_id: this.props.currentUser,
+          owner_id: this.props.currentUser,
+          price_per_day: this.props.pricePerDay,
+          booking_image_url: this.props.bookingImage
+        };
+        this.props.createBooking(this.props.currentUser, data);
       }
 
       if (!this.props.currentUser) {
         this.props.openModal('login');
       }
 
-      if (this.props.currentUser && this.state.num_guests > this.props.booking.maxGuests) {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire('Sorry, thats too many guests!', "You can only bring ".concat(this.props.booking.maxGuests, " other guests!"), 'error');
+      if (this.props.currentUser && this.state.num_guests > this.props.booking.max_guests) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire('Sorry, thats too many guests!', "You can only bring ".concat(this.props.booking.max_guests, " other guests!"), 'error');
       }
-
-      e.preventDefault();
-      var data = {
-        start_date: new Date(this.state.startDate.toDate()),
-        end_date: new Date(this.state.endDate.toDate()),
-        num_guests: this.state.num_guests,
-        spot_id: this.props.spotId,
-        booker_id: this.props.currentUser,
-        owner_id: this.props.currentUser,
-        price_per_day: this.props.pricePerDay,
-        booking_image_url: this.props.bookingImage
-      };
-      this.props.createBooking(this.props.currentUser, data);
     }
   }, {
     key: "render",
@@ -2537,8 +2536,10 @@ function (_React$Component) {
 
       console.log(this.props.currentUser);
 
-      if (!this.props.currentUser || !this.props.bookings.length > 0) {
-        return null;
+      if (!this.props.bookings.length > 0) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "lack-of-bookings"
+        }, "You don't have any reservations...");
       } else {
         var finalBookings = this.props.bookings.filter(function (booking) {
           return booking.booker_id === _this2.props.currentUser.id;

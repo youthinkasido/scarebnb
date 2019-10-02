@@ -9,7 +9,6 @@ import Swal from 'sweetalert2'
 
 class BookingShow extends React.Component {
     constructor(props) {
-        debugger
         super(props)
 
         this.state = {
@@ -29,47 +28,49 @@ class BookingShow extends React.Component {
     }
     update(e) {
 
-        this.setState({ num_guests: e.target.value })
+        this.setState({ num_guests: parseInt(e.target.value) })
     }
 
     handleSubmit(e) {
 
-        if (this.props.currentUser && this.state.num_guests <= this.props.booking.maxGuests) {
+        e.preventDefault()
+
+        if (this.props.currentUser && this.state.num_guests <= this.props.booking.max_guests) {
             Swal.fire(
                 'Congratulations!',
                 'Your reservation has been confirmed!',
                 'success'
             )
+
+            let data = {
+                start_date: new Date(this.state.startDate.toDate()),
+                end_date: new Date(this.state.endDate.toDate()),
+                num_guests: this.state.num_guests,
+                spot_id: this.props.spotId,
+                booker_id: this.props.currentUser,
+                owner_id: this.props.currentUser,
+                price_per_day: this.props.pricePerDay,
+                booking_image_url: this.props.bookingImage
+            }
+
+            this.props.createBooking(this.props.currentUser, data)
         }
 
         if (!this.props.currentUser) {
             this.props.openModal('login')
         }
 
-        if (this.props.currentUser && this.state.num_guests > this.props.booking.maxGuests) {
+        if (this.props.currentUser && this.state.num_guests > this.props.booking.max_guests) {
             Swal.fire(
                 'Sorry, thats too many guests!',
-                `You can only bring ${this.props.booking.maxGuests} other guests!`,
+                `You can only bring ${this.props.booking.max_guests} other guests!`,
                 'error'
             )
         }
 
 
 
-        e.preventDefault()
 
-        let data = {
-            start_date: new Date(this.state.startDate.toDate()),
-            end_date: new Date(this.state.endDate.toDate()),
-            num_guests: this.state.num_guests,
-            spot_id: this.props.spotId,
-            booker_id: this.props.currentUser,
-            owner_id: this.props.currentUser,
-            price_per_day: this.props.pricePerDay,
-            booking_image_url: this.props.bookingImage
-        }
-
-        this.props.createBooking(this.props.currentUser, data)
     }
 
     render() {

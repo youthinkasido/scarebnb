@@ -53,8 +53,12 @@ class UserProfile extends React.Component {
 
     render() {
         console.log(this.props.currentUser)
-        if (!this.props.currentUser || !this.props.bookings.length > 0) {
-            return null
+        if (!this.props.bookings.length > 0) {
+            return <div className="lack-of-bookings">
+
+                You don't have any reservations...
+                    </div>
+
         } else {
             let finalBookings = this.props.bookings.filter(booking => booking.booker_id === this.props.currentUser.id)
             return (
