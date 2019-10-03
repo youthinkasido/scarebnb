@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/initialize';
 import moment from 'moment';
 import { withRouter } from 'react-router-dom'

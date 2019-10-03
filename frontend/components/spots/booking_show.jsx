@@ -1,11 +1,11 @@
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment';
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 import Swal from 'sweetalert2'
-
+import "react-day-picker/lib/style.css"
 
 class BookingShow extends React.Component {
     constructor(props) {
