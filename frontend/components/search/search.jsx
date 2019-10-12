@@ -2,14 +2,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import { Route } from 'react-router-dom'
-
-
-import FilterForm from './filter_form';
-import GreetingContainer from '../greeting/greeting_container';
-import Map from '../map';
-import SpotsIndex from '../spots/spot_index';
-import { searchSpot } from '../../actions/spot_actions';
 
 
 

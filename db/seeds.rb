@@ -188,7 +188,7 @@ spot1 = Spot.create!(
   address: "129 Apartment Avenue",
   country: "USA",
   state: "NY",
-  city: "Newyork City",
+  city: "New york City",
   neighborhood: "Peachtree Street",
   bedrooms: 3,
   bathrooms: 2,

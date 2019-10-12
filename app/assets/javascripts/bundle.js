@@ -1015,17 +1015,6 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/search/filter_form.jsx":
-/*!****************************************************!*\
-  !*** ./frontend/components/search/filter_form.jsx ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
 /***/ "./frontend/components/search/search.jsx":
 /*!***********************************************!*\
   !*** ./frontend/components/search/search.jsx ***!
@@ -1038,12 +1027,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _filter_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter_form */ "./frontend/components/search/filter_form.jsx");
-/* harmony import */ var _filter_form__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_filter_form__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
-/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../map */ "./frontend/components/map.jsx");
-/* harmony import */ var _spots_spot_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../spots/spot_index */ "./frontend/components/spots/spot_index.jsx");
-/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1061,12 +1044,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
-
-
 
 
 
@@ -1216,10 +1193,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
 /* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
-/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./search */ "./frontend/components/search/search.jsx");
-/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
-
+/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search */ "./frontend/components/search/search.jsx");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
 
 
 
@@ -1235,12 +1210,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateFilter"])(filter, value));
     },
     searchSpot: function searchSpot(city) {
-      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["searchSpot"])(city));
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__["searchSpot"])(city));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_search__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_search__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -2943,22 +2918,18 @@ var spotReducer = function spotReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   // action is dispatched aciton that contains a type and payload
-  // debugger
   switch (action.type) {
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_SPOTS"]:
-      //console.log('SPORT REducER->>>>>>', typeof action.spots)
       return action.spots;
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SPOT"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.spot.id, action.spot));
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["SEARCH_SPOT"]:
-      var a = [];
+      var regexp = new RegExp(action.city, 'i');
       var spots = Object.values(action.spots);
       newState = spots.filter(function (spot) {
-        return spot.city.split('').filter(function (substring) {
-          return action.city.includes(substring);
-        });
+        return regexp.test(spot.city);
       });
       return newState;
 
